@@ -1,0 +1,572 @@
+[
+  {
+    "id": "terrein-open-ready-for-take-off-0930-1000",
+    "title": "Terrein open: READY FOR TAKE OFF!",
+    "titleEn": "Doors open: READY FOR TAKE OFF!",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "0930-1000",
+    "start": "09:30",
+    "end": "10:00",
+    "format": "plenary",
+    "isBreak": true,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "ai-liet-me-aan-alles-twijfelen-over-programmeren-1000-1100",
+    "title": "AI liet me aan alles twijfelen over programmeren",
+    "titleEn": "AI made me doubt everything about programming",
+    "descriptionEn": "What is AI? What is AI for, and what are its goals? Can we use AI for programming? The dominant feeling in 2026 makes it easy to believe that AI is good and will make our lives and work much easier.\n\nIn this talk you are taken through an alternative history of AI, programming and their epistemological development, past more than a century of alternative voices within technology, and what we can learn from them for the current state of programming and its future.\n\n🔥 Don't miss this chance to learn from one of the most influential and inspiring voices in tech and education. This session will make you not only think… but also look ahead.",
+    "speakerNames": [
+      "F. Hermans"
+    ],
+    "stageId": null,
+    "slotId": "1000-1100",
+    "start": "10:00",
+    "end": "11:00",
+    "format": "plenary",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "f-hermans"
+    ]
+  },
+  {
+    "id": "refuelling-stage-1-try-not-do-or-do-not-there-is-no-try-1100-1115",
+    "title": "REFUELLING STAGE 1 “Try not. Do or do not. There is no try.”",
+    "titleEn": "REFUELLING STAGE 1 “Try not. Do or do not. There is no try.”",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "1100-1115",
+    "start": "11:00",
+    "end": "11:15",
+    "format": "plenary",
+    "isBreak": true,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "waarom-je-nieuwe-programmeertalen-zou-moeten-leren-1115-1200",
+    "title": "Waarom je nieuwe programmeertalen zou moeten leren",
+    "titleEn": "Why you should learn new programming languages",
+    "descriptionEn": "Are you happy with the programming language you currently use? If so, why should you learn new programming languages?\n\nIn this session we discuss the benefits of learning new programming languages, such as why it makes you a better developer.\n\nYou'll get practical tips to help you choose a new language. For inspiration we'll demonstrate two languages that do things just a little differently:\n\n– R (Array Programming)\n\n– 8th (Stack Programming)\n\nUsing live coding, the unique advantages (and disadvantages) of both languages and their paradigm will be covered. The code shown will be different from the average language, so prepare to be surprised!",
+    "speakerNames": [
+      "E. Schierboom"
+    ],
+    "stageId": "the-cabin",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "e-schierboom"
+    ]
+  },
+  {
+    "id": "cleared-for-automated-acceptance-testing-1115-1200",
+    "title": "Cleared for Automated Acceptance testing",
+    "titleEn": "Cleared for Automated Acceptance testing",
+    "descriptionEn": "A national air traffic control organisation is currently building a new air traffic control system. Verifying this new system is a tough job, but it turned out not to be the biggest challenge. Validation and acceptance were. With a screaming shortage of controllers, the effort needed for validation could not be met, so something had to be devised… With an initial idea, the belief in it, the courage to invest a lot of time and a joint effort of data analysts, controllers and test automation engineers, an automated validation suite was created that gives enough confidence to serve as input for acceptance of the system.",
+    "speakerNames": [
+      "N. Rooseboom"
+    ],
+    "stageId": "proathuus",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "n-rooseboom"
+    ]
+  },
+  {
+    "id": "sketchnoting-1115-1200",
+    "title": "Sketchnoting",
+    "titleEn": "Sketchnoting",
+    "descriptionEn": "E. Moolenaars and M. Duijst draw along live at SpaceRockIT and create one big #sketchnote summary. Come and watch how they bring colour to the day during the festival, summarise sessions visually, and share your own impressions of the festival too. The day begins with a blank sheet: everything is still possible. As the day goes on, more and more will emerge: This is SpaceRockIT!\n\nAll day and everywhere. 🙂",
+    "speakerNames": [
+      "M. Duijst",
+      "E. Moolenaars"
+    ],
+    "stageId": "the-circus",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "m-duijst",
+      "e-moolenaars"
+    ]
+  },
+  {
+    "id": "iter-kom-uit-je-grot-1115-1200",
+    "title": "IT’er kom uit je grot!",
+    "titleEn": "IT worker, come out of your cave!",
+    "descriptionEn": "'IT teams often deliver exactly what is asked — but not always what the customer really needs.\n\nTo move from task-driven to expectation-driven, we have to come out of our IT cave: listen better, assume less and start the conversation about impact sooner.\n\nWith the Ladder of Inference we learn to slow down our thinking. Instead of diving straight into the solution, we first look at the facts, name our assumptions and examine the consequences. This way we prevent misunderstandings, address the real need and create much more trust.\n\nBy asking Socratic questions, asking open and honest questions and making impact clear, we help customers understand what their request means — and guide them towards better choices.\n\nIn short:\n\nGood IT carries out tasks. Great IT helps customers think, prevents problems and chooses the best solution together.\n\nThat is how you truly deliver to expectation.'",
+    "speakerNames": [
+      "C. Burger"
+    ],
+    "stageId": "surfclub",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "c-burger"
+    ]
+  },
+  {
+    "id": "de-vergeten-tester-1115-1200",
+    "title": "De vergeten tester",
+    "titleEn": "The forgotten tester",
+    "descriptionEn": "Testing is crucial for software quality. And yet, when I got the chance to put together a new agile software team, I 'forgot' the tester. How do we explain this paradox? How can a tester be so important and yet unwanted at the same time?\n\nWith the help of systems thinking I show how well-intentioned testing roles can unintentionally cause quality problems — and how we can break that pattern. Based on real experiences I show which patterns between testers and developers undermine quality, and how an alternative division of roles actually leads to better software.\n\nAfter this session you'll recognise harmful dynamics in your own team, and know how to make testing a shared responsibility again.",
+    "speakerNames": [
+      "K. van Heijster"
+    ],
+    "stageId": "de-foef",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "k-van-heijster"
+    ]
+  },
+  {
+    "id": "how-to-install-doom-on-a-mars-rover-1115-1200",
+    "title": "How to install Doom on a Mars Rover!",
+    "titleEn": "How to install Doom on a Mars Rover!",
+    "descriptionEn": "This presentation will be in English\n\nApparently we didn't upset NASA enough last year hacking into those weather satellite downlinks… we're going to fix that! 'It runs Doom!' has become a subculture of people getting 1993's original Doom to run on anything from smart watches to ATM machines.\n\nNow we're going to show you what made the original source code so special and how it might just be possible to run Doom on the radiation-hardened PowerPC heart of the Mars Curiosity and Perseverance rovers! If you follow the franchise you already know that all this 'hell' (excuse the pun) started on Mars after all!\n\nThis talk brings the hardware and software that make satellites and Martian rovers work together with the clever hacks and programming genius that made Doom so ahead of its time. You'll learn why it was actually impossible to run Doom on the hardware of its day and how it was done anyway.\n\nYou'll discover how these programming tricks are still relevant today, and how you can learn and use these techniques and lessons yourself to give your own software development a truly universal edge.",
+    "speakerNames": [
+      "G. de Jong"
+    ],
+    "stageId": "house-tent",
+    "slotId": "1115-1200",
+    "start": "11:15",
+    "end": "12:00",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "g-de-jong"
+    ]
+  },
+  {
+    "id": "rocket-phase-2-ignition-lunch-to-fuel-the-body-good-food-you-1200-1245",
+    "title": "ROCKET PHASE 2 IGNITION LUNCH! “To fuel the body, good food you need.”",
+    "titleEn": "ROCKET PHASE 2 IGNITION LUNCH! “To fuel the body, good food you need.”",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "1200-1245",
+    "start": "12:00",
+    "end": "12:45",
+    "format": "plenary",
+    "isBreak": true,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "blijft-git-ook-in-de-toekomst-populair-drie-mogelijke-opvolg-1245-1315",
+    "title": "Blijft Git ook in de toekomst populair? Drie mogelijke opvolgers!",
+    "titleEn": "Will Git stay popular in the future? Three possible successors!",
+    "descriptionEn": "Around 2010, only the 'early adopters' used Git. The vast majority used Subversion. Today almost everyone uses Git. So I started wondering what we'll be using in ten years and which features we'll consider important by then. In this session I review a number of post-Git products, their features and their pros and cons. Will Git stay popular in the future? Come to this session to find out!",
+    "speakerNames": [
+      "H. Embregts"
+    ],
+    "stageId": "the-cabin",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "h-embregts"
+    ]
+  },
+  {
+    "id": "lanceer-monitor-verbeter-de-performance-missie-in-30-minuten-1245-1315",
+    "title": "Lanceer. Monitor. Verbeter: De performance-missie in 30 minuten",
+    "titleEn": "Launch. Monitor. Improve: the performance mission in 30 minutes",
+    "descriptionEn": "In this presentation you'll see how performance testing can be an integral part of the application landscape: from the first design all the way to enterprise-wide end-to-end performance tests. It starts in the design phase, where performance requirements and other non-functionals often get too little attention. By determining these early — with principles like shift left and techniques such as RiskStorming — direction emerges in architecture, technology choice and sizing, and later surprises are prevented.\n\nNext you'll see how performance testing works in practice as a multi-stage rocket. First the 'launch platform' is built: the necessary basis of test data, environments, tools, acceptance criteria and monitoring. Then the launch follows in several stages: from performance checks at team level, via end-to-end tests per application, to integrated enterprise tests where multiple chains come together. Monitoring acts as the telemetry towards Mission Control, both during testing and in production. Insights from monitoring lead to continuous improvement: every release thus becomes a newer, faster and more reliable rocket.",
+    "speakerNames": [
+      "E. Smetsers"
+    ],
+    "stageId": "proathuus",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "e-smetsers"
+    ]
+  },
+  {
+    "id": "sketchnoting-1245-1315",
+    "title": "Sketchnoting",
+    "titleEn": "Sketchnoting",
+    "descriptionEn": "E. Moolenaars and M. Duijst draw along live at SpaceRockIT and create one big #sketchnote summary. Come and watch how they bring colour to the day during the festival, summarise sessions visually, and share your own impressions of the festival too. The day begins with a blank sheet: everything is still possible. As the day goes on, more and more will emerge: This is SpaceRockIT!\n\nAll day and everywhere. 🙂",
+    "speakerNames": [
+      "M. Duijst",
+      "E. Moolenaars"
+    ],
+    "stageId": "the-circus",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "m-duijst",
+      "e-moolenaars"
+    ]
+  },
+  {
+    "id": "bekende-en-onbekende-onbekenden-1245-1315",
+    "title": "Bekende en onbekende onbekenden",
+    "titleEn": "Known and unknown unknowns",
+    "descriptionEn": "When I learn something new, I always get stuck on my unknown unknowns: the things I don't know that I don't know. This is also a big topic in software testing. Because if you don't find any bugs, is that because they aren't there, or because you don't know you're looking at it the wrong way? In this talk I tell you about my difficult history with unknown unknowns, and how I deal with them. A spoiler already: ask lots of questions. Questions about things everyone seems to already know. And also ask things you think you already know. You, the audience, get to join in too! Together we'll do a round of seemingly simple exercises, where we discover that it doesn't work at all! For a few brave souls I also have an exercise to do with me on stage. After the talk you'll be ready to challenge things you think you know, and to face your unknown unknowns without fear.",
+    "speakerNames": [
+      "L. van de Vooren"
+    ],
+    "stageId": "surfclub",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "l-van-de-vooren"
+    ]
+  },
+  {
+    "id": "jouw-cloudmigratie-was-gedoemd-te-mislukken-pub-quiz-editie-1245-1315",
+    "title": "Jouw Cloudmigratie Was Gedoemd Te Mislukken Pub Quiz Editie",
+    "titleEn": "Your Cloud Migration Was Doomed to Fail – Pub Quiz Edition",
+    "descriptionEn": "The promise was simple: flexibility, scalability and a lower bill. But the reality of cloud services turned out to be a different story. We dive into everything that absolutely wasn't in the brochure: the myths around scalability, the unexpected costs and the organisational hurdles. Backed by systematic literature reviews, interviews with experts, cloud adoption frameworks and examples from industry. Come and test your knowledge. Think you know everything about cloud migrations? Bet you don't!",
+    "speakerNames": [
+      "J. de Weerdt"
+    ],
+    "stageId": "de-foef",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "j-de-weerdt"
+    ]
+  },
+  {
+    "id": "the-hidden-cost-of-intelligence-1245-1315",
+    "title": "The Hidden Cost of Intelligence",
+    "titleEn": "The Hidden Cost of Intelligence",
+    "descriptionEn": "This presentation will be in English\n\nAI is transforming how we work, how we decide, and how we innovate. It holds transformative potential to advance sustainability by improving efficiency, reducing environmental impact, and enabling innovative solutions. However, realizing this potential requires addressing the associated challenges, particularly regarding energy use, resource management, and ethical considerations. There is a side of intelligence we don't often see — the hidden cost. As AI grows smarter and more powerful, its environmental footprint quietly grows with it. This creates a paradox: AI can help us build a more sustainable world, yet it can also strain the very planet we are trying to protect.",
+    "speakerNames": [
+      "S. Rane"
+    ],
+    "stageId": "house-tent",
+    "slotId": "1245-1315",
+    "start": "12:45",
+    "end": "13:15",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "s-rane"
+    ]
+  },
+  {
+    "id": "ontdekken-door-te-doen-introductie-van-low-code-softwareontw-1320-1505",
+    "title": "Ontdekken door te doen: Introductie van low-code softwareontwikkeling",
+    "titleEn": "Discover by doing: an introduction to low-code software development",
+    "descriptionEn": "In this interactive, hands-on workshop, guided by seasoned experts, you'll experience how software can be developed faster and more robustly using the core principles of low-code development.\n\nDon't worry, you don't need a laptop. All materials are provided by us.",
+    "speakerNames": [
+      "R. Vervuren",
+      "S. Bakker",
+      "T. de Jong"
+    ],
+    "stageId": "the-cabin",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "workshop",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "r-vervuren",
+      "s-bakker",
+      "t-de-jong"
+    ]
+  },
+  {
+    "id": "critical-thinking-voor-it-professionals-1320-1505",
+    "title": "Critical Thinking voor IT-professionals",
+    "titleEn": "Critical Thinking for IT professionals",
+    "descriptionEn": "In the daily practice of IT projects, a lot is expected of people who can think critically about information, reasoning and themselves. But how do you actually do that, and what makes it so difficult?\n\nIn this interactive workshop we explore the essence of critical thinking through a number of practical themes: how do you gather and assess information, how do you recognise fallacies and biases, and how do you give effective feedback and hold constructive conversations? Through exercises and cases from IT practice you'll actively work on these skills.\n\nThe workshop is intended for anyone working in an IT environment who wants to sharpen their professional edge: from tester to developer, from analyst to project manager.",
+    "speakerNames": [
+      "R. van Steenbergen",
+      "B. van den Berg"
+    ],
+    "stageId": "proathuus",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "workshop",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "r-van-steenbergen",
+      "b-van-den-berg"
+    ]
+  },
+  {
+    "id": "sketchnoting-1320-1505",
+    "title": "Sketchnoting",
+    "titleEn": "Sketchnoting",
+    "descriptionEn": "E. Moolenaars and M. Duijst draw along live at SpaceRockIT and create one big #sketchnote summary. Come and watch how they bring colour to the day during the festival, summarise sessions visually, and share your own impressions of the festival too. The day begins with a blank sheet: everything is still possible. As the day goes on, more and more will emerge: This is SpaceRockIT!\n\nAll day and everywhere. 🙂",
+    "speakerNames": [
+      "M. Duijst",
+      "E. Moolenaars"
+    ],
+    "stageId": "the-circus",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "session",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "m-duijst",
+      "e-moolenaars"
+    ]
+  },
+  {
+    "id": "disc-over-je-superkracht-1320-1505",
+    "title": "DISC-over je-superkracht",
+    "titleEn": "DISC-over your superpower",
+    "descriptionEn": "Imagine: a tester, let's call him Dave, a D, smashing his keyboard because a bug won't reproduce. Meanwhile Sally, an S, calmly runs the same test for the 47th time, muttering: 'It'll be fine.' Same bug, completely different approach. We test so differently because we simply have different personalities.\n\nDISC is an accessible personality model with four styles:\n\nD (Dominance) is decisive and results-oriented,\n\nI (Influence) is enthusiastic and people-oriented,\n\nS (Steadiness) is patient and reliable, and\n\nC (Conscientiousness) is analytical and detailed.\n\nIn this workshop we use DISC as a lens to understand our own communication style, including our superpowers and blind spots. Through interactive exercises you'll discover your own DISC profile, experience how different types can approach the same situations differently, and reflect on when your style excels or stumbles.\n\nThen you'll actively practise from a DISC style other than your own. Because flexibility begins with understanding.\n\nIn the end you'll go home with practical insights on how to make the most of personality differences, at work, but certainly also in your private life.",
+    "speakerNames": [
+      "T. Vos",
+      "Y. Vos"
+    ],
+    "stageId": "surfclub",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "workshop",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "t-vos",
+      "y-vos"
+    ]
+  },
+  {
+    "id": "leer-security-door-het-hacken-van-real-world-applicaties-1320-1505",
+    "title": "Leer security door het hacken van real-world applicaties",
+    "titleEn": "Learn security by hacking real-world applications",
+    "descriptionEn": "What distinguishes a developer from a hacker is not skill, but mindset. In this interactive workshop you step into the world of offensive security and learn how attackers actually think.\n\nWe start with a short introduction to the hacker mindset and the OWASP Top 10 — the most important security risks in modern applications. Then theory quickly turns into practice. You'll discover four realistic vulnerabilities and actively exploit them in a series of hands-on challenges, accessible directly from your mobile device — no installation.\n\nBy the end of the session you'll understand not only how these attacks work, but above all how easily they can be prevented in everyday applications. This workshop is designed for developers and curious professionals interested in security. Think like a hacker and discover what others overlook.",
+    "speakerNames": [
+      "Hack the Bank"
+    ],
+    "stageId": "de-foef",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "workshop",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "hack-the-bank"
+    ]
+  },
+  {
+    "id": "taking-control-of-your-ai-coding-agent-s-patterns-guardrails-1320-1505",
+    "title": "Taking Control of Your AI Coding Agent(s): Patterns, guardrails, and practical tips",
+    "titleEn": "Taking Control of Your AI Coding Agent(s): Patterns, guardrails, and practical tips",
+    "descriptionEn": "This workshop will be in English\n\nAI coding agents are becoming powerful collaborators, but without the right structure they can easily reduce predictability, security, and code quality. In this workshop, we explore how to stay in control of your AI coding agent(s) by applying proven patterns, guardrails, and pragmatic techniques. Participants will learn how to design safe, effective agent workflows, govern behavior and context, and integrate agents responsibly into real-world development environments. Expect concrete examples, lessons learned, and immediately actionable tips you can apply in your own projects.\n\nTogether with A. Roy",
+    "speakerNames": [
+      "M. de Graaf",
+      "A. Roy"
+    ],
+    "stageId": "house-tent",
+    "slotId": "1320-1505",
+    "start": "13:20",
+    "end": "15:05",
+    "format": "workshop",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "m-de-graaf",
+      "a-roy"
+    ]
+  },
+  {
+    "id": "refuelling-stage-2-try-not-do-or-do-not-there-is-no-try-1505-1520",
+    "title": "REFUELLING STAGE 2 “Try not. Do or do not. There is no try.”",
+    "titleEn": "REFUELLING STAGE 2 “Try not. Do or do not. There is no try.”",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "1505-1520",
+    "start": "15:05",
+    "end": "15:20",
+    "format": "plenary",
+    "isBreak": true,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "quizzz-met-mooooooie-prijzen-1520-1550",
+    "title": "Quizzz met mooooooie prijzen",
+    "titleEn": "Quizzz with maaaaarvellous prizes",
+    "descriptionEn": "The famous Kahoot quiz has become a fixed part of the festival programme. The quiz is never easy, but this year there will also be questions whose answers can be picked up in the various other sessions and workshops — provided you paid attention, of course. There are lovely prizes to be won for numbers 1, 2 and 3, so make sure you're there!",
+    "speakerNames": [
+      "F. Stolker"
+    ],
+    "stageId": null,
+    "slotId": "1520-1550",
+    "start": "15:20",
+    "end": "15:50",
+    "format": "plenary",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "f-stolker"
+    ]
+  },
+  {
+    "id": "completed-first-step-afronden-workshop-gedeelte-op-naar-de-m-1550-1600",
+    "title": "“Completed first step” Afronden Workshop gedeelte. Op naar de muziek!",
+    "titleEn": "“Completed first step” Wrapping up the workshop part. On to the music!",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "1550-1600",
+    "start": "15:50",
+    "end": "16:00",
+    "format": "plenary",
+    "isBreak": true,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "houston-we-have-a-party-het-succes-van-de-eerste-trap-van-he-1600-1700",
+    "title": "“Houston, we have a party!” Het succes van de eerste trap van het festival vieren met een heuse VrijMiBo met Karaoke",
+    "titleEn": "“Houston, we have a party!” Celebrating the success of the festival's first stage with a proper Friday-afternoon drinks and karaoke",
+    "speakerNames": [
+      "B. Knaack",
+      "T. Vos"
+    ],
+    "stageId": null,
+    "slotId": "1600-1700",
+    "start": "16:00",
+    "end": "17:00",
+    "format": "plenary",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": [
+      "b-knaack",
+      "t-vos"
+    ]
+  },
+  {
+    "id": "beam-me-up-scotty-de-tweede-trap-van-de-spacerockit-wordt-ge-1700-025",
+    "title": "“Beam me up, Scotty!” De tweede trap van de SpaceRockIT wordt gelanceerd op warpsnelheid, begeleid door SPACE GIANTS. Live optredens onder de Melkweg op verschillende podia en locaties door rockbands, house DJ’s en meezingartiesten.",
+    "titleEn": "“Beam me up, Scotty!” The second stage of SpaceRockIT launches at warp speed, accompanied by SPACE GIANTS. Live performances under the Milky Way on various stages and locations by rock bands, house DJs and sing-along artists.",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "1700-025",
+    "start": "17:00",
+    "end": "0:25",
+    "format": "plenary",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  },
+  {
+    "id": "the-eagle-has-landed-missie-volbracht-afsluiting-van-het-fes-030-end",
+    "title": "“The Eagle has landed.” Missie volbracht! Afsluiting van het festival",
+    "titleEn": "“The Eagle has landed.” Mission accomplished! Closing of the festival",
+    "speakerNames": [],
+    "stageId": null,
+    "slotId": "030-end",
+    "start": "0:30",
+    "end": "",
+    "format": "plenary",
+    "isBreak": false,
+    "description": null,
+    "source": "schedule.html",
+    "sourceLink": null,
+    "speakerIds": []
+  }
+]

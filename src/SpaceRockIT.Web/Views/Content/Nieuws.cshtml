@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = L["Nav.News"].Value;
+    var news = new[] { "1", "2", "3", "4", "5" };
+}
+
+<div class="page-header">
+    <div class="container"><h1>@L["Nav.News"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                @foreach (var n in news)
+                {
+                    <article class="panel mb-4">
+                        <h2 class="h4" style="color:var(--accent)">@L[$"News.{n}.Title"]</h2>
+                        <p class="prose mb-0">@L[$"News.{n}.Body"]</p>
+                    </article>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SpaceRockIT.Reviews.Api/SpaceRockIT.Reviews.Api.csproj" />
+    <Project Path="src/SpaceRockIT.Web/SpaceRockIT.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SpaceRockIT.Reviews.Api.Tests/SpaceRockIT.Reviews.Api.Tests.csproj" />
+    <Project Path="tests/SpaceRockIT.Web.Tests/SpaceRockIT.Web.Tests.csproj" />
+  </Folder>
+</Solution>

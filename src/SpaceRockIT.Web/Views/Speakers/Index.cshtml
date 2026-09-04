@@ -1,0 +1,70 @@
+@model SpaceRockIT.Web.ViewModels.SpeakersViewModel
+
+<div class="page-header">
+    <div class="container"><h1>@L["Speakers.Title"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row g-4">
+            @foreach (var s in Model.Speakers)
+            {
+                var modalId = $"sp-{s.Id}";
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="speaker-card">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#@modalId">
+                            <img src="@(string.IsNullOrEmpty(s.PhotoFile) ? "/img/uploads/2025/03/cropped-cropped-LOGO-Rechte-TEXT1.png" : s.PhotoFile)" alt="@s.Name" loading="lazy" />
+                        </a>
+                        <div class="name">@s.Name</div>
+                        @if (s.IsKeynote)
+                        {
+                            <span class="keynote-badge">@L["Speakers.Keynote"]</span>
+                        }
+                    </div>
+
+                    <div class="modal fade" id="@modalId" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content speaker-modal">
+                                <div class="modal-header">
+                                    <h2 class="modal-title h4">@s.Name @if (s.IsKeynote) { <span class="keynote-badge">@L["Speakers.Keynote"]</span> }</h2>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="@L["Speakers.Close"]"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex gap-3 align-items-start flex-wrap">
+                                        @if (!string.IsNullOrEmpty(s.PhotoFile))
+                                        {
+                                            <img class="speaker-modal-photo" src="@s.PhotoFile" alt="@s.Name" />
+                                        }
+                                        <div class="flex-grow-1">
+                                            @if (s.Sessions.Count > 0)
+                                            {
+                                                <p class="mb-2"><strong>@L["Speakers.Sessions"]</strong>
+                                                    @foreach (var sess in s.Sessions)
+                                                    {
+                                                        <a href="/schedule/@sess.Id" class="me-2">@sess.Title</a>
+                                                    }
+                                                </p>
+                                            }
+                                        </div>
+                                    </div>
+                                    @if (!string.IsNullOrWhiteSpace(s.Bio))
+                                    {
+                                        <div class="prose mt-3" style="white-space:pre-wrap">@s.Bio</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .speaker-card a { display: inline-block; }
+    .speaker-modal { background: #1c2233; color: var(--text-light); border: 1px solid var(--line); }
+    .speaker-modal .modal-header { border-bottom: 1px solid var(--line); }
+    .speaker-modal .modal-title { color: var(--white); font-family: var(--font-display); }
+    .speaker-modal-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+</style>

@@ -1,0 +1,85 @@
+@model SpaceRockIT.Web.ViewModels.SessionDetailViewModel
+
+@* This page does not exist on the real festival site — the schedule links straight to speaker
+   anchors. We added it because a review needs somewhere to live. *@
+
+<div class="page-header">
+    <div class="container"><h1>@Model.Title</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="panel">
+                    <p class="session-meta">
+                        <strong>@Model.Start&ndash;@Model.End</strong>
+                        @if (!string.IsNullOrEmpty(Model.StageName))
+                        {
+                            <text> &middot; @Model.StageName</text>
+                        }
+                        @if (Model.Format is "workshop" or "keynote")
+                        {
+                            <text> &middot; </text>
+                            <span class="session-format">@Model.Format.ToUpperInvariant()</span>
+                        }
+                    </p>
+
+                    @if (Model.Speakers.Count > 0)
+                    {
+                        <h2>@L["Session.Speakers"]</h2>
+                        <div class="session-speakers">
+                            @foreach (var speaker in Model.Speakers)
+                            {
+                                <div class="session-speaker">
+                                    @if (!string.IsNullOrEmpty(speaker.PhotoFile))
+                                    {
+                                        <img src="@speaker.PhotoFile" alt="@speaker.Name" />
+                                    }
+                                    <a href="/sprekers">@speaker.Name</a>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Description))
+                    {
+                        <h2>@L["Session.About"]</h2>
+                        <div class="session-description prose">@Model.Description</div>
+                    }
+
+                    @*
+                        ─────────────────────────────────────────────────────────────
+                        Session reviews belong here.
+
+                        Attendees should be able to leave a star rating and an optional
+                        comment on this session, and see the aggregate. Nothing is built:
+                        no ReviewsController, no IReviewService, no review views, and the
+                        Reviews API exposes no review endpoints.
+
+                        When it is built:
+                          ReviewsController -> IReviewService -> ReviewsApiClient -> API
+                        Never from this view, and never straight to a database.
+                        See docs/architecture/api-boundaries.md.
+                        ─────────────────────────────────────────────────────────────
+                    *@
+                </div>
+
+                <p class="mt-4">
+                    <a href="/schedule" class="btn-brand-outline">@L["Session.Back"]</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .session-meta { font-size: 17px; margin: 0 0 24px; color: var(--text-light); }
+    .session-meta strong { color: var(--white); }
+    .session-format { letter-spacing: 1px; font-weight: 700; color: var(--accent); }
+    .panel h2 { color: var(--accent); font-size: 22px; margin: 24px 0 12px; }
+    .session-speakers { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 26px; }
+    .session-speaker { display: flex; align-items: center; gap: 12px; }
+    .session-speaker img { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+    .session-description { white-space: pre-wrap; max-width: 780px; line-height: 1.7; }
+</style>

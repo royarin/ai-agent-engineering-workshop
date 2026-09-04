@@ -1,0 +1,278 @@
+/* SpaceRockIT — brand stylesheet.
+   Layered on Bootstrap 5. Values are MEASURED from the original site (computed styles of
+   www.spacerockitfestival.nl as mined 2026-09-01), not guessed — so colours, fonts and sizes
+   match what the festival actually renders. Where the mined design-tokens.md and the live site
+   disagree, the live site wins (e.g. the heading accent is #6EC1E4, not #2FBEEF). */
+
+/* ---- Self-hosted fonts (offline-safe: /fonts) — the theme's real families ------------- */
+@font-face { font-family: 'Orbitron'; font-weight: 600; font-display: swap; src: url('/fonts/orbitron-600.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-weight: 700; font-display: swap; src: url('/fonts/orbitron-700.woff2') format('woff2'); }
+@font-face { font-family: 'Orbitron'; font-weight: 800; font-display: swap; src: url('/fonts/orbitron-800.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 400; font-display: swap; src: url('/fonts/montserrat-400.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 600; font-display: swap; src: url('/fonts/montserrat-600.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 700; font-display: swap; src: url('/fonts/montserrat-700.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 400; font-display: swap; src: url('/fonts/opensans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 600; font-display: swap; src: url('/fonts/opensans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Open Sans'; font-weight: 700; font-display: swap; src: url('/fonts/opensans-700.woff2') format('woff2'); }
+
+/* ---- Design tokens (measured) -------------------------------------------------------- */
+:root {
+    --accent: #6EC1E4;        /* heading + link accent the live site actually uses */
+    --accent-strong: #2FBEEF; /* brighter cyan, used sparingly for hover */
+    --ink: #101828;
+    --page-fallback: #1a1622; /* behind the galaxy image */
+    --text-light: #E4DEDE;    /* body text on the dark galaxy */
+    --text-muted: #b9b3bd;
+    --white: #FFFFFF;
+    --line: rgba(255, 255, 255, .14);
+
+    --grad-header: linear-gradient(90deg, #3A4CB4 0%, #E91E63 100%);
+    --grad-btn: linear-gradient(102deg, #2C23C4 0%, #F2295B 100%);
+
+    --font-display: 'Orbitron', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-ui: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+
+    --container-max: 1140px;
+}
+
+/* ---- Base: the whole page sits on the galaxy, like the original --------------------- */
+html, body { min-height: 100%; }
+body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-light);
+    /* The original stretches the tiny 150x150 thumbnail full-page, so it is soft/blurry.
+       Matched deliberately (user asked for the original, blur and all). */
+    background: var(--page-fallback) url('/img/uploads/2023/04/universe-outside-earth-150x150.jpg') center top / cover no-repeat fixed;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 600; color: var(--white); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-strong); text-decoration: underline; }
+
+.container { max-width: var(--container-max); }
+
+/* ---- Top gradient bar + header (one continuous gradient band, as the original) ------- */
+.top-bar {
+    background: var(--grad-header);
+    color: rgba(255, 255, 255, .9);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    min-height: 45px;
+    border-bottom: 1px solid var(--white);   /* the white line under the social bar */
+}
+.top-bar a { color: rgba(255, 255, 255, .92); }
+.top-bar a:hover { color: var(--white); text-decoration: none; }
+/* Give the row a real height so the bordered social cells fill it, as the original does (44px). */
+.top-bar > .container { min-height: 44px; }
+/* Social icons sit in thin white-bordered cells, as the original does. */
+.top-bar .social { display: flex; align-items: stretch; }
+.top-bar .social a {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    min-width: 40px;
+    padding: 0 14px;
+    font-size: 15px; line-height: 1;
+    align-self: stretch;
+    border-right: 1px solid rgba(255, 255, 255, .22);
+}
+.top-bar .social a:first-child { border-left: 1px solid rgba(255, 255, 255, .22); }
+/* Platform name on hover. */
+.top-bar .social a::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+    background: rgba(16, 22, 40, .95); color: #fff;
+    font-size: 11px; white-space: nowrap;
+    padding: 3px 8px; border-radius: 4px;
+    opacity: 0; pointer-events: none; transition: opacity .12s;
+    z-index: 20;
+}
+.top-bar .social a:hover::after { opacity: 1; }
+.top-bar .contact { font-size: 12px; }
+
+/* Language switcher (NL / EN) */
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-size: 12px; color: rgba(255, 255, 255, .8); }
+.lang-switch i { font-size: 13px; opacity: .85; }
+.lang-switch a { color: rgba(255, 255, 255, .7); font-weight: 600; }
+.lang-switch a.active { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.lang-switch a:hover { color: #fff; text-decoration: none; }
+.lang-switch .sep { opacity: .45; }
+
+.site-header {
+    background: var(--grad-header);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+.site-header > .container { min-height: 99px; }
+.site-header .navbar-brand img { height: 79px; width: auto; }
+
+/* Always-horizontal nav: never a hamburger on a beamer; wraps to a centred line if narrow. */
+.main-nav {
+    display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;
+    gap: 0; list-style: none; margin: 0; padding: 0;
+}
+.main-nav > li { position: relative; }
+.main-nav > li > a {
+    display: block;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--white);
+    padding: 23px 20px 24px;
+    white-space: nowrap;
+}
+/* The thin light divider between items (a::after in the original: 1px x ~27px, #F1F1F1). */
+.main-nav > li > a::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 50%; transform: translateY(-50%);
+    width: 1px; height: 27px;
+    background: #F1F1F1;
+    opacity: .55;
+}
+.main-nav > li:last-child > a::after { display: none; }
+.main-nav > li > a:hover,
+.main-nav > li > a.active { color: #ffe9f3; text-decoration: none; }
+.main-nav > li > a.active { color: #ffe9f3; }
+
+@media (max-width: 992px) {
+    .main-nav > li > a { font-size: 11px; padding: 18px 11px 19px; letter-spacing: .5px; }
+    .main-nav > li > a::after { height: 20px; }
+    .site-header .navbar-brand img { height: 60px; }
+}
+@media (max-width: 720px) { .main-nav { justify-content: center; } }
+
+/* ---- Buttons ------------------------------------------------------------------------- */
+.btn-brand {
+    background: var(--grad-btn);
+    color: var(--white);
+    font-family: var(--font-display);
+    border: none;
+    border-radius: 6px;
+    padding: 14px 34px;
+    display: inline-block;
+}
+.btn-brand:hover { color: var(--white); opacity: .92; text-decoration: none; }
+.btn-brand-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--accent);
+    font-family: var(--font-display);
+    border-radius: 6px;
+    padding: 12px 30px;
+    display: inline-block;
+}
+.btn-brand-outline:hover { background: var(--accent); color: var(--ink); text-decoration: none; }
+
+/* ---- Hero: content on the page-wide galaxy, no separate background ------------------- */
+.hero { text-align: center; padding: 46px 0 30px; }
+.hero .hero-logo { max-width: 300px; width: 55%; margin-bottom: 10px; }
+.hero h1 {
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--white);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .6);
+    margin: 10px 0 0;
+}
+.hero .hero-ticket {
+    display: inline-block;
+    margin-top: 26px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    background: var(--grad-btn);
+    color: var(--white);
+    padding: 18px 44px;
+    border-radius: 6px;
+}
+.hero .hero-ticket:hover { color: var(--white); opacity: .92; text-decoration: none; }
+
+/* ---- Sections: transparent over the galaxy, centred titles -------------------------- */
+.section { padding: 40px 0; }
+.section-title {
+    text-align: center;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 29px;
+    margin-bottom: 28px;
+}
+.prose { font-size: 15px; line-height: 1.7; color: var(--text-light); }
+.prose a { color: var(--accent); text-decoration: underline; }
+
+/* A translucent panel for content that needs to read against the busy galaxy. */
+.panel {
+    background: rgba(16, 22, 40, .62);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 30px;
+}
+
+/* ---- Countdown ----------------------------------------------------------------------- */
+.countdown { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.countdown .unit {
+    min-width: 92px;
+    background: rgba(255, 255, 255, .95);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 16px 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+}
+.countdown .num { font-family: var(--font-display); font-size: 38px; font-weight: 700; line-height: 1; }
+.countdown .label { font-family: var(--font-ui); text-transform: uppercase; font-size: 11px; color: var(--text-muted); margin-top: 8px; letter-spacing: 1px; }
+
+/* ---- Sponsor grid (white tiles read best against the galaxy) ------------------------- */
+.sponsor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; align-items: center; }
+.sponsor-grid a {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--white); border-radius: 6px; padding: 18px; height: 118px;
+}
+.sponsor-grid img { max-width: 100%; max-height: 72px; object-fit: contain; }
+
+/* ---- Speakers ------------------------------------------------------------------------ */
+.speaker-card { text-align: center; }
+.speaker-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+.speaker-card .name { font-family: var(--font-display); font-size: 17px; margin-top: 14px; color: var(--white); }
+.speaker-card .keynote-badge {
+    display: inline-block; background: var(--accent); color: var(--ink);
+    font-family: var(--font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 3px; margin-top: 6px;
+}
+
+/* ---- Schedule table ------------------------------------------------------------------ */
+.schedule-table { width: 100%; border-collapse: collapse; background: rgba(255, 255, 255, .97); color: var(--ink); }
+.schedule-table th, .schedule-table td { border: 1px solid #DDDDDD; padding: 10px 12px; vertical-align: top; }
+.schedule-table thead th {
+    background: var(--ink); color: var(--white); font-family: var(--font-display);
+    font-size: 13px; text-align: center;
+}
+.schedule-table .time-col { width: 70px; white-space: nowrap; font-family: var(--font-ui); font-weight: 700; color: #777; }
+.schedule-table td.session a { font-family: var(--font-display); font-size: 14px; color: var(--ink); }
+.schedule-table td.session a:hover { color: var(--accent-strong); }
+.schedule-table td.session .speakers { font-size: 13px; color: #777; margin-top: 4px; }
+.schedule-table .workshop-label {
+    display: inline-block; background: var(--accent); color: var(--white);
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700; text-transform: uppercase;
+    padding: 1px 6px; border-radius: 3px; margin-bottom: 4px;
+}
+.schedule-table tr.plenary td { background: #eaf7fd; text-align: center; font-style: italic; color: #32373C; }
+
+/* ---- Static content pages ------------------------------------------------------------ */
+.page-header { text-align: center; padding: 40px 0 20px; }
+.page-header h1 { color: var(--white); margin: 0; font-weight: 400; }
+.content-page { padding-bottom: 50px; }
+.content-page .prose h2 { color: var(--accent); font-size: 24px; margin: 30px 0 12px; }
+.content-page .prose h3 { color: var(--white); font-size: 19px; margin: 24px 0 10px; }
+.content-page .prose img { max-width: 100%; height: auto; border-radius: 6px; }
+
+/* ---- Footer -------------------------------------------------------------------------- */
+.site-footer { background: rgba(16, 22, 40, .78); color: var(--text-light); padding: 46px 0 30px; border-top: 1px solid var(--line); }
+.site-footer h5 { color: var(--white); font-family: var(--font-display); font-size: 16px; margin-bottom: 14px; }
+.site-footer a { color: var(--accent); }
+.footer-bar { background: var(--grad-header); color: var(--white); text-align: center; padding: 16px 0; }
+.footer-bar a { color: var(--white); }
+.footer-bar .inline-menu { list-style: none; padding: 0; margin: 0 0 6px; display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 16px; }

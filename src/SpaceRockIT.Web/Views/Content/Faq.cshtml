@@ -1,0 +1,78 @@
+@{ ViewData["Title"] = L["Nav.Faq"].Value; }
+
+<div class="page-header">
+    <div class="container"><h1>@L["Nav.Faq"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <h2 class="section-title">@L["Faq.Org"]</h2>
+                <div class="accordion faq-accordion mb-5" id="faqOrg">
+                    @{
+                        var org = new[]
+                        {
+                            ("o1", "Faq.Q.What", "Faq.A.What"),
+                            ("o2", "Faq.Q.Day", "Faq.A.Day"),
+                            ("o3", "Faq.Q.Lang", "Faq.A.Lang"),
+                            ("o4", "Faq.Q.Origin", "Faq.A.Origin"),
+                            ("o5", "Faq.Q.Logo", "Faq.A.Logo"),
+                        };
+                    }
+                    @foreach (var (id, q, a) in org)
+                    {
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@id">@L[q]</button></h3>
+                            <div id="@id" class="accordion-collapse collapse" data-bs-parent="#faqOrg"><div class="accordion-body">@L[a]</div></div>
+                        </div>
+                    }
+                </div>
+
+                <h2 class="section-title">@L["Nav.Tickets"]</h2>
+                <div class="accordion faq-accordion mb-5" id="faqTickets">
+                    @{
+                        var tickets = new[]
+                        {
+                            ("t1", "Faq.Q.Buy", "Faq.A.Buy"),
+                            ("t2", "Faq.Q.Money", "Faq.A.Money"),
+                            ("t3", "Faq.Q.Vat", "Faq.A.Vat"),
+                        };
+                    }
+                    @foreach (var (id, q, a) in tickets)
+                    {
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@id">@L[q]</button></h3>
+                            <div id="@id" class="accordion-collapse collapse" data-bs-parent="#faqTickets"><div class="accordion-body">@L[a]</div></div>
+                        </div>
+                    }
+                    <div class="accordion-item">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t4">@L["Faq.Q.Refund"]</button></h3>
+                        <div id="t4" class="accordion-collapse collapse" data-bs-parent="#faqTickets"><div class="accordion-body">@L["Faq.A.Refund"] <a href="mailto:tickets@spacerockitfestival.nl">tickets@spacerockitfestival.nl</a>.</div></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="h4" style="color:var(--white)">@L["Faq.NotHere"]</h2>
+                    <p class="prose mb-1">@L["Faq.Contact.Intro"]</p>
+                    <ul class="prose">
+                        <li>@L["Faq.Contact.General"] <a href="mailto:info@spacerockitfestival.nl">info@spacerockitfestival.nl</a></li>
+                        <li>@L["Faq.Contact.Speakers"] <a href="mailto:Sprekers@spacerockitfestival.nl">Sprekers@spacerockitfestival.nl</a></li>
+                        <li>@L["Faq.Contact.Tickets"] <a href="mailto:Tickets@spacerockitfestival.nl">Tickets@spacerockitfestival.nl</a> @L["Faq.Contact.TicketsSuffix"]</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-accordion .accordion-item { background: rgba(16,22,40,.62); border: 1px solid var(--line); margin-bottom: 8px; border-radius: 6px; overflow: hidden; }
+    .faq-accordion .accordion-button { background: transparent; color: var(--white); font-family: var(--font-ui); font-weight: 600; }
+    .faq-accordion .accordion-button:not(.collapsed) { color: var(--accent); box-shadow: none; }
+    .faq-accordion .accordion-button:focus { box-shadow: none; }
+    .faq-accordion .accordion-body { color: var(--text-light); }
+    .faq-accordion .accordion-button::after { filter: invert(1); }
+</style>

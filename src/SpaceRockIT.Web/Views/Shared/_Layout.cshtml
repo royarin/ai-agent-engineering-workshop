@@ -1,0 +1,119 @@
+@{
+    var path = (Context.Request.Path.Value ?? "/").TrimEnd('/');
+    if (path.Length == 0) path = "/";
+    string Active(string href)
+    {
+        var h = href.TrimEnd('/'); if (h.Length == 0) h = "/";
+        var on = h == "/" ? path == "/" : path.StartsWith(h, StringComparison.OrdinalIgnoreCase);
+        return on ? "active" : "";
+    }
+    // The festival's own navigation, in the site's order (design-tokens.md). Labels are localized.
+    var nav = new (string Href, string Key)[]
+    {
+        ("/", "Nav.Home"),
+        ("/nieuws", "Nav.News"),
+        ("/tickets", "Nav.Tickets"),
+        ("/schedule", "Nav.Schedule"),
+        ("/sprekers", "Nav.Speakers"),
+        ("/media", "Nav.Media"),
+        ("/sponsor-worden-ja-graag", "Nav.Sponsor"),
+        ("/locatie", "Nav.Location"),
+        ("/faq", "Nav.Faq"),
+    };
+    var title = ViewData["Title"] as string;
+    var culture = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var returnUrl = Context.Request.Path + Context.Request.QueryString;
+}
+<!DOCTYPE html>
+<html lang="@culture">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@(string.IsNullOrEmpty(title) ? "SpaceRockIT Festival" : $"{title} - SpaceRockIT")</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-stretch">
+            <div class="social">
+                <a href="mailto:info@spacerockitfestival.nl" title="Mail" data-tip="Mail"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://twitter.com/Spacerockitfest" title="Twitter" data-tip="Twitter" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/spacerockit_insta/" title="Instagram" data-tip="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/spacerockituser" title="Facebook" data-tip="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.reddit.com/r/SpaceRockITfestival/" title="Reddit" data-tip="Reddit" target="_blank" rel="noopener"><i class="fa-brands fa-reddit-alien"></i></a>
+                <a href="https://www.meetup.com/nl-NL/spacerockitfestival/" title="Meetup" data-tip="Meetup" target="_blank" rel="noopener"><i class="fa-brands fa-meetup"></i></a>
+            </div>
+            <div class="d-flex align-items-center">
+                <span class="contact d-none d-md-inline me-3">@L["TopBar.DateLocation"]</span>
+                <span class="lang-switch" aria-label="@L["Lang.Switch"]">
+                    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                    <a href="/set-language?culture=nl&returnUrl=@Uri.EscapeDataString(returnUrl)"
+                       class="@(culture == "nl" ? "active" : "")" hreflang="nl" title="@L["Lang.Dutch"]">NL</a>
+                    <span class="sep">|</span>
+                    <a href="/set-language?culture=en&returnUrl=@Uri.EscapeDataString(returnUrl)"
+                       class="@(culture == "en" ? "active" : "")" hreflang="en" title="@L["Lang.English"]">EN</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap">
+            <a class="navbar-brand" href="/">
+                <img src="/img/uploads/2025/03/cropped-cropped-LOGO-Rechte-TEXT1.png" alt="SpaceRockIT Festival" />
+            </a>
+            <nav aria-label="@L["Lang.Switch"]">
+                <ul class="main-nav">
+                    @foreach (var (href, key) in nav)
+                    {
+                        <li><a href="@href" class="@Active(href)">@L[key]</a></li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5>SpaceRockIT Festival</h5>
+                    <p>@L["Footer.About.Body"]</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>@L["Footer.Sponsor.Title"]</h5>
+                    <p>@L["Footer.Sponsor.Body"]
+                        <a href="/sponsor-worden-ja-graag">@L["Footer.Sponsor.Link"]</a>.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>@L["Footer.Location.Title"]</h5>
+                    <p>@L["Footer.Location.Body"]
+                        <a href="/locatie">@L["Footer.Location.Link"]</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bar">
+        <div class="container">
+            <ul class="inline-menu">
+                <li><a href="/tickets">@L["Nav.Tickets"]</a></li>
+                <li><a href="/cookiebeleid-eu">@L["Footer.Menu.Cookies"]</a></li>
+                <li><a href="/privacybeleid">@L["Footer.Menu.Privacy"]</a></li>
+                <li><a href="/faq">@L["Nav.Faq"]</a></li>
+            </ul>
+            <div>@L["Footer.Copyright"]</div>
+        </div>
+    </div>
+
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,35 @@
+@{ ViewData["Title"] = L["Nav.Location"].Value; }
+
+<div class="page-header">
+    <div class="container"><h1>@L["Nav.Location"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="prose mb-4">
+                    <p>@L["Location.Intro"]</p>
+                </div>
+
+                <div class="map-embed mb-5 text-center">
+                    <p class="prose mb-3"><strong>Badweg 6, Huissen</strong></p>
+                    <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Badweg+6+Huissen" target="_blank" rel="noopener">@L["Location.MapButton"]</a>
+                </div>
+
+                <h2 class="section-title">@L["Location.Overnachten"]</h2>
+                <p class="prose text-center mb-4">@L["Location.OvernachtenIntro"]</p>
+                <div class="row g-3">
+                    <div class="col-md-6"><div class="panel h-100"><h3 class="h5" style="color:var(--white)">@L["Location.Camp1.Title"]</h3><p class="prose mb-0">@L["Location.Camp1.Body"]</p></div></div>
+                    <div class="col-md-6"><div class="panel h-100"><h3 class="h5" style="color:var(--white)">@L["Location.Camp2.Title"]</h3><p class="prose mb-0">@L["Location.Camp2.Body"]</p></div></div>
+                    <div class="col-md-6"><div class="panel h-100"><h3 class="h5" style="color:var(--white)">@L["Location.Hotel1.Title"]</h3><p class="prose mb-0">@L["Location.Hotel1.Body"]</p></div></div>
+                    <div class="col-md-6"><div class="panel h-100"><h3 class="h5" style="color:var(--white)">@L["Location.Hotel2.Title"]</h3><p class="prose mb-0">@L["Location.Hotel2.Body"]</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .map-embed { background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 2rem 1.5rem; }
+</style>

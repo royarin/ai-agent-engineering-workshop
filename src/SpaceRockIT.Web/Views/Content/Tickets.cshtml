@@ -1,0 +1,32 @@
+@{ ViewData["Title"] = L["Nav.Tickets"].Value; }
+
+<div class="page-header">
+    <div class="container"><h1>@L["Nav.Tickets"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="panel text-center mb-4">
+                    <h2 style="color:var(--accent)">@L["Tickets.EarlyBird"]</h2>
+                    <p class="prose mb-0">@L["Tickets.Group"]
+                        <a href="mailto:tickets@spacerockitfestival.nl">tickets@spacerockitfestival.nl</a>.</p>
+                </div>
+
+                <div class="ticket-shop text-center">
+                    <p class="prose mb-4">@L["Tickets.ShopIntro"]</p>
+                    <a class="btn btn-primary btn-lg" href="https://sales.ticketing.cm.com/SpaceRockiTFestival2026" target="_blank" rel="noopener">@L["Tickets.ShopButton"]</a>
+                </div>
+                <p class="prose text-center mt-3">
+                    @L["Tickets.ShopFallback"]
+                    <a href="https://sales.ticketing.cm.com/SpaceRockiTFestival2026" target="_blank" rel="noopener">@L["Tickets.ShopLink"]</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .ticket-shop { background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 2.5rem 1.5rem; }
+</style>

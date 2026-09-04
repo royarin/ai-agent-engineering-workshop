@@ -1,0 +1,6 @@
+# Shell scripts must always use LF so they run inside the dev container and
+# Codespaces, even when the repository is checked out on Windows.
+*.sh text eol=lf
+
+# PowerShell scripts stay CRLF for Windows.
+*.ps1 text eol=crlf

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <!-- Navigation -->
+  <data name="Nav.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Nav.News" xml:space="preserve"><value>News</value></data>
+  <data name="Nav.Tickets" xml:space="preserve"><value>Tickets</value></data>
+  <data name="Nav.Schedule" xml:space="preserve"><value>Schedule</value></data>
+  <data name="Nav.Speakers" xml:space="preserve"><value>Speakers</value></data>
+  <data name="Nav.Media" xml:space="preserve"><value>Media</value></data>
+  <data name="Nav.Sponsor" xml:space="preserve"><value>Become a sponsor?</value></data>
+  <data name="Nav.Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Nav.Faq" xml:space="preserve"><value>FAQ</value></data>
+
+  <!-- Top bar / language -->
+  <data name="TopBar.DateLocation" xml:space="preserve"><value>4 September 2026 · between Arnhem and Nijmegen</value></data>
+  <data name="Lang.Switch" xml:space="preserve"><value>Language</value></data>
+  <data name="Lang.Dutch" xml:space="preserve"><value>Dutch</value></data>
+  <data name="Lang.English" xml:space="preserve"><value>English</value></data>
+
+  <!-- Footer -->
+  <data name="Footer.About.Body" xml:space="preserve"><value>The first real IT conference on a real festival site, where IT and music come together in one place. Between Arnhem and Nijmegen.</value></data>
+  <data name="Footer.Sponsor.Title" xml:space="preserve"><value>Become a sponsor? Yes, please!</value></data>
+  <data name="Footer.Sponsor.Body" xml:space="preserve"><value>We are going to do it together! Let your organisation share in the fun.</value></data>
+  <data name="Footer.Sponsor.Link" xml:space="preserve"><value>See the options</value></data>
+  <data name="Footer.Location.Title" xml:space="preserve"><value>Location</value></data>
+  <data name="Footer.Location.Body" xml:space="preserve"><value>The launch pad is in the KAN area between Arnhem and Nijmegen.</value></data>
+  <data name="Footer.Location.Link" xml:space="preserve"><value>See the exact location</value></data>
+  <data name="Footer.Menu.Cookies" xml:space="preserve"><value>Cookie Policy (EU)</value></data>
+  <data name="Footer.Menu.Privacy" xml:space="preserve"><value>Privacy Policy</value></data>
+  <data name="Footer.Copyright" xml:space="preserve"><value>Copyright ©2023 Spacerock It Festival. All rights reserved. Designed by Parini ICT · Stock photos by Vecteezy</value></data>
+
+  <!-- Home -->
+  <data name="Home.Hero.Title" xml:space="preserve"><value>IT Festival under The Milkyway</value></data>
+  <data name="Home.Hero.Ticket" xml:space="preserve"><value>3rd edition — 4 September 2026! Buy your ticket here!</value></data>
+  <data name="Home.What.Title" xml:space="preserve"><value>What are we going to do?</value></data>
+  <data name="Home.What.P1" xml:space="preserve"><value>The first real IT conference on a real festival site where IT and music come together in one place! With fantastic workshops where you learn by doing, share your experience and knowledge, and discover new talents.</value></data>
+  <data name="Home.What.P2" xml:space="preserve"><value>The goal is to gain IT knowledge in a creative way, have fun, and enjoy live music. The festival takes place on a real open-air festival site in the style of Lowlands, Zwarte Cross, Down the Rabbit Hole and De Parade. Slightly smaller, of course, but with the same atmosphere and surroundings, in a beautiful spot between Arnhem and Nijmegen.</value></data>
+  <data name="Home.What.P3" xml:space="preserve"><value>And in that same spirit we will, alongside music, enjoy talks and workshops where 'knowing and doing' are the primary goals. So no boring presentations, but interactive sessions on (Vibe-)coding, testing, low-code, AI, agile, sustainability, security, personal development and critical thinking. All while enjoying free food, snacks and drinks. And of course with rocking bands, house DJs and trippy tributes!</value></data>
+  <data name="Home.What.P4" xml:space="preserve"><value>So if you are an IT professional and you love festivals, come to SpaceRockIT festival. Alone, with friends, or with your colleagues.</value></data>
+  <data name="Home.Btn.Ticket" xml:space="preserve"><value>Buy your ticket</value></data>
+  <data name="Home.Btn.Programme" xml:space="preserve"><value>View the programme</value></data>
+  <data name="Home.Countdown.Title" xml:space="preserve"><value>Countdown to launch:</value></data>
+  <data name="Home.Countdown.Days" xml:space="preserve"><value>Days</value></data>
+  <data name="Home.Countdown.Hours" xml:space="preserve"><value>Hours</value></data>
+  <data name="Home.Countdown.Minutes" xml:space="preserve"><value>Minutes</value></data>
+  <data name="Home.Countdown.Seconds" xml:space="preserve"><value>Seconds</value></data>
+  <data name="Home.Sponsors.Title" xml:space="preserve"><value>Mission Sponsors</value></data>
+  <data name="Home.SponsorCta.Title" xml:space="preserve"><value>Become a sponsor? Yes, please!</value></data>
+  <data name="Home.SponsorCta.Body" xml:space="preserve"><value>Because we are going to do it together! We will make it a wonderful event where your organisation can share in the fun too. SpaceRockIT festival offers various sponsorship packages.</value></data>
+  <data name="Home.SponsorCta.Btn" xml:space="preserve"><value>I would love to be there in 2026!</value></data>
+  <data name="Home.Location.Title" xml:space="preserve"><value>Location</value></data>
+  <data name="Home.Location.Body" xml:space="preserve"><value>For the SpaceRockIT festival we have found the perfect spot for the launch pad in the KAN area between Arnhem and Nijmegen.</value></data>
+  <data name="Home.Location.Btn" xml:space="preserve"><value>See the exact location</value></data>
+
+  <!-- Schedule -->
+  <data name="Schedule.Title" xml:space="preserve"><value>Schedule</value></data>
+  <data name="Schedule.Start" xml:space="preserve"><value>Start</value></data>
+  <data name="Schedule.End" xml:space="preserve"><value>End</value></data>
+  <data name="Schedule.Workshop" xml:space="preserve"><value>Workshop</value></data>
+  <data name="Schedule.By" xml:space="preserve"><value>by</value></data>
+
+  <!-- Session detail -->
+  <data name="Session.Speakers" xml:space="preserve"><value>Speakers</value></data>
+  <data name="Session.About" xml:space="preserve"><value>About this session</value></data>
+  <data name="Session.Back" xml:space="preserve"><value>← Back to the schedule</value></data>
+
+  <!-- Speakers -->
+  <data name="Speakers.Title" xml:space="preserve"><value>Speakers</value></data>
+  <data name="Speakers.Keynote" xml:space="preserve"><value>Keynote</value></data>
+  <data name="Speakers.Sessions" xml:space="preserve"><value>Sessions:</value></data>
+  <data name="Speakers.Close" xml:space="preserve"><value>Close</value></data>
+
+  <!-- Tickets -->
+  <data name="Tickets.EarlyBird" xml:space="preserve"><value>Take advantage of Early Bird tickets now!</value></data>
+  <data name="Tickets.Group" xml:space="preserve"><value>Coming with 5 or more people? Then you get a special price. Contact us via DM or send an e-mail to</value></data>
+  <data name="Tickets.ShopIntro" xml:space="preserve"><value>Tickets are sold through our ticketing partner CM.com. Click below to open the ticket shop in a new tab.</value></data>
+  <data name="Tickets.ShopButton" xml:space="preserve"><value>Buy tickets at CM.com</value></data>
+  <data name="Tickets.ShopFallback" xml:space="preserve"><value>Ticket module not working? Go directly to the</value></data>
+  <data name="Tickets.ShopLink" xml:space="preserve"><value>ticket shop at CM.com</value></data>
+
+  <!-- Location -->
+  <data name="Location.Intro" xml:space="preserve"><value>For the SpaceRockIT festival we have found the perfect spot for the launch pad in the KAN area between Arnhem and Nijmegen. Easily reached by public transport, bike and car. And, on top of that, in a beautiful spot by the water. This year the festival takes place at Badweg 6 in Huissen. See the exact location below:</value></data>
+  <data name="Location.Overnachten" xml:space="preserve"><value>Staying over</value></data>
+  <data name="Location.OvernachtenIntro" xml:space="preserve"><value>Because the festival runs until 0:30, you may not want to travel far afterwards. So here are a few suggestions for an overnight stay.</value></data>
+  <data name="Location.Camp1.Title" xml:space="preserve"><value>Camping QKLQ</value></data>
+  <data name="Location.Camp1.Body" xml:space="preserve"><value>An idyllic, easygoing and quiet farm campsite with authentic Mongolian Gers (yurts) in a peaceful steppe atmosphere.</value></data>
+  <data name="Location.Camp2.Title" xml:space="preserve"><value>Camping De Waay</value></data>
+  <data name="Location.Camp2.Body" xml:space="preserve"><value>A campsite in Doornenburg, Gelderland, on a lake/recreational pond, with pitches in full sun and some shade.</value></data>
+  <data name="Location.Hotel1.Title" xml:space="preserve"><value>Hotel Nijmegen-Noord</value></data>
+  <data name="Location.Hotel1.Body" xml:space="preserve"><value>A unique location in Nijmegen-Noord, perfectly reachable by car and public transport. 116 luxury hotel rooms, restaurant, terrace and Lola's Bar.</value></data>
+  <data name="Location.MapButton" xml:space="preserve"><value>Open in Google Maps</value></data>
+  <data name="Location.Hotel2.Title" xml:space="preserve"><value>Bastion Hotel Arnhem</value></data>
+  <data name="Location.Hotel2.Body" xml:space="preserve"><value>Located in Arnhem, 1.1 km from the station, with a fitness centre and private parking.</value></data>
+
+  <!-- FAQ -->
+  <data name="Faq.Org" xml:space="preserve"><value>Organisation and purpose</value></data>
+  <data name="Faq.Q.What" xml:space="preserve"><value>What is SpaceRockIT festival?</value></data>
+  <data name="Faq.A.What" xml:space="preserve"><value>SpaceRockIT festival is a unique festival where music and IT come together. The goal is to gain IT knowledge in a creative way, have fun, and enjoy live music.</value></data>
+  <data name="Faq.Q.Day" xml:space="preserve"><value>What does the day look like?</value></data>
+  <data name="Faq.A.Day" xml:space="preserve"><value>We start at 10:00 with the knowledge sessions: a central meeting, then parallel sessions at various locations on the festival site, supported by real festival facilities and small acts. At 16:00 we wrap up the knowledge part and turn the amplifiers up to 10 — live music on the various stages. The festival ends around 0:30.</value></data>
+  <data name="Faq.Q.Lang" xml:space="preserve"><value>Is the festival only for Dutch-speaking visitors?</value></data>
+  <data name="Faq.A.Lang" xml:space="preserve"><value>No, the festival is not exclusively for Dutch-speaking visitors. It welcomes people from various linguistic backgrounds and aims to be inclusive and diverse. You can use the language button in the top bar of this website to toggle between Dutch and English.</value></data>
+  <data name="Faq.Q.Origin" xml:space="preserve"><value>How did the idea come about?</value></data>
+  <data name="Faq.A.Origin" xml:space="preserve"><value>The idea came from Francis Welbie. He found current conferences a bit too standard and loves the atmosphere of festivals, so he combined the two. The organisation is supported (financially) by Si.Ledi BV (Screw It Let's Do It, Branson), which you will also find on the invoices.</value></data>
+  <data name="Faq.Q.Logo" xml:space="preserve"><value>Where does the logo come from?</value></data>
+  <data name="Faq.A.Logo" xml:space="preserve"><value>At SpaceRockIT we use the latest trends in IT, including the services of openai.com. Using DALL-E we created a logo from a few keywords. The text in the logo is loosely reminiscent of the festival, but has no direct meaning.</value></data>
+  <data name="Faq.Q.Buy" xml:space="preserve"><value>How do I buy tickets?</value></data>
+  <data name="Faq.A.Buy" xml:space="preserve"><value>Ticket sales start on this site with the Super Early Bird Padawan. The "Get Tickets" button takes you to the order page, supported by CM.com. You receive your tickets and invoice via CM.com.</value></data>
+  <data name="Faq.Q.Money" xml:space="preserve"><value>Where does the money go?</value></data>
+  <data name="Faq.A.Money" xml:space="preserve"><value>The ticket price covers the costs, including the site, and supports the artists. Whatever is left is used to support artists and creators in the Netherlands and to keep improving this unique festival. No money is earned by the BV.</value></data>
+  <data name="Faq.Q.Vat" xml:space="preserve"><value>Is there VAT on the tickets?</value></data>
+  <data name="Faq.A.Vat" xml:space="preserve"><value>Yes. The tax authority regards this festival as a conference, so there is 21% VAT on the tickets. You will find this on the invoice.</value></data>
+  <data name="Faq.Q.Refund" xml:space="preserve"><value>I can't make it after all — do I get my money back?</value></data>
+  <data name="Faq.A.Refund" xml:space="preserve"><value>That's a shame! Just send us an e-mail. We'll get in touch — we are very accommodating with refunds.</value></data>
+  <data name="Faq.NotHere" xml:space="preserve"><value>My answer isn't listed here…</value></data>
+  <data name="Faq.Contact.Intro" xml:space="preserve"><value>You can reach the organisation via the following e-mail addresses:</value></data>
+  <data name="Faq.Contact.General" xml:space="preserve"><value>General:</value></data>
+  <data name="Faq.Contact.Speakers" xml:space="preserve"><value>Speaker enquiries:</value></data>
+  <data name="Faq.Contact.Tickets" xml:space="preserve"><value>Tickets and payments:</value></data>
+  <data name="Faq.Contact.TicketsSuffix" xml:space="preserve"><value>or CM.com directly</value></data>
+
+  <!-- Media -->
+  <data name="Media.Video" xml:space="preserve"><value>Video</value></data>
+  <data name="Media.VideoIntro" xml:space="preserve"><value>Watch the aftermovie of the previous edition and the promo video on the official channels. The workshop clone deliberately keeps the repo small and does not ship the video files.</value></data>
+  <data name="Media.VideoBtn" xml:space="preserve"><value>Watch the videos</value></data>
+  <data name="Media.Photos" xml:space="preserve"><value>Photos</value></data>
+  <data name="Media.PhotosIntro" xml:space="preserve"><value>The original photo archives intentionally stay on the official site instead of in git: hundreds of images add nothing to the workshop, but make a clone unnecessarily heavy.</value></data>
+  <data name="Media.PhotosNote" xml:space="preserve"><value>For that reason we link directly to the official media archive for impressions of previous editions.</value></data>
+  <data name="Media.PhotosBtn" xml:space="preserve"><value>Open the official media archive</value></data>
+
+  <!-- News -->
+  <data name="News.1.Title" xml:space="preserve"><value>🚀 It's here… the SpaceRockIT Festival programme is live!</value></data>
+  <data name="News.1.Body" xml:space="preserve"><value>The full programme is online: keynotes, workshops and parallel sessions across the stages. Check the schedule and build your own day.</value></data>
+  <data name="News.2.Title" xml:space="preserve"><value>🚀 Breaking news for SpaceRockIT festival 2026: Felienne Hermans is coming 🚀</value></data>
+  <data name="News.2.Body" xml:space="preserve"><value>Don't miss this chance to learn from one of the most influential and inspiring voices in tech and education. Felienne Hermans, professor of computer science education, takes you through an alternative history of AI and programming.</value></data>
+  <data name="News.3.Title" xml:space="preserve"><value>Flashback to last year's party!</value></data>
+  <data name="News.3.Body" xml:space="preserve"><value>A look back at the previous edition: rocking bands, house DJs and a site full of IT people combining knowledge and fun.</value></data>
+  <data name="News.4.Title" xml:space="preserve"><value>Why SpaceRockIT?</value></data>
+  <data name="News.4.Body" xml:space="preserve"><value>No boring presentations, but interactive sessions where 'knowing and doing' take centre stage — all while enjoying live music, food and drinks.</value></data>
+  <data name="News.5.Title" xml:space="preserve"><value>We're in the paper!</value></data>
+  <data name="News.5.Body" xml:space="preserve"><value>SpaceRockIT made the local press. Nice that the festival stands out beyond the IT world too.</value></data>
+
+  <!-- Sponsor -->
+  <data name="Sponsor.Intro1" xml:space="preserve"><value>Because we are going to do it together! We will make it a wonderful event where your organisation can share in the fun too. Every year, on the first Friday of September, 300 IT specialists gather at the first real festival in the Netherlands where IT and music come together.</value></data>
+  <data name="Sponsor.Intro2" xml:space="preserve"><value>SpaceRockIT festival offers the following sponsorship packages:</value></data>
+  <data name="Sponsor.Master.B1" xml:space="preserve"><value>Banner: 1 (wearable sandwich board 4× per hour)</value></data>
+  <data name="Sponsor.Master.B2" xml:space="preserve"><value>Roaming promotion team of up to 2 people</value></data>
+  <data name="Sponsor.Bullet.Opening" xml:space="preserve"><value>Mention at the opening/closing of SpaceRockIT Festival</value></data>
+  <data name="Sponsor.Master.Tickets" xml:space="preserve"><value>10 tickets for colleagues and/or clients</value></data>
+  <data name="Sponsor.Bullet.Web" xml:space="preserve"><value>Name + logo on every page of the website and on social media (Twitter, Facebook, Instagram, Reddit)</value></data>
+  <data name="Sponsor.Bullet.Shirt" xml:space="preserve"><value>Name and logo on the festival T-shirt</value></data>
+  <data name="Sponsor.Bullet.Goodie" xml:space="preserve"><value>Contribution with your own logo to the goodie bag</value></data>
+  <data name="Sponsor.Knight.B1" xml:space="preserve"><value>Banner: 1 (wearable sandwich board 2× per hour)</value></data>
+  <data name="Sponsor.Knight.Tickets" xml:space="preserve"><value>4 tickets for colleagues and/or clients</value></data>
+  <data name="Sponsor.Contact.Title" xml:space="preserve"><value>Get in touch! I want to become a sponsor!</value></data>
+  <data name="Sponsor.Contact.Body" xml:space="preserve"><value>Interested? Get in touch with us. We'll arrange a meeting quickly!</value></data>
+  <data name="Sponsor.Contact.Btn" xml:space="preserve"><value>I want to become a sponsor</value></data>
+
+  <!-- Sneak preview -->
+  <data name="Sneak.P1" xml:space="preserve"><value>A little taste of what to expect at SpaceRockIT festival: interactive sessions on (Vibe-)coding, testing, low-code, AI, agile, sustainability, security, personal development and critical thinking — interspersed with live music from rock bands, DJs and tributes.</value></data>
+  <data name="Sneak.P2.Before" xml:space="preserve"><value>You will find the full programme on the</value></data>
+  <data name="Sneak.P2.Schedule" xml:space="preserve"><value>schedule</value></data>
+  <data name="Sneak.P2.Middle" xml:space="preserve"><value>, and the speakers on the</value></data>
+  <data name="Sneak.P2.Speakers" xml:space="preserve"><value>speakers page</value></data>
+
+  <!-- Organise a session -->
+  <data name="Organise.Title" xml:space="preserve"><value>Organise your own session?</value></data>
+  <data name="Organise.Intro" xml:space="preserve"><value>Just as excited about this experiment and want to help? You can do so in several ways:</value></data>
+  <data name="Organise.B1.Before" xml:space="preserve"><value>Would you like your organisation to be part of this success too? Then perhaps you'd like to</value></data>
+  <data name="Organise.B1.Link" xml:space="preserve"><value>become a sponsor</value></data>
+  <data name="Organise.B2" xml:space="preserve"><value>Would you like to run a session or workshop yourself? Send us an e-mail with your idea at</value></data>
+  <data name="Organise.B3" xml:space="preserve"><value>Would you like to contribute in another way? Then send an e-mail with your proposal to</value></data>
+
+  <!-- Planner -->
+  <data name="Planner.Title" xml:space="preserve"><value>SpaceRockIT Planner</value></data>
+  <data name="Planner.Intro" xml:space="preserve"><value>Build your own festival day with the planner.</value></data>
+  <data name="Planner.Placeholder" xml:space="preserve"><value>The festival planner is a demo feature for this workshop and is not connected to a live service yet.</value></data>
+  <data name="PlannerBeheer.Title" xml:space="preserve"><value>SpaceRockIT Planner admin</value></data>
+  <data name="PlannerBeheer.Intro" xml:space="preserve"><value>Admin environment for the festival planner.</value></data>
+  <data name="PlannerBeheer.Placeholder" xml:space="preserve"><value>The planner admin is a demo feature for this workshop and is not connected to a live service yet.</value></data>
+
+  <!-- Privacy -->
+  <data name="Privacy.Title" xml:space="preserve"><value>Privacy Policy</value></data>
+  <data name="Privacy.Intro" xml:space="preserve"><value>SpaceRockIT festival respects the privacy of visitors to this website and ensures that the personal information you provide is treated confidentially.</value></data>
+  <data name="Privacy.H1" xml:space="preserve"><value>What data do we collect?</value></data>
+  <data name="Privacy.B1" xml:space="preserve"><value>We process personal data that you provide yourself, for example when buying a ticket, contacting us by e-mail or subscribing to news. Ticket sales and payments go through CM.com; CM.com's privacy policy applies to those.</value></data>
+  <data name="Privacy.H2" xml:space="preserve"><value>What do we use your data for?</value></data>
+  <data name="Privacy.B2" xml:space="preserve"><value>We use your data solely to organise the festival, handle your order and inform you about the programme. We do not sell your data to third parties.</value></data>
+  <data name="Privacy.H3" xml:space="preserve"><value>Questions?</value></data>
+  <data name="Privacy.B3.Before" xml:space="preserve"><value>Do you have questions about this privacy policy, or would you like to view, change or delete your data? Get in touch via</value></data>
+
+  <!-- Cookies -->
+  <data name="Cookies.Title" xml:space="preserve"><value>Cookie Policy (EU)</value></data>
+  <data name="Cookies.Intro" xml:space="preserve"><value>This workshop site currently places only one functional cookie for your language choice. No analytics, marketing or tracking tags are active.</value></data>
+  <data name="Cookies.H1" xml:space="preserve"><value>Which cookie do we use?</value></data>
+  <data name="Cookies.B1" xml:space="preserve"><value>Only the ASP.NET Core culture cookie is set when you switch between Dutch and English. That cookie stores only your language choice so the site stays in the same language on the next page.</value></data>
+  <data name="Cookies.H2" xml:space="preserve"><value>Why is there no consent banner right now?</value></data>
+  <data name="Cookies.B2" xml:space="preserve"><value>Because we use only a strictly functional preference cookie, this version does not need a consent banner. If analytics or any other non-essential cookies are added later, a minimal consent banner must be implemented before those scripts may go live.</value></data>
+  <data name="Cookies.H3" xml:space="preserve"><value>Questions?</value></data>
+  <data name="Cookies.B3.Before" xml:space="preserve"><value>For questions about our cookie policy you can get in touch via</value></data>
+
+  <!-- Sample post -->
+  <data name="Bericht.Title" xml:space="preserve"><value>This is a post</value></data>
+  <data name="Bericht.P1" xml:space="preserve"><value>This is a sample post. It shows how a news item or blog post is displayed on the SpaceRockIT site.</value></data>
+  <data name="Bericht.P2.Before" xml:space="preserve"><value>See the latest news on the</value></data>
+  <data name="Bericht.P2.Link" xml:space="preserve"><value>news page</value></data>
+</root>

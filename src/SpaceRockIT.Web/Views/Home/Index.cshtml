@@ -1,0 +1,84 @@
+@{
+    ViewData["Title"] = "Home";
+    var sponsors = new (string Img, string Url, string Alt)[]
+    {
+        ("/img/uploads/2024/06/logo-sioux-3362568043-768x394.png", "https://www.sioux.eu/", "Sioux"),
+        ("/img/uploads/2024/06/RisQIT-logo-zwart-groen.png", "https://www.risqit.nl/", "RisQIT"),
+        ("/img/uploads/2025/03/4stepapp-logo-768x637.png", "https://4step.app/", "4Step"),
+        ("/img/uploads/2023/06/CM-2020-logo-horizontal-RGB-768x345.png", "https://cm.com", "CM.com"),
+        ("/img/uploads/2023/06/PT-logo.png", "https://www.proftest.nl/", "Proftest"),
+        ("/img/uploads/2023/06/Dimaros-logo.jpg", "https://dimaros.nl", "Dimaros"),
+        ("/img/uploads/2024/06/XPRTZ-cloud-logo.jpeg", "https://www.xprtz.net/", "XPRTZ"),
+        ("/img/uploads/2024/06/Agile-Testers-logo-landscape.png", "https://www.deagiletesters.nl/", "De Agile Testers"),
+        ("/img/uploads/2023/06/Sienn50.jpg", "https://sienn.com/", "Sienn"),
+        ("/img/uploads/2024/06/logo_met_slagzin-768x267.png", "https://www.xprtz.net/", "XPRTZ .NET Experts"),
+    };
+}
+
+<section class="hero">
+    <div class="container">
+        <img class="hero-logo" src="/img/uploads/2025/03/cropped-cropped-LOGO-Rechte-TEXT1.png" alt="SpaceRockIT Festival" />
+        <h1>@L["Home.Hero.Title"]</h1>
+        <a class="hero-ticket" href="/tickets">@L["Home.Hero.Ticket"]</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">@L["Home.What.Title"]</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 prose">
+                <p>@L["Home.What.P1"]</p>
+                <p>@L["Home.What.P2"]</p>
+                <p>@L["Home.What.P3"]</p>
+                <p>@L["Home.What.P4"]</p>
+                <p class="text-center mt-4">
+                    <a class="btn-brand" href="/tickets">@L["Home.Btn.Ticket"]</a>
+                    <a class="btn-brand-outline ms-2" href="/schedule">@L["Home.Btn.Programme"]</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container text-center">
+        <h2 class="section-title">@L["Home.Countdown.Title"]</h2>
+        <div class="countdown" data-countdown="2026-09-04T09:30:00">
+            <div class="unit"><div class="num" data-days>00</div><div class="label">@L["Home.Countdown.Days"]</div></div>
+            <div class="unit"><div class="num" data-hours>00</div><div class="label">@L["Home.Countdown.Hours"]</div></div>
+            <div class="unit"><div class="num" data-minutes>00</div><div class="label">@L["Home.Countdown.Minutes"]</div></div>
+            <div class="unit"><div class="num" data-seconds>00</div><div class="label">@L["Home.Countdown.Seconds"]</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">@L["Home.Sponsors.Title"]</h2>
+        <div class="sponsor-grid">
+            @foreach (var s in sponsors)
+            {
+                <a href="@s.Url" target="_blank" rel="noopener" title="@s.Alt">
+                    <img src="@s.Img" alt="@s.Alt" loading="lazy" />
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section text-center">
+    <div class="container">
+        <h2 class="section-title">@L["Home.SponsorCta.Title"]</h2>
+        <p class="prose mx-auto" style="max-width:760px">@L["Home.SponsorCta.Body"]</p>
+        <a class="btn-brand mt-3" href="/sponsor-worden-ja-graag">@L["Home.SponsorCta.Btn"]</a>
+    </div>
+</section>
+
+<section class="section text-center">
+    <div class="container">
+        <h2 class="section-title">@L["Home.Location.Title"]</h2>
+        <p class="prose mx-auto" style="max-width:760px">@L["Home.Location.Body"]</p>
+        <a class="btn-brand-outline mt-2" href="/locatie">@L["Home.Location.Btn"]</a>
+    </div>
+</section>

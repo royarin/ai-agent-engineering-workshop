@@ -1,0 +1,51 @@
+{
+  // Dev container for the SpaceRockIT AI Coding Agent Workshop.
+  // Provides the .NET 10 SDK, the GitHub CLI, and the VS Code extensions the
+  // modules rely on. Deliberately does not create a .vscode/ folder: you build
+  // that yourself in Stage 3 as part of the Durability Ladder.
+  "name": "SpaceRockIT AI Coding Agent Workshop",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "10.0"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-dotnettools.csharp",
+        "GitHub.vscode-pull-request-github",
+        "humao.rest-client"
+      ],
+      "settings": {
+        "chat.agent.enabled": true,
+        "chat.mcp.enabled": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "forwardPorts": [5080, 5081],
+  "portsAttributes": {
+    "5080": {
+      "label": "Festival website",
+      "onAutoForward": "notify"
+    },
+    "5081": {
+      "label": "Reviews API",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "onCreateCommand": "chmod +x run.sh 2>/dev/null || true",
+  "postCreateCommand": "dotnet restore SpaceRockIT.slnx",
+
+  "remoteUser": "vscode"
+}

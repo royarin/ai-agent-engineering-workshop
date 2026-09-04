@@ -1,0 +1,18 @@
+@{ ViewData["Title"] = L["PlannerBeheer.Title"].Value; }
+
+<div class="page-header">
+    <div class="container"><h1>@L["PlannerBeheer.Title"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <p class="prose text-center mb-4">@L["PlannerBeheer.Intro"]</p>
+        <div class="app-embed text-center">
+            <p class="prose mb-0">@L["PlannerBeheer.Placeholder"]</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .app-embed { background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 2.5rem 1.5rem; }
+</style>

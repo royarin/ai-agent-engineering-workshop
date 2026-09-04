@@ -1,0 +1,69 @@
+@model SpaceRockIT.Web.ViewModels.ScheduleViewModel
+
+<div class="page-header">
+    <div class="container"><h1>@L["Schedule.Title"]</h1></div>
+</div>
+
+<section class="content-page">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th class="time-col">@L["Schedule.Start"]</th>
+                        <th class="time-col">@L["Schedule.End"]</th>
+                        @foreach (var stage in Model.StageNames)
+                        {
+                            <th>@stage</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model.Rows)
+                    {
+                        <tr class="@(row.IsPlenary ? "plenary" : "")">
+                            <td class="time-col">@row.Start</td>
+                            <td class="time-col">@row.End</td>
+                            @if (row.IsPlenary)
+                            {
+                                <td class="session" colspan="@Model.StageNames.Count">
+                                    @if (row.Plenary is { } p)
+                                    {
+                                        @if (p.IsBreak)
+                                        {
+                                            <span>@p.Title</span>
+                                        }
+                                        else
+                                        {
+                                            <a href="/schedule/@p.Id">@p.Title</a>
+                                        }
+                                    }
+                                </td>
+                            }
+                            else
+                            {
+                                @foreach (var cell in row.ByStage)
+                                {
+                                    <td class="session">
+                                        @if (cell is { } c)
+                                        {
+                                            @if (c.Format == "workshop")
+                                            {
+                                                <span class="workshop-label">@L["Schedule.Workshop"]</span><br />
+                                            }
+                                            <a href="/schedule/@c.Id">@c.Title</a>
+                                            @if (c.SpeakerNames.Count > 0)
+                                            {
+                                                <div class="speakers">@L["Schedule.By"] @string.Join(", ", c.SpeakerNames)</div>
+                                            }
+                                        }
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

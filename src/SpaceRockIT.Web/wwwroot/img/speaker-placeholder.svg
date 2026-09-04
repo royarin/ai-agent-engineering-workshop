@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Speaker photo hidden">
+  <title>Speaker photo hidden</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A4CB4"/>
+      <stop offset="1" stop-color="#E91E63"/>
+    </linearGradient>
+    <radialGradient id="visor" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#2b3350"/>
+      <stop offset="1" stop-color="#141a2b"/>
+    </radialGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#sky)"/>
+  <!-- twinkles -->
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="46" cy="54" r="2.4"/>
+    <circle cx="248" cy="72" r="3"/>
+    <circle cx="70" cy="230" r="2"/>
+    <circle cx="236" cy="224" r="2.4"/>
+    <circle cx="150" cy="30" r="1.8"/>
+  </g>
+  <!-- helmet -->
+  <circle cx="150" cy="150" r="86" fill="#f4f6fb"/>
+  <circle cx="150" cy="150" r="86" fill="none" stroke="#6EC1E4" stroke-width="6"/>
+  <!-- visor -->
+  <path d="M150 96c34 0 58 22 58 52 0 20-24 40-58 40s-58-20-58-40c0-30 24-52 58-52z" fill="url(#visor)"/>
+  <!-- visor shine -->
+  <path d="M118 128c8-12 24-18 38-16-14 2-26 10-30 22-2 6-10 4-8-6z" fill="#6EC1E4" opacity="0.55"/>
+  <!-- mystery mark -->
+  <text x="150" y="176" text-anchor="middle" font-family="Orbitron, Montserrat, sans-serif" font-size="64" font-weight="800" fill="#6EC1E4">?</text>
+</svg>

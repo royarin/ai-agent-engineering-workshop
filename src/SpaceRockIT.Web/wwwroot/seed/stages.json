@@ -1,0 +1,32 @@
+[
+  {
+    "id": "the-cabin",
+    "name": "The Cabin",
+    "order": 0
+  },
+  {
+    "id": "proathuus",
+    "name": "ProatHuus",
+    "order": 1
+  },
+  {
+    "id": "the-circus",
+    "name": "The Circus",
+    "order": 2
+  },
+  {
+    "id": "surfclub",
+    "name": "SurfClub",
+    "order": 3
+  },
+  {
+    "id": "de-foef",
+    "name": "De Foef",
+    "order": 4
+  },
+  {
+    "id": "house-tent",
+    "name": "House Tent",
+    "order": 5
+  }
+]

@@ -1,0 +1,405 @@
+[
+  {
+    "id": "f-hermans",
+    "name": "F. Hermans",
+    "isKeynote": true,
+    "bioEn": "F. Hermans is a professor of computer-science education and a computing teacher. Her earlier work was fairly technical: she developed algorithms to find errors in spreadsheets and a programming language that lets children learn to program in their own language.\nHer more recent work is more philosophical and asks how we actually define 'computer science' or 'programming', and how those choices shape the field and the software we build.\nShe writes regularly about technology and often shares the AI news that caught her eye.",
+    "bio": "F. Hermans is hoogleraar didactiek van de informatica en informaticadocent. Haar vroegere werk was vrij technisch: ze ontwikkelde algoritmes om fouten in spreadsheets op te sporen en een programmeertaal waarmee kinderen in hun eigen taal leren programmeren.\nHaar recentere werk is meer filosofisch van aard en vraagt zich af hoe we 'informatica' of 'programmeren' eigenlijk definiëren en hoe die keuzes het vakgebied, en de software die we maken, beïnvloeden.\nZe schrijft regelmatig over technologie en deelt geregeld het AI-nieuws dat haar is opgevallen.",
+    "sessionBlurbs": [
+      "AI liet me aan alles twijfelen over programmeren",
+      "Wat is AI? Waar dient AI voor, en wat zijn de doelen ervan? Kunnen we AI gebruiken voor programmeren? Het dominante gevoel in 2026 maakt het gemakkelijk om te geloven dat AI goed is en ons leven en werk veel eenvoudiger zal maken.",
+      "In deze lezing word je meegenomen door een alternatieve geschiedenis van AI, programmeren en de epistemologische ontwikkeling daarvan, langs meer dan een eeuw aan alternatieve stemmen binnen de technologie, en wat we daarvan kunnen leren voor de huidige staat van programmeren en de toekomst ervan.",
+      "🔥 Mis deze kans niet om te leren van een van de meest invloedrijke en inspirerende stemmen in tech en onderwijs. Deze sessie laat je niet alleen nadenken… maar ook vooruitkijken.",
+      "10:00 locatie “The Circus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "s-bakker",
+    "name": "S. Bakker",
+    "isKeynote": false,
+    "bioEn": "Behind every strong solution is a person with a story. In S., creativity, technology and curiosity come together.\nS. is a driven low-code expert and UX specialist. Originally from a background in film and television, she later retrained towards business analytics and application development. Her passion lies in user experience and UI design, database design and front-end development. She takes great satisfaction in creating intuitive, user-friendly interfaces, has a sharp eye for detail, and values hard work and a strong team spirit.",
+    "bio": "Achter elke sterke oplossing zit een mens met een verhaal. Bij S. komen creativiteit, techniek en nieuwsgierigheid samen.\nS. is een gedreven low-code expert en UX-specialist. Oorspronkelijk met een achtergrond in film en televisie schoolde ze zich later om richting Business Analytics en applicatieontwikkeling. Haar passie ligt bij User Experience en UI-design, database design en front-end development. Ze haalt veel voldoening uit het creëren van intuïtieve en gebruiksvriendelijke interfaces, heeft een scherp oog voor detail en hecht veel waarde aan hard werken en een sterke teamgeest.",
+    "sessionBlurbs": [
+      "Ontdekken door te doen: Introductie van low-code softwareontwikkeling",
+      "In deze interactieve, hands-on workshop ga je onder begeleiding van doorgewinterde experts ervaren hoe software sneller en robuuster ontwikkeld kan worden met de kernprincipes van het low-code ontwikkelen.",
+      "Wees niet bang, je hebt geen laptop nodig. Alle materialen worden door ons verzorgd.",
+      "Samen met T. de Jong en R. Vervuren",
+      "13:20 locatie “The Cabin”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "b-van-den-berg",
+    "name": "B. van den Berg",
+    "isKeynote": false,
+    "bioEn": "Has more than 24 years of experience as a tester, test automation engineer, coach, trainer and speaker.\nTesting is far too broad to capture in a single definition: as a test automation engineer you touch every aspect, both functional and technical, and that is what makes it a fascinating and challenging field. The goal is for a tester to be involved early in the process, so that quality becomes a little more self-evident for everyone. Sharing knowledge works both ways.",
+    "bio": "Heeft meer dan 24 jaar ervaring als tester, testautomatiseerder, coach, trainer en spreker.\nTesten is veel te veelomvattend om in één definitie te vatten: als testautomatiseerder heb je met elk vlak te maken, functioneel en technisch, en dat maakt het een fascinerend en uitdagend werkveld. Het doel is om als tester tijdig betrokken te worden in het proces, zodat kwaliteit voor iedereen wat vanzelfsprekender wordt. Kennis delen werkt daarbij twee kanten op.",
+    "sessionBlurbs": [
+      "Critical Thinking voor IT-professionals",
+      "In de dagelijkse praktijk van IT-projecten wordt er veel verwacht van mensen die kritisch kunnen nadenken over informatie, redenaties én zichzelf. Maar hoe doe je dat eigenlijk, en wat maakt het zo lastig?",
+      "In deze interactieve workshop verkennen we de essentie van kritisch denken aan de hand van een aantal praktische thema’s: hoe verzamel en beoordeel je informatie, hoe herken je denkfouten en biases, en hoe geef je effectief feedback en voer je constructieve gesprekken? Via oefeningen en casus uit de IT-praktijk ga je actief aan de slag met deze vaardigheden.",
+      "De workshop is bedoeld voor iedereen die in een IT-omgeving werkt en zijn of haar professionele scherpte wil aanscherpen: van tester tot developer, van analist tot projectmanager.",
+      "Samen met R. van Steenbergen",
+      "13:20 locatie “ProatHuus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "c-burger",
+    "name": "C. Burger",
+    "isKeynote": false,
+    "bioEn": "C. is an enthusiastic connector who helps teams and organisations discover their strengths through simplicity, openness and creativity. In her work she combines visualisation, curiosity and honest conversations to create movement — precisely by leaning into resistance. With a down-to-earth, human approach she makes complex questions clear and helps people find flow and enjoyment again. She believes that happy people lead to successful projects, and that the best growth happens in a safe, learning environment.",
+    "bio": "C. is een enthousiaste verbinder die teams en organisaties helpt hun kracht te ontdekken door eenvoud, openheid en creativiteit. In haar werk combineert ze visualisatie, nieuwsgierigheid en eerlijke gesprekken om beweging te creëren — juist door naar weerstand toe te gaan. Met haar nuchtere en menselijke aanpak maakt ze complexe vraagstukken helder en helpt ze mensen weer flow en plezier te vinden. Ze gelooft dat gelukkige mensen leiden tot succesvolle projecten, en dat de beste groei ontstaat in een veilige, lerende omgeving.",
+    "sessionBlurbs": [
+      "IT’er kom uit je grot!",
+      "“IT-teams leveren vaak precies wat er gevraagd wordt — maar niet altijd wat de klant écht nodig heeft.",
+      "Om van task-driven naar expectation-driven te gaan, moeten we uit onze IT-grot komen: beter luisteren, minder aannemen en eerder het gesprek aangaan over impact.",
+      "Met de Ladder of Inference leren we ons denken vertragen. In plaats van direct in de oplossing te duiken, kijken we eerst naar feiten, benoemen we onze aannames en onderzoeken we de gevolgen. Zo voorkomen we misverstanden, pakken we de echte behoefte aan en creëren we veel meer vertrouwen.",
+      "Door Socratisch te vragen, OEN-vragen te stellen en impact helder te maken, helpen we klanten begrijpen wat hun verzoek betekent — en begeleiden we ze naar betere keuzes.",
+      "Kort gezegd:",
+      "Goede IT voert taken uit. Geweldige IT helpt klanten nadenken, voorkomt problemen en kiest samen de beste oplossing.",
+      "Dat is hoe je écht levert volgens verwachting.”",
+      "11:15 locatie “The SurfClub”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "h-embregts",
+    "name": "H. Embregts",
+    "isKeynote": false,
+    "bioEn": "H. is a Java developer with a passion for learning, teaching and making music.\nIn his work as a trainer and technology advocate he combines Java development, software architecture, public speaking, leading a speaker community and running courses. Outside of work he enjoys making music with his friends.",
+    "bio": "H. is een Java-ontwikkelaar met een passie voor leren, lesgeven en muziek maken.\nIn zijn werk als trainer en technology advocate combineert hij Java-ontwikkeling, software-architectuur, spreken in het openbaar, het leiden van een sprekerscommunity en het geven van cursussen. Buiten zijn werk maakt hij graag muziek met zijn vrienden.",
+    "sessionBlurbs": [
+      "Blijft Git ook in de toekomst populair? Drie mogelijke opvolgers!",
+      "Rond 2010 gebruikten alleen de ‘early adopters’ Git. De overgrote meerderheid gebruikte Subversion. Tegenwoordig gebruikt bijna iedereen Git. Dus begon ik me af te vragen wat we over tien jaar zullen gebruiken en welke features we tegen die tijd belangrijk zouden vinden. In deze sessie laat ik een aantal post-Git-producten, hun features en hun voor- en nadelen de revue passeren. Blijft Git ook in de toekomst populair? Kom naar deze sessie om het te ontdekken!",
+      "12:45 locatie “The Cabin”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "m-de-graaf",
+    "name": "M. de Graaf",
+    "isKeynote": false,
+    "bioEn": "As an AI champion, he works daily on agentic AI solutions and on integrating security throughout the entire software development lifecycle.\nIn his workshops he translates complex AI and architecture concepts into clear, practical, and actionable insights for developers and architects.\nOutside of work he is the proud caretaker of a food forest.",
+    "bio": "As an AI champion, he works daily on agentic AI solutions and on integrating security throughout the entire software development lifecycle.\nIn his workshops he translates complex AI and architecture concepts into clear, practical, and actionable insights for developers and architects.\nOutside of work he is the proud caretaker of a food forest.",
+    "sessionBlurbs": [
+      "Taking Control of Your AI Coding Agent(s): patterns, guardrails, and practical tips",
+      "This workshop will be in English",
+      "AI coding agents are becoming powerful collaborators, but without the right structure they can easily reduce predictability, security, and code quality. In this workshop, we explore how to stay in control of your AI coding agent(s) by applying proven patterns, guardrails, and pragmatic techniques. Participants will learn how to design safe, effective agent workflows, govern behavior and context, and integrate agents responsibly into real-world development environments. Expect concrete examples, lessons learned, and immediately actionable tips you can apply in your own projects.",
+      "Together with A. Roy",
+      "13:20 locatie “The Housetent”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "hack-the-bank",
+    "name": "Hack the Bank",
+    "isKeynote": false,
+    "bioEn": "Hack the Bank is an immersive cybersecurity experience that helps software-driven organisations build safer applications by teaching developers to think and act like real attackers. Through hands-on exploitation of vulnerabilities based on the OWASP Top 10, participants gain practical insight into how insecure code is discovered, exploited and prevented.\nThe journey combines cinematic hacking storylines, interactive challenges and increasing difficulty levels. Each track focuses on realistic attack techniques and combines storytelling with technical depth to maximise engagement and retention.",
+    "bio": "Hack the Bank is een meeslepende cybersecurity-ervaring die softwaregedreven organisaties helpt om veiligere applicaties te bouwen door ontwikkelaars te leren denken en handelen als echte aanvallers. Door middel van hands-on exploitatie van kwetsbaarheden gebaseerd op de OWASP Top 10 krijgen deelnemers praktisch inzicht in hoe onveilige code wordt ontdekt, misbruikt en voorkomen.\nDe reis combineert filmische hacking-verhaallijnen, interactieve challenges en oplopende moeilijkheidsniveaus. Elke track richt zich op realistische aanvalstechnieken en combineert storytelling met technische diepgang om betrokkenheid en kennisbehoud te maximaliseren.",
+    "sessionBlurbs": [
+      "Leer security door het hacken van real-world applicaties",
+      "Wat een developer onderscheidt van een hacker is niet vaardigheid, maar mindset. In deze interactieve workshop stap je in de wereld van offensive security en leer je hoe aanvallers daadwerkelijk denken.",
+      "We beginnen met een korte introductie in de hacker mindset en de OWASP Top 10—de belangrijkste beveiligingsrisico’s in moderne applicaties. Vervolgens gaat de theorie snel over in de praktijk. Je ontdekt vier realistische kwetsbaarheden en gaat deze actief exploiteren in een reeks hands-on challenges, direct toegankelijk vanaf je mobiele apparaat—zonder installatie.",
+      "Aan het einde van de sessie begrijp je niet alleen hoe deze aanvallen werken, maar vooral hoe eenvoudig ze kunnen voorkomen in alledaagse applicaties. Deze workshop is ontworpen voor developers en nieuwsgierige professionals met interesse in security. Denk als een hacker en ontdek wat anderen over het hoofd zien.",
+      "13:20 locatie “de Foef”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "k-van-heijster",
+    "name": "K. van Heijster",
+    "isKeynote": false,
+    "bioEn": "K. is a software developer with a master's degree in philosophy. So although he knows a thing or two about code and communication, he knows that he knows nothing. K. reflects weekly on the practice of software development.",
+    "bio": "K. is een softwareontwikkelaar met een master filosofie op zak. Dus ondanks dat hij het een en ander weet over code en communicatie, weet hij dat hij niets weet. K. reflecteert wekelijks op de praktijk van softwareontwikkeling.",
+    "sessionBlurbs": [
+      "De vergeten tester",
+      "Testen is cruciaal voor softwarekwaliteit. En toch, toen ik de kans kreeg een nieuw agile softwareteam samen te stellen, “vergat” ik de tester. Hoe verklaren we deze paradox? Hoe kan een tester tegelijkertijd zó belangrijk en toch ongewenst zijn?",
+      "Met hulp van systeemdenken laat ik zien hoe goedbedoelde testrollen onbedoeld kwaliteitsproblemen kunnen veroorzaken — en hoe we dat kunnen doorbreken. Gebaseerd op praktijkervaringen laat ik zien welke patronen tussen testers en ontwikkelaars de kwaliteit ondermijnen, en hoe een alternatieve rolverdeling juist tot betere software leidt.",
+      "Na deze sessie herken je schadelijke dynamieken in je eigen team, en weet je hoe je testen weer een gedeelde verantwoordelijkheid maakt.",
+      "11:15 locatie “De Foef”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "g-de-jong",
+    "name": "G. de Jong",
+    "isKeynote": false,
+    "bioEn": "G. is an aspiring software super-villain on a quest for justice against broken workflows. By day he orchestrates the upgrade and security of core banking systems responsible for billions of euros in transactions; by night he plots against the inefficiency that plagues those very environments.\nWhen not plotting the downfall of the 'Agile' industrial complex, he builds open-source tools that make SREs look like wizards and feel like gods.",
+    "bio": "G. is an aspiring software super-villain on a quest for justice against broken workflows. By day he orchestrates the upgrade and security of core banking systems responsible for billions of euros in transactions; by night he plots against the inefficiency that plagues those very environments.\nWhen not plotting the downfall of the 'Agile' industrial complex, he builds open-source tools that make SREs look like wizards and feel like gods.",
+    "sessionBlurbs": [
+      "How to install Doom on a Mars Rover!",
+      "This presentation will be in English",
+      "Apparently we didn’t upset NASA enough last year hacking into those weather satellite downlinks… we’re going to fix that! “It runs Doom!” has become a subculture of people getting 1993’s original Doom to run on anything from smart watches to ATM machines.",
+      "Now we’re going to show you what made the original source code so special and how it might just be possible to run Doom on the radiation-hardened PowerPC heart of the Mars Curiosity and Perseverance rovers! If you follow the franchise you already know that all this “hell” (excuse the pun) started on Mars after all!",
+      "This talk brings the hardware and software that make satellites and Martian rovers work together with the clever hacks and programming genius that made Doom so ahead of its time. You’ll learn why it was actually impossible to run Doom on the hardware of its day and how it was done anyway.",
+      "You’ll discover how these programming tricks are still relevant today, how they are the very thing that would make it possible to run Doom on a Mars rover, and how you can learn and use these techniques and lessons yourself to give your own software development a truly universal edge.",
+      "If that’s not good enough, you might just be blown away to find that almost exactly the same CPU that powers interplanetary missions is probably lying around in your house just waiting for you to hack it to run Linux and of course… Doom!",
+      "11:15 locatie “The Housetent”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "t-de-jong",
+    "name": "T. de Jong",
+    "isKeynote": false,
+    "bioEn": "'Leave everything better than you found it.' It is this philosophy that T. uses as a guiding principle in his personal and professional life — whether it concerns the applications he works on or the organisations he helps.\nAs a developer, consultant and solution architect he brings structure and calm, with a sharp eye for security and maintainability. Most of all, T. likes to play the role of connector: the link between business and technology, between developers and stakeholders. He gets most of his energy from helping others and contributing to the wider low-code community, for example by organising meetups and writing blogs full of tips & tricks for other developers.",
+    "bio": "“Laat alles beter achter dan hoe je het aantrof.” Het is deze filosofie die T. als leidraad hanteert in zijn persoonlijke en professionele leven — of dit nu gaat over de applicaties waar hij aan werkt of de organisaties die hij helpt.\nAls ontwikkelaar, consultant en solution architect brengt hij structuur en rust met een scherp oog op veiligheid en onderhoudbaarheid. Het liefst speelt T. de rol van verbinder: de schakel tussen business en techniek, tussen ontwikkelaars en stakeholders. De meeste energie krijgt hij van het helpen van anderen en het bijdragen aan de bredere low-code community, bijvoorbeeld door het organiseren van meetups en het schrijven van blogs met Tips & Tricks voor andere ontwikkelaars.",
+    "sessionBlurbs": [
+      "Ontdekken door te doen: Introductie van low-code softwareontwikkeling",
+      "In deze interactieve, hands-on workshop ga je onder begeleiding van doorgewinterde experts ervaren hoe software sneller en robuuster ontwikkeld kan worden met de kernprincipes van het low-code ontwikkelen.",
+      "Wees niet bang, je hebt geen laptop nodig. Alle materialen worden door ons verzorgd.",
+      "Samen met S. Bakker en R. Vervuren",
+      "13:20 locatie “The Cabin”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "b-knaack",
+    "name": "B. Knaack",
+    "isKeynote": false,
+    "bioEn": "A strong advocate of Agile and gamification. As co-founder of an Agile games initiative he knows the power of games and the role they can play in teaching the Agile principles.\nB. has worked as a test manager and test advisor at many companies, coached testers, built test teams and developed all kinds of processes in the areas of testing, test support and overall quality management. He has spoken at various international conferences and is also a well-known speaker at universities and colleges.",
+    "bio": "Een groot voorstander van Agile en gamification. Als medeoprichter van een Agile-games-initiatief kent hij de kracht van games en de rol die ze kunnen spelen bij het aanleren van de Agile-principes.\nB. heeft als testmanager en testadviseur bij tal van bedrijven gewerkt, testers gecoacht, testteams opgebouwd en allerlei processen ontwikkeld op het gebied van testen, testondersteuning en overall kwaliteitsmanagement. Hij heeft op verschillende internationale conferenties gesproken en is ook een bekende spreker op universiteiten en hogescholen.",
+    "sessionBlurbs": [
+      "Vrijmibo, maar dan SpaceRockIT-style",
+      "Vrijdag = loslaten. En dit jaar doen we dat nét even anders…",
+      "Maak je klaar voor een Vrijmibo waar de energie door het dak gaat, want B. Knaack en T. Vos nemen de mic over voor een epische karaoke takeover.",
+      "Geen standaard borrel, maar: ✨ meezingen met je favoriete guilty pleasures ✨ onverwachte duetten ✨ een dansvloer die niet stil blijft staan",
+      "Of je nu komt om te shinen op het podium of om keihard mee te zingen vanaf de zijlijn. Dit is jouw moment.",
+      "🎶 Van classics tot future hits. 🍻 Van borrel tot mini-feest. 🚀 Van vrijdag naar… SpaceRockIT.",
+      "Durf jij de mic te pakken?",
+      "16:00 locatie “The Circus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "s-rane",
+    "name": "S. Rane",
+    "isKeynote": false,
+    "bioEn": "My experience spans data, testing, and infrastructure. I particularly enjoy building, structuring, and growing teams, and I’m a very hands-on person who genuinely enjoys learning, experimenting, and exploring new ideas.\nWhat has increasingly caught my attention in recent years is how rapidly AI is evolving and reshaping almost every sector. AI is no longer just a technical topic; it is influencing how work is structured, how decisions are made, how teams operate, and how people interact with technology daily.\nI explore AI not only from a technical angle, but also from a process, productivity, and human perspective — what it truly changes, what it doesn’t, and what we often overlook or skip when adopting it too quickly.",
+    "bio": "My experience spans data, testing, and infrastructure. I particularly enjoy building, structuring, and growing teams, and I’m a very hands-on person who genuinely enjoys learning, experimenting, and exploring new ideas.\nWhat has increasingly caught my attention in recent years is how rapidly AI is evolving and reshaping almost every sector. AI is no longer just a technical topic; it is influencing how work is structured, how decisions are made, how teams operate, and how people interact with technology daily.\nI explore AI not only from a technical angle, but also from a process, productivity, and human perspective — what it truly changes, what it doesn’t, and what we often overlook or skip when adopting it too quickly.",
+    "sessionBlurbs": [
+      "The Hidden Cost of Intelligence",
+      "This presentation will be in English",
+      "AI is transforming how we work, how we decide, and how we innovate. It holds transformative potential to advance sustainability by improving efficiency, reducing environmental impact, and enabling innovative solutions. However, realizing this potential requires addressing the associated challenges, particularly regarding energy use, resource management, and ethical considerations. There is a side of intelligence we don’t often see — the hidden cost. As AI grows smarter and more powerful, its environmental footprint quietly grows with it. This creates a paradox: AI can help us build a more sustainable world, yet it can also strain the very planet we are trying to protect.",
+      "12:45 locatie “The Housetent”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "n-rooseboom",
+    "name": "N. Rooseboom",
+    "isKeynote": false,
+    "bioEn": "After a few years as a developer, designer and analyst, N. took her first steps into the world of software testing in the early 2000s.\nAs a consultant and team lead she saw many domains, processes and development methods, and she still wonders whether certain developments have really been an improvement, both technically and for people. A tester in her element, with an opinion, but above all a heart for people.",
+    "bio": "Na enkele jaren als ontwikkelaar, ontwerper en analist zette N. begin jaren 2000 de eerste stappen in de wereld van software testen.\nAls consultant en teamleider zag ze diverse domeinen, processen en ontwikkelmethodieken, en ze vraagt zich nog steeds af of bepaalde ontwikkelingen nu echt een verbetering hebben opgeleverd, zowel op systeem- als op menselijk vlak. Een tester in optima forma, met een mening, maar vooral een hart voor de mensen.",
+    "sessionBlurbs": [
+      "Cleared for Automated Acceptance testing",
+      "Bij een landelijke luchtverkeersleidingsorganisatie wordt op dit moment gebouwd aan een nieuw luchtverkeersleidingssysteem. Het verifiëren van dit nieuwe systeem is een pittige klus maar bleek niet eens de grootste uitdaging. Validatie en acceptatie wél. Met een schreeuwend tekort aan verkeersleiders kon de benodigde inspanning voor validatie niet ingevuld worden en dus moest er wat verzonnen worden… Met een initieel idee, het geloof daarin, de durf om veel tijd te investeren én een gezamenlijke inspanning van data-analisten, verkeersleiders en test automation engineers kwam een geautomatiseerde validatiesuite tot stand die voldoende vertrouwen geeft om als input voor acceptatie van het systeem te dienen.",
+      "11:15 locatie “ProatHuus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "a-roy",
+    "name": "A. Roy",
+    "isKeynote": false,
+    "bioEn": "As a principal architect specializing in cloud and AI, A. excels at designing and building new services, delivering innovative solutions for his clients.\nHe is actively committed to keeping the developer community up to date with emerging technologies, advocating best practices, and fostering a culture of continuous learning and innovation.\nA. combines deep expertise in cloud and AI with a strong passion for mentoring and leadership, contributing to technological excellence and an engaged community.",
+    "bio": "As a principal architect specializing in cloud and AI, A. excels at designing and building new services, delivering innovative solutions for his clients.\nHe is actively committed to keeping the developer community up to date with emerging technologies, advocating best practices, and fostering a culture of continuous learning and innovation.\nA. combines deep expertise in cloud and AI with a strong passion for mentoring and leadership, contributing to technological excellence and an engaged community.",
+    "sessionBlurbs": [
+      "Taking Control of Your AI Coding Agent(s): patterns, guardrails, and practical tips",
+      "This workshop will be in English",
+      "AI coding agents are becoming powerful collaborators, but without the right structure they can easily reduce predictability, security, and code quality. In this workshop, we explore how to stay in control of your AI coding agent(s) by applying proven patterns, guardrails, and pragmatic techniques. Participants will learn how to design safe, effective agent workflows, govern behavior and context, and integrate agents responsibly into real-world development environments. Expect concrete examples, lessons learned, and immediately actionable tips you can apply in your own projects.",
+      "Together with M. de Graaf",
+      "13:20 locatie “The Housetent”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "e-schierboom",
+    "name": "E. Schierboom",
+    "isKeynote": false,
+    "bioEn": "E. is a software developer with a passion for sharing knowledge. He is fascinated by programming languages and learns at least one new language every year.\nHe has spent years working on learning platforms that offer the optimal learning experience for dozens of programming languages. In his spare time E. enjoys watching films, playing games, reading books and cooking.",
+    "bio": "E. is een softwareontwikkelaar met een passie voor kennisdeling. Hij is gefascineerd door programmeertalen en leert elk jaar minstens één nieuwe taal.\nHij heeft jarenlang gewerkt aan leerplatformen die de optimale leerervaring bieden voor tientallen programmeertalen. In zijn vrije tijd kijkt E. graag films, speelt hij games, leest boeken en kookt hij graag.",
+    "sessionBlurbs": [
+      "Waarom je nieuwe programmeertalen zou moeten leren",
+      "Ben je tevreden met de programmeertaal die je momenteel gebruikt? Zo ja, waarom zou je nieuwe programmeertalen moeten leren?",
+      "In deze sessie bespreken we de voordelen van het leren van nieuwe programmeertalen, zoals waarom het je een betere ontwikkelaar maakt.",
+      "Je ontvangt praktische tips die helpen bij het kiezen van een nieuwe taal. Ter inspiratie zullen we twee talen demonstreren die dingen nét iets anders doen:",
+      "– R (Array Programming)",
+      "– 8th (Stack Programming)",
+      "Met behulp van live-coding zullen de unieke voordelen (en nadelen) van beide talen en hun paradigma aan bod komen. De getoonde code zal anders zijn dan de gemiddelde taal, dus bereid je voor om verrast te worden!",
+      "11:15 locatie “The Cabin”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "e-smetsers",
+    "name": "E. Smetsers",
+    "isKeynote": false,
+    "bioEn": "E. has gained broad international experience across every area of testing and service delivery. Thanks to his feel for technology he has worked mainly on the side of non-functional requirements and performance.\nHis strength lies in combining technology with process, allowing him to make non-functional testing an integral part of the software lifecycle. His passion is the structural implementation of testing within an organisation, across teams and projects, in collaboration with different teams.",
+    "bio": "E. heeft in zijn carrière ruime internationale ervaring opgedaan op alle gebieden van testen en service delivery. Door zijn gevoel voor techniek acteerde hij vooral aan de kant van de non-functional requirements en performance.\nZijn sterke punt ligt in het combineren van techniek met proces, waardoor hij non-functional testen een integraal onderdeel weet te maken van de software lifecycle. Zijn passie is het structureel implementeren van testen binnen een organisatie, over teams en projecten heen, in samenwerking met verschillende teams.",
+    "sessionBlurbs": [
+      "Lanceer. Monitor. Verbeter: de performance-missie in 30 minuten",
+      "In deze presentatie zie je hoe performance testen een integraal onderdeel kan zijn van het applicatielandschap: van het eerste ontwerp tot en met enterprise-brede end-to-end performance tests. Het begint bij de ontwerpfase, waarin performance-eisen en andere non-functionals vaak te weinig aandacht krijgen. Juist door deze vroeg te bepalen — met principes als shift left en technieken zoals RiskStorming — ontstaat richting in architectuur, technologiekeuze en sizing, en worden latere verrassingen voorkomen.",
+      "Vervolgens zie je hoe performance testen in de praktijk werkt als een meertrapsraket. Eerst wordt het ‘launch platform’ gebouwd: de noodzakelijke basis van testdata, omgevingen, tools, acceptatiecriteria en monitoring. Daarna volgt de lancering in meerdere trappen: van performance checks op teamniveau, via end-to-end testen per applicatie, tot geïntegreerde enterprise tests waarin meerdere ketens samenkomen. Monitoring fungeert hierbij als de telemetrie richting Mission Control, zowel tijdens testen als in productie. Inzichten uit monitoring leiden tot continue verbetering: iedere release wordt zo een nieuwere, snellere en betrouwbaardere raket.",
+      "12:45 locatie “ProatHuus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "r-van-steenbergen",
+    "name": "R. van Steenbergen",
+    "isKeynote": false,
+    "bioEn": "Has 30 years of experience as a tester and has held all sorts of roles in the testing profession: tester, test automation engineer, analyst, test manager, coach, trainer, speaker and everything in between. He gained that experience as a consultant in many organisations.",
+    "bio": "Heeft 30 jaar ervaring als tester en heeft allerlei functies gehad in het testvak: tester, testautomatiseerder, analist, testmanager, coach, trainer, spreker en alles wat daartussen ligt. Die ervaring heeft hij opgedaan als consultant in vele organisaties.",
+    "sessionBlurbs": [
+      "Critical Thinking voor IT-professionals",
+      "In de dagelijkse praktijk van IT-projecten wordt er veel verwacht van mensen die kritisch kunnen nadenken over informatie, redenaties én zichzelf. Maar hoe doe je dat eigenlijk, en wat maakt het zo lastig?",
+      "In deze interactieve workshop verkennen we de essentie van kritisch denken aan de hand van een aantal praktische thema’s: hoe verzamel en beoordeel je informatie, hoe herken je denkfouten en biases, en hoe geef je effectief feedback en voer je constructieve gesprekken? Via oefeningen en casus uit de IT-praktijk ga je actief aan de slag met deze vaardigheden.",
+      "De workshop is bedoeld voor iedereen die in een IT-omgeving werkt en zijn of haar professionele scherpte wil aanscherpen: van tester tot developer, van analist tot projectmanager.",
+      "Samen met B. van den Berg",
+      "13:20 locatie “ProatHuus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "f-stolker",
+    "name": "F. Stolker",
+    "isKeynote": false,
+    "bioEn": "F. specialises in AI, app development & testing; in other words: a professional sceptic. His job is actually very simple: telling others that their software does not (quite) work, and doing so in such a way that they still like him afterwards. He also quite often thinks he could do it better himself — hence development & testing. And he does not want to come up with everything himself, which explains the AI part.\nHe loves IT and mathematics, so it cannot be technical and abstract enough for him. His slogan: don't take yourself too seriously, it always benefits the collaboration.",
+    "bio": "F. is gespecialiseerd in AI, App Development & Testing; oftewel: professioneel twijfelaar. Zijn werk is eigenlijk heel simpel: anderen vertellen dat hun ontwikkelde software niet (goed) werkt en dit op een dusdanige manier dat ze hem daarna nog wel aardig vinden. Daarnaast denkt hij best vaak dat hij het zelf beter kan — vandaar ook: Development & Testing. En hij wil niet alles zelf verzinnen, en dat verklaart het AI-stuk.\nHij is dol op IT en op wiskunde, dus het kan hem niet technisch en abstract genoeg zijn. Zijn slogan: neem jezelf niet te serieus, dat komt de onderlinge samenwerking altijd ten goede.",
+    "sessionBlurbs": [
+      "The QUIZZZZZ",
+      "De befaamde Kahoot-quiz is inmiddels een vast onderdeel geworden van het festivalprogramma.",
+      "De quiz zelf is nooit makkelijk, maar dit jaar zullen er ook vragen bij zijn waarvan de antwoorden bij de diverse andere sessies en workshops op te halen zijn, mits je goed hebt opgelet natuurlijk.",
+      "Maak dus gebruik van dit voordeel waardoor je wellicht meer vragen goed kan beantwoorden.",
+      "Verder wordt jouw algemene en actuele IT-kennis getoetst, dus dat zou geen probleem moeten zijn…",
+      "Hoe dan ook: er zijn leuke prijzen te winnen voor de nummers 1, 2 en 3. Zorg dus dat je erbij bent!!!",
+      "De quizmaster is al vanaf het prille begin met veel plezier van de partij.",
+      "Dat betekent dat hij: de vragen stelt, de antwoorden weet, en volledig willekeurig streng is bij twijfelgevallen 😉",
+      "Mocht je het niet eens zijn met de uitslag: geen probleem, dan behandelen we dit zoals elk IT-probleem: we openen een ticket… en doen er vervolgens niets mee.",
+      "15:20 locatie “The Circus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "r-vervuren",
+    "name": "R. Vervuren",
+    "isKeynote": false,
+    "bioEn": "R. has a passion for process improvement and an eye for the person behind the change. This is how he developed a unique mix of skills. What started as a business analyst grew into leadership within a low-code guild.\nThrough low-code platforms he came into contact with improving business processes and developed further as a low-code consultant, always from the perspective that the software being built stems from the need to change and improve processes. He draws a lot of energy from creating understanding and support for change and guiding those around him; from there he also developed as a trainer and coach. In his spare time R. is often busy with music: as a guitarist he plays in a cover band and regularly hosts jam sessions for starting musicians.",
+    "bio": "R. heeft een passie voor procesverbetering en oog voor de mens achter de verandering. Zo ontwikkelde hij een unieke mix van skills. Wat begon als business analist groeide uit tot leiderschap binnen een low-code gilde.\nHij kwam via low-code platformen in aanraking met het verbeteren van bedrijfsprocessen en ontwikkelde zich verder als low-code consultant, altijd vanuit het perspectief dat de software die wordt gebouwd voortkomt uit de behoefte om processen te veranderen en te verbeteren. Veel energie haalt hij uit het creëren van begrip en draagvlak voor verandering en het begeleiden van zijn omgeving; van daaruit ontwikkelde hij zich ook als trainer en coach. In zijn vrije tijd is R. vaak bezig met muziek: als gitarist speelt hij in een coverband en begeleidt hij regelmatig jamsessies voor startende muzikanten.",
+    "sessionBlurbs": [
+      "Ontdekken door te doen: Introductie van low-code softwareontwikkeling",
+      "In deze interactieve, hands-on workshop ga je onder begeleiding van doorgewinterde experts ervaren hoe software sneller en robuuster ontwikkeld kan worden met de kernprincipes van het low-code ontwikkelen.",
+      "Wees niet bang, je hebt geen laptop nodig. Alle materialen worden door ons verzorgd.",
+      "Samen met S. Bakker en T. de Jong",
+      "13:20 locatie “The Cabin”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "l-van-de-vooren",
+    "name": "L. van de Vooren",
+    "isKeynote": false,
+    "bioEn": "In everyday life L. is an amateur (baritone!) saxophonist and an experienced software tester. You can find her exploring nature, and she also enjoys a concert or the theatre.\nShe likes working in complex environments and does not shy away from a challenge, whether it involves technical complexity or a political environment. In whatever spare time is left she is an avid gamer and enjoys reading (currently mostly fantasy).",
+    "bio": "In het dagelijks leven is L. een amateur (bariton!) saxofonist en een ervaren softwaretester. Je kunt haar vinden terwijl ze de natuur aan het verkennen is, en ze bezoekt ook graag een concert of het theater.\nZe werkt graag in complexe omgevingen en gaat een uitdaging niet uit de weg, of het nu gaat om technische complexiteit of een politieke omgeving. In de vrije tijd die overblijft is ze een fanatieke gamer en leest ze graag (momenteel vooral fantasy).",
+    "sessionBlurbs": [
+      "Bekende en onbekende onbekenden",
+      "Als ik iets nieuws leer, loop ik altijd vast op mijn onbekende onbekenden: de dingen waarvan ik niet weet dat ik ze niet weet. Dit is ook een groot onderwerp in het testen van software. Want als je geen bugs vindt, is dat dan omdat ze er niet zijn, of omdat je niet weet dat je er op de verkeerde manier naar kijkt? In deze talk vertel ik over mijn moeizame verleden met onbekende onbekenden, en hoe ik ermee omga. Een spoiler alvast: stel veel vragen. Vragen over dingen die iedereen al lijkt te weten. En: vraag ook dingen waarvan je denkt dat je ze al weet. Jullie, het publiek, mogen ook meedoen! We doen samen een ronde met ogenschijnlijk eenvoudige opdrachten, waarbij we ontdekken dat het helemaal niet werkt! Voor een paar dappere zielen heb ik ook een opdracht om samen met mij op het podium te doen. Na de talk ben je klaar om dingen die je denkt te weten uit te dagen, en om je onbekende onbekenden zonder angst tegemoet te treden.",
+      "12:45 locatie “The SurfClub”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "t-vos",
+    "name": "T. Vos",
+    "isKeynote": false,
+    "bioEn": "T. Vos is a professor of software engineering and has dedicated her career to advancing the field of software testing through extensive research and more than 25 years of teaching experience.\nShe has been involved in numerous research projects on software testing in industrial settings and has successfully coordinated several internationally funded projects. Her research and practical experience have led her to collaborate with many companies on automated testing projects, including an open-source project for intelligent, automated testing at the graphical user interface (GUI) level.",
+    "bio": "T. Vos is hoogleraar Software Engineering en heeft haar carrière gewijd aan het bevorderen van het vakgebied softwaretesten door middel van uitgebreid onderzoek en meer dan 25 jaar onderwijservaring.\nZe is betrokken geweest bij talrijke onderzoeksprojecten op het gebied van softwaretesten in een industriële omgeving en heeft met succes verschillende internationaal gefinancierde projecten gecoördineerd. Haar onderzoeks- en praktijkervaring hebben ertoe geleid dat ze met veel bedrijven heeft samengewerkt aan geautomatiseerde testprojecten, waaronder een open-sourceproject voor intelligent, geautomatiseerd testen op het niveau van grafische gebruikersinterfaces (GUI).",
+    "sessionBlurbs": [
+      "DISC-over je-superkracht",
+      "Stel je voor: een tester, laten we hem Dave noemen, met een D, die zijn toetsenbord kapot slaat omdat een bug zich niet laat reproduceren. Ondertussen voert Sally, met een S, rustig dezelfde test voor de 47e keer uit, mompelend: “Het komt wel goed.” Zelfde bug, totaal andere aanpak. We testen zo verschillend omdat we nu eenmaal verschillende persoonlijkheden hebben.",
+      "DISC is een toegankelijk persoonlijkheidsmodel met vier stijlen:",
+      "D (Dominantie) is besluitvaardig en resultaatgericht,",
+      "I (Invloed) is enthousiast en mensgericht,",
+      "S (Stabiliteit) is geduldig en betrouwbaar, en",
+      "C (Consciëntieusheid) is analytisch en gedetailleerd.",
+      "In deze workshop gebruiken we DISC als lens om onze eigen communicatiestijl te begrijpen, inclusief onze superkrachten én blinde vlekken. Via interactieve oefeningen ontdek je jouw eigen DISC-profiel, ervaar je hoe verschillende typen dezelfde situaties verschillend kunnen benaderen, en reflecteer je op wanneer jouw stijl uitblinkt of juist struikelt.",
+      "Daarna ga je actief oefenen vanuit een andere DISC-stijl dan de jouwe. Want flexibiliteit begint met begrip.",
+      "Aan het eind ga je naar huis met praktische inzichten over hoe je persoonlijkheidsverschillen kunt benutten, op je werk, maar zeker ook in je privéleven.",
+      "Samen met Y. Vos",
+      "13:20 locatie “The SurfClub”",
+      "Vrijmibo, maar dan SpaceRockIT-style",
+      "Vrijdag = loslaten. En dit jaar doen we dat nét even anders…",
+      "Maak je klaar voor een Vrijmibo waar de energie door het dak gaat, want B. Knaack en T. Vos nemen de mic over voor een epische karaoke takeover.",
+      "Geen standaard borrel, maar: ✨ meezingen met je favoriete guilty pleasures ✨ onverwachte duetten ✨ een dansvloer die niet stil blijft staan",
+      "Of je nu komt om te shinen op het podium of om keihard mee te zingen vanaf de zijlijn. Dit is jouw moment.",
+      "🎶 Van classics tot future hits. 🍻 Van borrel tot mini-feest. 🚀 Van vrijdag naar… SpaceRockIT.",
+      "Durf jij de mic te pakken?",
+      "16:00 locatie “The Circus”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "y-vos",
+    "name": "Y. Vos",
+    "isKeynote": false,
+    "bioEn": "Y. Vos is an interim manager, certified DISC specialist, trainer, entrepreneur and mother. After studying economics she held various general management positions in both for-profit and non-profit organisations.\nWith a sharp eye for organisational development, Y. supports teams and leaders in strengthening their communication, collaboration and professional presence. As a DISC trainer she delivers training and workshops on etiquette, social skills and professional conduct. Her approach is practical, accessible and focused on direct application in daily practice. She believes that social skills are essential for both personal and professional success.",
+    "bio": "Y. Vos is interim manager, gecertificeerd DISC-specialist, trainer, ondernemer en moeder. Na haar studie Economie bekleedde ze diverse algemene managementfuncties binnen zowel profit- als non-profitorganisaties.\nMet een scherp oog voor organisatieontwikkeling ondersteunt Y. teams en leiders bij het versterken van hun communicatie, samenwerking en professionele uitstraling. Als DISC-trainer verzorgt zij trainingen en workshops op het gebied van etiquette, sociale vaardigheden en professioneel gedrag. Haar aanpak is praktisch, toegankelijk en gericht op directe toepassing in de dagelijkse praktijk. Ze gelooft dat sociale vaardigheden essentieel zijn voor zowel persoonlijk als professioneel succes.",
+    "sessionBlurbs": [
+      "DISC-over je-superkracht",
+      "Stel je voor: een tester, laten we hem Dave noemen, met een D, die zijn toetsenbord kapot slaat omdat een bug zich niet laat reproduceren. Ondertussen voert Sally, met een S, rustig dezelfde test voor de 47e keer uit, mompelend: “Het komt wel goed.” Zelfde bug, totaal andere aanpak. We testen zo verschillend omdat we nu eenmaal verschillende persoonlijkheden hebben.",
+      "DISC is een toegankelijk persoonlijkheidsmodel met vier stijlen:",
+      "D (Dominantie) is besluitvaardig en resultaatgericht,",
+      "I (Invloed) is enthousiast en mensgericht,",
+      "S (Stabiliteit) is geduldig en betrouwbaar, en",
+      "C (Consciëntieusheid) is analytisch en gedetailleerd.",
+      "In deze workshop gebruiken we DISC als lens om onze eigen communicatiestijl te begrijpen, inclusief onze superkrachten én blinde vlekken. Via interactieve oefeningen ontdek je jouw eigen DISC-profiel, ervaar je hoe verschillende typen dezelfde situaties verschillend kunnen benaderen, en reflecteer je op wanneer jouw stijl uitblinkt of juist struikelt.",
+      "Daarna ga je actief oefenen vanuit een andere DISC-stijl dan de jouwe. Want flexibiliteit begint met begrip.",
+      "Aan het eind ga je naar huis met praktische inzichten over hoe je persoonlijkheidsverschillen kunt benutten, op je werk, maar zeker ook in je privéleven.",
+      "Samen met T. Vos",
+      "13:20 locatie “The SurfClub”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "j-de-weerdt",
+    "name": "J. de Weerdt",
+    "isKeynote": false,
+    "bioEn": "A game designer disguised as an IT engineer. On a personal mission against boring PowerPoints, always busy with gamification, and at his best with the reins in his hands. J. does not like sitting still: hobbies ranging from sport to gardening, and in his so-called spare time also a student.\nAt work he is busy keeping the engineering culture high and convincing colleagues that it is time to trade their hand-crafted pipelines for infrastructure as code.",
+    "bio": "Game designer verkleed als IT-engineer. Op een persoonlijke missie tegen saaie PowerPoints, altijd bezig met gamification, en op z’n best met de touwtjes in handen. J. houdt niet van stilzitten: hobby’s van sporten tot tuinieren, en in de zogenaamde vrije tijd ook nog student.\nOp de werkvloer druk bezig om de engineering culture hoog te houden en collega’s te overtuigen dat het tijd is om hun knutselwerk-pipelines in te ruilen voor infrastructure as code.",
+    "sessionBlurbs": [
+      "Jouw Cloudmigratie Was Gedoemd Te Mislukken – Pub Quiz Editie",
+      "De belofte was simpel: flexibiliteit, schaalbaarheid en een lagere rekening. Maar de realiteit van clouddiensten bleek een ander verhaal. We duiken in alles wat absoluut niet in de reclamefolder stond: de mythes rondom schaalbaarheid, de onverwachte kosten en de organisatorische hindernissen. Onderbouwd met systematische literatuurstudies, interviews met experts, cloud adoption frameworks en voorbeelden uit het bedrijfsleven. Kom je kennis op de proef stellen. Denk je dat je alles weet over cloudmigraties? Wedden van niet!",
+      "12:45 locatie “De Foef”"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "m-duijst",
+    "name": "M. Duijst",
+    "isKeynote": false,
+    "bioEn": "M. Duijst is a quality, test & agile expert specialising in coaching teams and organisations in quality engineering, testing and agile transformations. She is an international speaker, workshop facilitator and sketchnoter at test & agile conferences.\nIn recent years she has worked in various roles, ranging from agile coach and Scrum Master to more technical roles, with broad experience in multidisciplinary and international teams. For M., IT is ultimately about people; she therefore focuses on clear communication and strong communities as the foundation for high-quality software. You will often find her drawing and sketchnoting.",
+    "bio": "M. Duijst is een Quality-, Test- & Agile-expert, gespecialiseerd in het coachen van teams en organisaties in Quality Engineering, testen en Agile-transformaties. Ze is internationaal spreker, workshopfacilitator en sketchnoter op Test- & Agile-congressen.\nIn de afgelopen jaren werkte ze in verschillende functies, variërend van Agile coach en Scrum Master tot meer technische rollen, met ruime ervaring in multidisciplinaire en internationale teams. Voor M. is IT uiteindelijk mensenwerk; ze richt zich daarom op heldere communicatie en sterke communities als fundament voor kwalitatief goede software. Je vindt haar vaak tekenend en sketchnotend.",
+    "sessionBlurbs": [
+      "Sketchnoting",
+      "E. Moolenaars en M. Duijst tekenen live mee bij SpaceRockIT en maken een grote #sketchnote samenvatting. Kom kijken hoe ze tijdens het festival kleur geven aan de dag, sessies beeldend en visueel samenvatten, en deel ook je eigen impressies over het festival. De dag begint met een leeg vel: alles is nog mogelijk. Tijdens de dag zal steeds meer blijken: Dit is SpaceRockIT!",
+      "De hele dag en overal. 🙂"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  },
+  {
+    "id": "e-moolenaars",
+    "name": "E. Moolenaars",
+    "isKeynote": false,
+    "bioEn": "As a quality coach and facilitator, E. Moolenaars works to help teams and organisations give concrete shape to testing and quality thinking. She does this in roles such as Quality Engineering Lead of a Center of Excellence, coach of DevOps teams and facilitator of productive sessions.\nShe shares her knowledge and experience at (international) conferences as a speaker and workshop leader: getting hands-on with the theory. In doing so she actively uses her visual thinking to help participants 'see' more and discover patterns. Sketchnoting began for her as a way to bring order to what she heard at conferences; now she enjoys sharing those insights with others.",
+    "bio": "Als Quality coach en facilitator zet E. Moolenaars zich in om teams en organisaties het testen en kwaliteitsdenken concreet vorm te geven. Dat doet ze in rollen als Quality Engineering Lead van een Center of Excellence, coach van DevOps-teams en facilitator van productieve sessies.\nHaar kennis en ervaring deelt ze op (internationale) conferenties als spreker en workshopleider: praktisch aan de slag met de theorie. Daarbij zet ze haar visuele denken actief in om deelnemers meer te laten ‘zien’ en patronen te helpen ontdekken. Sketchnoting begon voor haar als manier om orde te brengen in wat ze hoorde tijdens conferenties; inmiddels deelt ze die inzichten graag met anderen.",
+    "sessionBlurbs": [
+      "Sketchnoting",
+      "E. Moolenaars en M. Duijst tekenen live mee bij SpaceRockIT en maken een grote #sketchnote samenvatting. Kom kijken hoe ze tijdens het festival kleur geven aan de dag, sessies beeldend en visueel samenvatten, en deel ook je eigen impressies over het festival. De dag begint met een leeg vel: alles is nog mogelijk. Tijdens de dag zal steeds meer blijken: Dit is SpaceRockIT!",
+      "De hele dag en overal. 🙂"
+    ],
+    "photoFile": "/img/speaker-placeholder.svg"
+  }
+]
