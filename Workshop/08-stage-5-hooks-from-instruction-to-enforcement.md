@@ -54,8 +54,9 @@ Clean all untracked files out of the working tree so we start from a clean slate
 ---
 
 > [!TIP]
-> **Re-running this later, with the hooks already written?** `./scripts/toggle.sh disable
-> hooks` gets you back to the "prose only" state above, and `enable` restores the gate.
+> **Shortcut, for a second pass only.** `./scripts/demo/d5s2-hooks.sh` writes both gate
+> scripts and the config together. Write them by hand first — a gate you did not read is a
+> gate you cannot trust, which is rather the theme of this stage.
 
 ---
 

@@ -193,7 +193,7 @@ explains the starting state and the checks to perform before beginning the first
 | `src/SpaceRockIT.Web/` | The festival website |
 | `src/SpaceRockIT.Reviews.Api/` | The API used by the review exercises |
 | `tests/` | Automated verification projects |
-| `scripts/` | `toggle`, `reset-feature` and `verify` helpers used from Stage 3 onwards |
+| `scripts/` | `reset-feature` and `verify` helpers, plus `scripts/demo/` shortcuts |
 | `global.json` | The required .NET SDK version |
 | `run.ps1`, `run.sh` | Scripts for starting the local applications |
 | `.devcontainer/` | Dev container and Codespaces configuration |
@@ -213,21 +213,33 @@ performed individually, which can fit the workshop into a shorter time slot.
 
 ## Helper scripts
 
-Three small scripts, so that changing the state of the repository never means editing files
-by hand. Use the `.ps1` variant on Windows.
+```
+scripts/
+├── verify.sh            run the Reviews API tests only
+├── reset-feature.sh     remove the review feature, keep the guardrails (Stage 6)
+└── demo/                shortcuts that write the files each stage has you create
+```
+
+Use the `.ps1` variant of any of them on Windows.
 
 | Script | What it does |
 |---|---|
-| `scripts/toggle.sh status` | Shows which guardrail layers are on, and whether any anti-pattern prop is in place |
-| `scripts/toggle.sh disable\|enable <layer>` | Turns a layer off or on by renaming it to `.disabled`. Layers: `instructions`, `path-rules`, `hooks`, `agents`, `mcp` |
-| `scripts/toggle.sh add-prop\|remove-prop <name>` | Writes or removes a deliberately broken file used by the anti-pattern exercises. Props: `conflicting-rule`, `tool-starved` |
-| `scripts/toggle.sh reset` | Every layer on, all props removed |
-| `scripts/reset-feature.sh [--apply]` | Removes the review feature and `docs/`, keeps `.github/` and `.vscode/`. Used by Stage 4. Dry run by default |
 | `scripts/verify.sh` | Runs the Reviews API tests only — the filter every quoted test count assumes |
+| `scripts/reset-feature.sh [--apply]` | Removes the review feature and `docs/`, keeps `.github/` and `.vscode/`. Dry run by default. Used by Stage 6 |
+| `scripts/demo/demo-reset.sh [--apply]` | Removes everything the workshop creates and restores `src/` and `tests/` — back to the very start |
+| `scripts/demo/d*.sh` | One per stage artifact: writes the file(s) that stage teaches you to write |
 
-You never need these to complete the workshop in order; the modules build each layer as you
-reach it. They exist so you can re-run an exercise, compare before-and-after behaviour, or
-reset between runs without guessing what to delete.
+> [!WARNING]
+> **`scripts/demo/` is a set of shortcuts, and shortcuts skip the learning.** Every file
+> those scripts write is one the modules have you write yourself, with an explanation of
+> what each line is for. Running the script gets you the file; it does not get you the
+> understanding, and the understanding is the point.
+>
+> **Write them by hand the first time.** The scripts are for re-running an exercise,
+> catching up if you fell behind, or resetting between attempts. Each one prints the module
+> it short-cuts when it runs, so you know what to go back and read.
+
+See [`scripts/demo/README.md`](scripts/demo/README.md) for the full list.
 
 ## Contributing
 

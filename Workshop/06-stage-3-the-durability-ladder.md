@@ -79,9 +79,9 @@ mkdir -p .github && touch .github/copilot-instructions.md
 ```
 
 > [!TIP]
-> **Coming back to compare later?** Once this file exists, `./scripts/toggle.sh disable
-> instructions` reproduces the Level 0 "before" state on demand, and `enable` puts it back.
-> Nothing is deleted — disabling renames the file to `.disabled`.
+> **Shortcut, for a second pass only.** `./scripts/demo/d3s2-repo-instructions.sh` writes
+> this file for you. Type it by hand the first time — knowing what is in it, and why each
+> line is there, is the exercise. The script exists for re-runs and for catching up.
 
 ### 💬 Step 2: Test Repo Memory in a Blank Chat Tab
 > [!IMPORTANT]
@@ -151,9 +151,9 @@ You did not mention privacy in that second prompt. You mentioned a file path.
 Layering only works while each layer stays in its lane. Here is what happens when it does not.
 
 > [!TIP]
-> `./scripts/toggle.sh add-prop conflicting-rule` writes this file for you, and
-> `remove-prop` takes it away again. Create it by hand the first time — seeing the contents
-> is the point — and use the script when you come back to re-run the exercise.
+> **Shortcut, for a second pass only.** `./scripts/demo/d3s3-conflicting-rule.sh` writes it
+> and `--remove` takes it away. Create it by hand the first time — seeing the contradiction
+> for yourself is the point.
 
 Create a second path-scoped file that contradicts the first:
 
@@ -283,6 +283,12 @@ Read down the last column before you read anything else. The prose in each file 
 personality; the `tools:` line decides what the agent can actually do. Only the second one is
 enforced.
 
+> [!TIP]
+> **Shortcut, for a second pass only.** `./scripts/demo/d4s0-roster.sh` writes all four
+> personas, the supervisor and all four skills in one go. Nine files is a lot of typing, but
+> the tool grants are the whole point of this level — read each `tools:` line before you
+> reach for the script.
+
 ### 📁 Step 1: Create the Four Agent Personas
 
 Create the four empty files first. Run one of the following, or create them manually in VS Code:
@@ -393,8 +399,9 @@ A tool grant that does not cover what the persona's instructions demand does not
 smaller agent. It produces an agent whose work silently does not happen.
 
 > [!TIP]
-> `./scripts/toggle.sh add-prop tool-starved` writes this file for you, and `remove-prop`
-> takes it away again.
+> **Shortcut, for a second pass only.** `./scripts/demo/d4s1-tool-starved.sh` writes it and
+> `--remove` takes it away. Write it by hand first — spotting the mismatch between the
+> instructions and the `tools:` line before you run it is half the lesson.
 
 Create a deliberately broken persona:
 
