@@ -1,13 +1,12 @@
 <#
 .SYNOPSIS
-  Demo 3 Step 4 - the path-scoped instructions, scoped by applyTo to the Reviews API.
+  Stage 3 Level 2 - path-scoped instructions, applied by an applyTo glob.
 
 .DESCRIPTION
-  Writes the file(s) below, overwriting any earlier copy, so the step is repeatable.
-  Content is identical to Module 06 (Stage 3), Level 2, which is where it is explained.
+  Content is identical to Module 06 (Stage 3), Level 2, Step 1, which is where it is explained.
 
-  SHORTCUT WARNING: if you are working through the workshop, write these by hand the
-  first time. Understanding what is in them is the exercise.
+  SHORTCUT WARNING: if you are working through the workshop, write these by hand
+  the first time. Understanding what is in them is the exercise.
 #>
 [CmdletBinding()]
 param([switch]$Remove)
@@ -41,9 +40,9 @@ Set-Content -Path '.github/instructions/reviews.instructions.md' -Value $c0 -Enc
 Write-Host 'wrote:   .github/instructions/reviews.instructions.md'
 
 Write-Host ''
-Write-Host 'Shortcut used. This wrote files the workshop has you write yourself in' -ForegroundColor Yellow
-Write-Host '  Module 06 (Stage 3), Level 2' -ForegroundColor Yellow
+Write-Host 'Shortcut used. This wrote content the workshop has you write yourself in' -ForegroundColor Yellow
+Write-Host '  Module 06 (Stage 3), Level 2, Step 1' -ForegroundColor Yellow
 Write-Host ''
-Write-Host 'If you are following the workshop, open that module and read the content you just'
-Write-Host 'skipped. Knowing what is in these files, and why each line is there, is the whole'
+Write-Host 'If you are following the workshop, open that module and read what you just'
+Write-Host 'skipped. Knowing what is in these files, and why each line is there, is the'
 Write-Host 'point of the exercise - having the files is not.'

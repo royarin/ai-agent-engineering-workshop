@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
-# Demo 3 Step 4 - the path-scoped instructions, scoped by applyTo to the Reviews API.
+# Stage 3 Level 2 - path-scoped instructions, applied by an applyTo glob.
 #
-# Writes the file(s) below, overwriting any earlier copy, so the step is repeatable.
-# Content is identical to Module 06 (Stage 3), Level 2, which is where it is explained.
+# Content is identical to Module 06 (Stage 3), Level 2, Step 1, which is where it is explained.
 #
-# SHORTCUT WARNING: if you are working through the workshop, write these by hand the
-# first time. Understanding what is in them is the exercise.
+# SHORTCUT WARNING: if you are working through the workshop, write these by hand
+# the first time. Understanding what is in them is the exercise.
 
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 
 mkdir -p ".github/instructions"
 
-cat > ".github/instructions/reviews.instructions.md" <<'___DEMO_CONTENT___'
+cat > ".github/instructions/reviews.instructions.md" <<'___WORKSHOP_CONTENT___'
 ---
 applyTo: "src/SpaceRockIT.Reviews.Api/**"
 ---
@@ -32,15 +31,15 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
 
 4. **Observability:**  
    Log every accepted review with `ILogger` at `Information` level, including the workshop identifier, attendee identifier, rating, and the sanitized comment. Always log the redacted comment, never the raw input.
-___DEMO_CONTENT___
+___WORKSHOP_CONTENT___
 echo "wrote:   .github/instructions/reviews.instructions.md"
 
 echo
 cat <<'NOTE'
-Shortcut used. This wrote files the workshop has you write yourself in
-  Module 06 (Stage 3), Level 2
+Shortcut used. This wrote content the workshop has you write yourself in
+  Module 06 (Stage 3), Level 2, Step 1
 
-If you are following the workshop, open that module and read the content you just
-skipped. Knowing what is in these files, and why each line is there, is the whole
+If you are following the workshop, open that module and read what you just
+skipped. Knowing what is in these files, and why each line is there, is the
 point of the exercise - having the files is not.
 NOTE

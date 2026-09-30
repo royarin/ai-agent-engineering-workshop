@@ -26,6 +26,21 @@ In everyday development, critical requirements do not live in your chat clipboar
 Complete this once before the live MCP exercises. These steps use GitHub's hosted MCP endpoints and the GitHub account already signed in to GitHub Copilot; **do not create, paste, or commit a personal access token for this workshop**.
 
 1. Confirm that you are signed in to GitHub Copilot in VS Code and have read access to the workshop repository.
+> [!TIP]
+> **Shortcut — second pass only.** Note what is *not* in the file: no token, anywhere.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage2b-mcp.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage2b-mcp.sh
+> ```
+
 2. Create `.vscode/mcp.json` with the following credential-free configuration. Run one of these first to create the empty file, or create it manually in VS Code:
 
    **Windows (PowerShell):**

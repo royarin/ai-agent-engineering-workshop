@@ -93,6 +93,21 @@ New-Item -ItemType File -Force -Path .github\agents\feature-builder.agent.md | O
 touch .github/agents/feature-builder.agent.md
 ```
 
+> [!TIP]
+> **Shortcut — second pass only.** Read the `tools:` line before anything else — one verb, and that emptiness is the safety argument.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage4-supervisor.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage4-supervisor.sh
+> ```
+
 📝 **Paste the following into `.github/agents/feature-builder.agent.md` and save:**
 
 ```markdown

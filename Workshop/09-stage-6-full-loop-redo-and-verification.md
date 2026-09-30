@@ -209,7 +209,7 @@ Watch the multi-agent personas execute:
 
 Execute the full test suite in your terminal:
 
-```bash
+```text
 dotnet test
 ```
 

@@ -78,7 +78,7 @@ Let's ensure the baseline service builds, tests pass, and the server runs proper
 ### 1. Run Automated Tests
 Open your terminal in the repository root and execute:
 
-```bash
+```text
 dotnet test
 ```
 

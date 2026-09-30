@@ -1,18 +1,21 @@
-#!/usr/bin/env bash
-# Demo 5 Step 2 - the preToolUse gate scripts and the config that switches them on.
-#
-# Writes the file(s) below, overwriting any earlier copy, so the step is repeatable.
-# Content is identical to Module 08 (Stage 5), Steps 1 and 2, which is where it is explained.
-#
-# SHORTCUT WARNING: if you are working through the workshop, write these by hand the
-# first time. Understanding what is in them is the exercise.
+<#
+.SYNOPSIS
+  Stage 5 Level 6 - the preToolUse gate scripts and the config that switches them on.
 
-set -euo pipefail
-cd "$(dirname "$0")/../.."
+.DESCRIPTION
+  Content is identical to Module 08 (Stage 5), Level 6, Steps 1 and 2, which is where it is explained.
 
-mkdir -p ".github/hooks" ".github/hooks/scripts"
+  SHORTCUT WARNING: if you are working through the workshop, write these by hand
+  the first time. Understanding what is in them is the exercise.
+#>
+[CmdletBinding()]
+param([switch]$Remove)
 
-cat > ".github/hooks/scripts/block-dangerous-commands.sh" <<'___DEMO_CONTENT___'
+$ErrorActionPreference = 'Stop'
+Set-Location (Join-Path $PSScriptRoot '../..')
+
+New-Item -ItemType Directory -Force -Path '.github/hooks/scripts' | Out-Null
+$c0 = @'
 #!/usr/bin/env bash
 # preToolUse gate. Reads the tool call on stdin, denies the ones we never want run.
 #
@@ -34,10 +37,12 @@ if printf '%s' "$CMD" | grep -qiE "$DENY_PATTERN"; then
 fi
 
 exit 0
-___DEMO_CONTENT___
-echo "wrote:   .github/hooks/scripts/block-dangerous-commands.sh"
+'@
+Set-Content -Path '.github/hooks/scripts/block-dangerous-commands.sh' -Value $c0 -Encoding UTF8
+Write-Host 'wrote:   .github/hooks/scripts/block-dangerous-commands.sh'
 
-cat > ".github/hooks/scripts/block-dangerous-commands.ps1" <<'___DEMO_CONTENT___'
+New-Item -ItemType Directory -Force -Path '.github/hooks/scripts' | Out-Null
+$c1 = @'
 # preToolUse gate (PowerShell). See the .sh file for the contract.
 $ErrorActionPreference = 'Stop'
 
@@ -54,10 +59,12 @@ if ($cmd -imatch $deny) {
     Write-Output '{"permissionDecision":"deny","permissionDecisionReason":"Blocked by repository policy: destructive or unreviewed-execution command."}'
 }
 exit 0
-___DEMO_CONTENT___
-echo "wrote:   .github/hooks/scripts/block-dangerous-commands.ps1"
+'@
+Set-Content -Path '.github/hooks/scripts/block-dangerous-commands.ps1' -Value $c1 -Encoding UTF8
+Write-Host 'wrote:   .github/hooks/scripts/block-dangerous-commands.ps1'
 
-cat > ".github/hooks/guardrails.json" <<'___DEMO_CONTENT___'
+New-Item -ItemType Directory -Force -Path '.github/hooks' | Out-Null
+$c2 = @'
 {
   "version": 1,
   "hooks": {
@@ -79,17 +86,14 @@ cat > ".github/hooks/guardrails.json" <<'___DEMO_CONTENT___'
     ]
   }
 }
-___DEMO_CONTENT___
-echo "wrote:   .github/hooks/guardrails.json"
+'@
+Set-Content -Path '.github/hooks/guardrails.json' -Value $c2 -Encoding UTF8
+Write-Host 'wrote:   .github/hooks/guardrails.json'
 
-chmod +x ".github/hooks/scripts/block-dangerous-commands.sh"
-
-echo
-cat <<'NOTE'
-Shortcut used. This wrote files the workshop has you write yourself in
-  Module 08 (Stage 5), Steps 1 and 2
-
-If you are following the workshop, open that module and read the content you just
-skipped. Knowing what is in these files, and why each line is there, is the whole
-point of the exercise - having the files is not.
-NOTE
+Write-Host ''
+Write-Host 'Shortcut used. This wrote content the workshop has you write yourself in' -ForegroundColor Yellow
+Write-Host '  Module 08 (Stage 5), Level 6, Steps 1 and 2' -ForegroundColor Yellow
+Write-Host ''
+Write-Host 'If you are following the workshop, open that module and read what you just'
+Write-Host 'skipped. Knowing what is in these files, and why each line is there, is the'
+Write-Host 'point of the exercise - having the files is not.'

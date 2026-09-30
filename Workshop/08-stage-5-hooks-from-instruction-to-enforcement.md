@@ -54,9 +54,20 @@ Clean all untracked files out of the working tree so we start from a clean slate
 ---
 
 > [!TIP]
-> **Shortcut, for a second pass only.** `./scripts/demo/d5s2-hooks.sh` writes both gate
-> scripts and the config together. Write them by hand first — a gate you did not read is a
+> **Shortcut — second pass only.** Write them by hand first; a gate you did not read is a
 > gate you cannot trust, which is rather the theme of this stage.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage5-hooks.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage5-hooks.sh
+> ```
 
 ---
 
@@ -87,6 +98,21 @@ New-Item -ItemType File -Force -Path .github\hooks\guardrails.json | Out-Null
 ```bash
 mkdir -p .github/hooks/scripts && touch .github/hooks/guardrails.json
 ```
+
+> [!TIP]
+> **Shortcut — second pass only.** Writes the config and both gate scripts together.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage5-hooks.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage5-hooks.sh
+> ```
 
 📝 **Paste the following into `.github/hooks/guardrails.json` and save:**
 

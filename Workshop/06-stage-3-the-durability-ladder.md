@@ -79,9 +79,19 @@ mkdir -p .github && touch .github/copilot-instructions.md
 ```
 
 > [!TIP]
-> **Shortcut, for a second pass only.** `./scripts/demo/d3s2-repo-instructions.sh` writes
-> this file for you. Type it by hand the first time — knowing what is in it, and why each
-> line is there, is the exercise. The script exists for re-runs and for catching up.
+> **Shortcut — second pass only.** Type this by hand the first time — knowing what is in it, and why each line is there, is the exercise.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level1-instructions.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level1-instructions.sh
+> ```
 
 ### 💬 Step 2: Test Repo Memory in a Blank Chat Tab
 > [!IMPORTANT]
@@ -99,6 +109,21 @@ Plan adding persistence to our review endpoint.
 ## 🪜 Level 2: Path-Scoped Surgical Instructions (`applyTo`)
 
 Global instructions can cause "prompt bloat". Path-scoped instructions inject specialized rules **only when the agent works on matching file paths**.
+
+> [!TIP]
+> **Shortcut — second pass only.** Write it by hand first; the `applyTo` line is the whole idea.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level2-path-rules.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level2-path-rules.sh
+> ```
 
 ### 📁 Step 1: Create `.github/instructions/reviews.instructions.md`
 Create the file `.github/instructions/reviews.instructions.md`. Run one of the following, or create it manually in VS Code:
@@ -151,9 +176,19 @@ You did not mention privacy in that second prompt. You mentioned a file path.
 Layering only works while each layer stays in its lane. Here is what happens when it does not.
 
 > [!TIP]
-> **Shortcut, for a second pass only.** `./scripts/demo/d3s3-conflicting-rule.sh` writes it
-> and `--remove` takes it away. Create it by hand the first time — seeing the contradiction
-> for yourself is the point.
+> **Shortcut — second pass only.** Create it by hand the first time — seeing the contradiction for yourself is the point. The script undoes itself with `--remove` / `-Remove`.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level2-conflicting-rule.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level2-conflicting-rule.sh
+> ```
 
 Create a second path-scoped file that contradicts the first:
 
@@ -220,6 +255,21 @@ is in the wrong place.
 
 When connecting agents to external tools, security cannot rely on conversational politeness. We enforce least-privilege tool access via configuration.
 
+> [!TIP]
+> **Shortcut — second pass only.** The same file you created in Stage 2B. If it already exists, you can skip this step entirely.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage2b-mcp.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage2b-mcp.sh
+> ```
+
 ### 📁 Step 1: Create `.vscode/mcp.json`
 Create the file `.vscode/mcp.json`. Run one of the following, or create it manually in VS Code:
 
@@ -284,10 +334,19 @@ personality; the `tools:` line decides what the agent can actually do. Only the 
 enforced.
 
 > [!TIP]
-> **Shortcut, for a second pass only.** `./scripts/demo/d4s0-roster.sh` writes all four
-> personas, the supervisor and all four skills in one go. Nine files is a lot of typing, but
-> the tool grants are the whole point of this level — read each `tools:` line before you
-> reach for the script.
+> **Shortcut — second pass only.** Writes all four personas. Nine files across this level and the next is a lot of typing, but the tool grants are the whole point — read each `tools:` line before you reach for the script.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level4-agents.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level4-agents.sh
+> ```
 
 ### 📁 Step 1: Create the Four Agent Personas
 
@@ -399,9 +458,19 @@ A tool grant that does not cover what the persona's instructions demand does not
 smaller agent. It produces an agent whose work silently does not happen.
 
 > [!TIP]
-> **Shortcut, for a second pass only.** `./scripts/demo/d4s1-tool-starved.sh` writes it and
-> `--remove` takes it away. Write it by hand first — spotting the mismatch between the
-> instructions and the `tools:` line before you run it is half the lesson.
+> **Shortcut — second pass only.** Write it by hand first — spotting the mismatch between the instructions and the `tools:` line before you run it is half the lesson. The script undoes itself with `--remove` / `-Remove`.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level4-tool-starved.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level4-tool-starved.sh
+> ```
 
 Create a deliberately broken persona:
 
@@ -471,6 +540,21 @@ rm -f .github/agents/auditor-lite.agent.md
 ## 🪜 Level 5: Reusable Portable Skills (`.github/skills/`)
 
 While instructions define *what* rules to follow, **Skills** encapsulate *how* to execute standard engineering capabilities across 100+ repositories.
+
+> [!TIP]
+> **Shortcut — second pass only.** Writes all four. Read the `description` field of each one first — that is what makes a skill discoverable, and it is the part people get wrong.
+>
+> **Windows (PowerShell):**
+>
+> ```powershell
+> .\scripts\stages\stage3-level5-skills.ps1
+> ```
+>
+> **macOS/Linux (bash):**
+>
+> ```bash
+> ./scripts/stages/stage3-level5-skills.sh
+> ```
 
 ### 📁 Step 1: Create the Four Skills
 

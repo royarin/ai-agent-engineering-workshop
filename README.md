@@ -193,7 +193,7 @@ explains the starting state and the checks to perform before beginning the first
 | `src/SpaceRockIT.Web/` | The festival website |
 | `src/SpaceRockIT.Reviews.Api/` | The API used by the review exercises |
 | `tests/` | Automated verification projects |
-| `scripts/` | `reset-feature` and `verify` helpers, plus `scripts/demo/` shortcuts |
+| `scripts/` | `verify`, `reset-feature`, `reset-all`, plus `scripts/stages/` shortcuts |
 | `global.json` | The required .NET SDK version |
 | `run.ps1`, `run.sh` | Scripts for starting the local applications |
 | `.devcontainer/` | Dev container and Codespaces configuration |
@@ -215,22 +215,32 @@ performed individually, which can fit the workshop into a shorter time slot.
 
 ```
 scripts/
-├── verify.sh            run the Reviews API tests only
-├── reset-feature.sh     remove the review feature, keep the guardrails (Stage 6)
-└── demo/                shortcuts that write the files each stage has you create
+├── verify            run the Reviews API tests only
+├── reset-feature     remove the review feature, keep the guardrails (Stage 6)
+├── reset-all         remove everything every stage creates, back to the start
+└── stages/           one script per stage artifact, named for the stage that teaches it
 ```
 
-Use the `.ps1` variant of any of them on Windows.
+Every script has a `.sh` and a `.ps1`. Use whichever matches your shell.
 
-| Script | What it does |
-|---|---|
-| `scripts/verify.sh` | Runs the Reviews API tests only — the filter every quoted test count assumes |
-| `scripts/reset-feature.sh [--apply]` | Removes the review feature and `docs/`, keeps `.github/` and `.vscode/`. Dry run by default. Used by Stage 6 |
-| `scripts/demo/demo-reset.sh [--apply]` | Removes everything the workshop creates and restores `src/` and `tests/` — back to the very start |
-| `scripts/demo/d*.sh` | One per stage artifact: writes the file(s) that stage teaches you to write |
+**Windows (PowerShell):**
+
+```powershell
+.\scriptserify.ps1
+.\scriptseset-all.ps1 -Apply
+.\scripts\stages\stage3-level1-instructions.ps1
+```
+
+**macOS/Linux (bash):**
+
+```bash
+./scripts/verify.sh
+./scripts/reset-all.sh --apply
+./scripts/stages/stage3-level1-instructions.sh
+```
 
 > [!WARNING]
-> **`scripts/demo/` is a set of shortcuts, and shortcuts skip the learning.** Every file
+> **`scripts/stages/` is a set of shortcuts, and shortcuts skip the learning.** Every file
 > those scripts write is one the modules have you write yourself, with an explanation of
 > what each line is for. Running the script gets you the file; it does not get you the
 > understanding, and the understanding is the point.
@@ -239,7 +249,7 @@ Use the `.ps1` variant of any of them on Windows.
 > catching up if you fell behind, or resetting between attempts. Each one prints the module
 > it short-cuts when it runs, so you know what to go back and read.
 
-See [`scripts/demo/README.md`](scripts/demo/README.md) for the full list.
+See [`scripts/stages/README.md`](scripts/stages/README.md) for the full list.
 
 ## Contributing
 

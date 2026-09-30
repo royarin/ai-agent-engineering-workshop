@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Demo 4 Step 1 - a persona whose tool grant cannot support its own instructions. Pass --remove to take it away.
+# Stage 3 Level 4 Step 3 - ANTI-PATTERN: a persona its tool grant cannot support.
 #
-# Writes the file(s) below, overwriting any earlier copy, so the step is repeatable.
 # Content is identical to Module 06 (Stage 3), Level 4, Step 3, which is where it is explained.
 #
-# SHORTCUT WARNING: if you are working through the workshop, write these by hand the
-# first time. Understanding what is in them is the exercise.
+# SHORTCUT WARNING: if you are working through the workshop, write these by hand
+# the first time. Understanding what is in them is the exercise.
 
 set -euo pipefail
 cd "$(dirname "$0")/../.."
@@ -17,7 +16,7 @@ fi
 
 mkdir -p ".github/agents"
 
-cat > ".github/agents/auditor-lite.agent.md" <<'___DEMO_CONTENT___'
+cat > ".github/agents/auditor-lite.agent.md" <<'___WORKSHOP_CONTENT___'
 ---
 name: auditor-lite
 description: "Lightweight privacy auditor. Use for quick checks that attendee free text is redacted before it reaches logs, storage, or responses."
@@ -26,7 +25,8 @@ tools: ["view", "grep"]
 
 # Auditor (Lite)
 
-<!-- DEMO PROP. The instructions below demand a capability the tools list does not grant. -->
+<!-- ANTI-PATTERN, on purpose. The instructions below demand a capability the tools list
+     does not grant. Remove it once you have seen the effect. -->
 
 You are a fast, focused privacy auditor for the SpaceRockIT Reviews API.
 
@@ -39,15 +39,15 @@ You are a fast, focused privacy auditor for the SpaceRockIT Reviews API.
 - Read-only. Never edit a file.
 - Never report PASS on the strength of reading the code. A path is verified when the
   verification step has run and produced output.
-___DEMO_CONTENT___
+___WORKSHOP_CONTENT___
 echo "wrote:   .github/agents/auditor-lite.agent.md"
 
 echo
 cat <<'NOTE'
-Shortcut used. This wrote files the workshop has you write yourself in
+Shortcut used. This wrote content the workshop has you write yourself in
   Module 06 (Stage 3), Level 4, Step 3
 
-If you are following the workshop, open that module and read the content you just
-skipped. Knowing what is in these files, and why each line is there, is the whole
+If you are following the workshop, open that module and read what you just
+skipped. Knowing what is in these files, and why each line is there, is the
 point of the exercise - having the files is not.
 NOTE

@@ -1,18 +1,21 @@
-#!/usr/bin/env bash
-# Demo 2 Step 3 - the domain and policy context that closes the PII leak.
-#
-# Writes the file(s) below, overwriting any earlier copy, so the step is repeatable.
-# Content is identical to Module 03 (Stage 2A), Steps 1a and 1b, which is where it is explained.
-#
-# SHORTCUT WARNING: if you are working through the workshop, write these by hand the
-# first time. Understanding what is in them is the exercise.
+<#
+.SYNOPSIS
+  Stage 2A - the domain context and the architectural boundary policy.
 
-set -euo pipefail
-cd "$(dirname "$0")/../.."
+.DESCRIPTION
+  Content is identical to Module 03 (Stage 2A), Steps 1a and 1b, which is where it is explained.
 
-mkdir -p "docs/context" "docs/policies"
+  SHORTCUT WARNING: if you are working through the workshop, write these by hand
+  the first time. Understanding what is in them is the exercise.
+#>
+[CmdletBinding()]
+param([switch]$Remove)
 
-cat > "docs/context/spacerockit-domain.md" <<'___DEMO_CONTENT___'
+$ErrorActionPreference = 'Stop'
+Set-Location (Join-Path $PSScriptRoot '../..')
+
+New-Item -ItemType Directory -Force -Path 'docs/context' | Out-Null
+$c0 = @'
 # SpaceRockIT Festival — Domain Background & Operational Context
 
 ## Festival Overview
@@ -24,10 +27,12 @@ SpaceRockIT is a hybrid open-air IT conference and music festival in the Netherl
    - Free-text comments submitted by attendees often inadvertently contain email addresses (e.g. *"Share your slides at alex.dev@enterprise.org"*).
    - Under European GDPR regulations, **email addresses must NEVER be logged in plain text or echoed in aggregate responses**.
    - All email patterns matching RFC 5322 must be sanitized to `[redacted-email]` prior to logging or storage.
-___DEMO_CONTENT___
-echo "wrote:   docs/context/spacerockit-domain.md"
+'@
+Set-Content -Path 'docs/context/spacerockit-domain.md' -Value $c0 -Encoding UTF8
+Write-Host 'wrote:   docs/context/spacerockit-domain.md'
 
-cat > "docs/policies/api-boundaries.md" <<'___DEMO_CONTENT___'
+New-Item -ItemType Directory -Force -Path 'docs/policies' | Out-Null
+$c1 = @'
 # Architectural Boundaries & Scoping Policy
 
 ## Allowed File Modifications
@@ -39,15 +44,14 @@ When implementing API endpoints and tests:
 - Never modify solution structure or global project files (`*.sln`, `*.csproj` package references).
 - Never introduce external database engines, ORMs, or distributed caches.
 - Never modify authentication middleware or infrastructure scripts.
-___DEMO_CONTENT___
-echo "wrote:   docs/policies/api-boundaries.md"
+'@
+Set-Content -Path 'docs/policies/api-boundaries.md' -Value $c1 -Encoding UTF8
+Write-Host 'wrote:   docs/policies/api-boundaries.md'
 
-echo
-cat <<'NOTE'
-Shortcut used. This wrote files the workshop has you write yourself in
-  Module 03 (Stage 2A), Steps 1a and 1b
-
-If you are following the workshop, open that module and read the content you just
-skipped. Knowing what is in these files, and why each line is there, is the whole
-point of the exercise - having the files is not.
-NOTE
+Write-Host ''
+Write-Host 'Shortcut used. This wrote content the workshop has you write yourself in' -ForegroundColor Yellow
+Write-Host '  Module 03 (Stage 2A), Steps 1a and 1b' -ForegroundColor Yellow
+Write-Host ''
+Write-Host 'If you are following the workshop, open that module and read what you just'
+Write-Host 'skipped. Knowing what is in these files, and why each line is there, is the'
+Write-Host 'point of the exercise - having the files is not.'
