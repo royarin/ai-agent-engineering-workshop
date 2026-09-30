@@ -14,7 +14,7 @@
 #   ./scripts/toggle.sh remove-prop  conflicting-rule
 #   ./scripts/toggle.sh reset                 # everything on, all props removed
 #
-# Layers: instructions | path-rules | hooks | agents | mcp
+# Layers: instructions | path-rules | hooks | agents | skills | mcp
 # Props:  conflicting-rule | tool-starved
 #
 # Disabling renames a file to <name>.disabled. Nothing is deleted, and `reset` always
@@ -29,6 +29,7 @@ layer_path() {
     path-rules)   echo ".github/instructions/reviews.instructions.md" ;;
     hooks)        echo ".github/hooks/guardrails.json" ;;
     agents)       echo ".github/agents" ;;
+    skills)       echo ".github/skills" ;;
     mcp)          echo ".vscode/mcp.json" ;;
     *) return 1 ;;
   esac
@@ -97,7 +98,7 @@ cmd="${1:-status}"
 case "$cmd" in
   status)
     echo "Governance layers"
-    for l in instructions path-rules hooks agents mcp; do
+    for l in instructions path-rules hooks agents skills mcp; do
       p=$(layer_path "$l")
       if   [ -e "$p" ];           then printf "  %-14s on       %s\n" "$l" "$p"
       elif [ -e "$p.disabled" ];  then printf "  %-14s DISABLED %s.disabled\n" "$l" "$p"
@@ -143,7 +144,7 @@ case "$cmd" in
     ;;
 
   reset)
-    for l in instructions path-rules hooks agents mcp; do
+    for l in instructions path-rules hooks agents skills mcp; do
       p=$(layer_path "$l")
       if [ -e "$p.disabled" ]; then mv "$p.disabled" "$p"; echo "enabled:  $p"; fi
     done

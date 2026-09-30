@@ -9,7 +9,7 @@
   demand - for re-running an exercise, for comparing behaviour, or for driving the
   conference demos, which walk the same ground faster.
 
-  Layers: instructions | path-rules | hooks | agents | mcp
+  Layers: instructions | path-rules | hooks | agents | skills | mcp
   Props:  conflicting-rule | tool-starved
 
   Disabling renames a file to <name>.disabled. Nothing is deleted, and reset puts it back.
@@ -37,6 +37,7 @@ $Layers = [ordered]@{
     'path-rules'   = '.github/instructions/reviews.instructions.md'
     'hooks'        = '.github/hooks/guardrails.json'
     'agents'       = '.github/agents'
+    'skills'       = '.github/skills'
     'mcp'          = '.vscode/mcp.json'
 }
 $Props = [ordered]@{
