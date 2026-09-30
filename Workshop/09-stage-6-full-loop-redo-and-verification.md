@@ -1,9 +1,15 @@
-# Module 07 — Stage 4: The Full Loop Redo & Live Verification
+# Module 09 — Stage 6: The Full Loop Redo & Live Verification
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 3 — The Durability Ladder](06-stage-3-the-durability-ladder.md) | **Current: Module 07 (Stage 4)** | [Next Step: Module 08 — Wrap-Up & Takeaways →](08-wrap-up-and-takeaways.md)
+[← Previous Step: Stage 5 — Hooks](08-stage-5-hooks-from-instruction-to-enforcement.md) | **Current: Module 09 (Stage 6)** | [Next Step: Wrap-Up & Takeaways →](10-wrap-up-and-takeaways.md)
 
 ---
+
+> [!NOTE]
+> **This is the last stage, and it is the only one that uses everything at once.** Stages 0
+> to 2C taught you what context to provide; Stage 3 made it durable; Stage 4 gave you a
+> supervisor; Stage 5 made the important rules enforceable. Here you delete the feature and
+> find out whether the system you built can put it back.
 
 ## 🎯 Learning Goal
 Experience the ultimate payoff of the Durability Ladder. Reset the repository to a clean baseline,
@@ -18,7 +24,7 @@ audit, and generate an auditor-ready PR.
 Do this before anything else in Stage 4. Remove the review feature you built in Stages 1–2C and keep
 the Durability Ladder you built in Stage 3.
 
-Do this because Stage 4 answers one question: **can your durable context rebuild the feature from
+Do this because Stage 6 answers one question: **can your durable context rebuild the feature from
 nothing?** Leave the old code in place and the agent will just edit what it finds, so you never see
 the answer.
 
@@ -47,8 +53,18 @@ the answer.
 ### 1. Stop the running applications
 
 Go to the terminals running the Reviews API and the web front end and press **Ctrl+C** in each. Free
-port 5081 now — if the old API keeps running, your Stage 4 verification will hit the previous build
+port 5081 now — if the old API keeps running, your verification will hit the previous build
 and appear to pass for the wrong reason.
+
+> [!TIP]
+> **Prefer the script.** `scripts/reset-feature.sh` (or `.ps1`) performs steps 2 and 3 in one
+> go and refuses to touch `.github/` or `.vscode/`. Run it without arguments first for a dry
+> run that lists exactly what would be removed:
+>
+> **Windows (PowerShell):** `.\scripts\reset-feature.ps1` then `.\scripts\reset-feature.ps1 -Apply`
+> **macOS/Linux (bash):** `./scripts/reset-feature.sh` then `./scripts/reset-feature.sh --apply`
+>
+> The manual steps below are what the script does, kept here so you can see it.
 
 ### 2. Undo the API and test project changes
 
@@ -111,12 +127,23 @@ Your repository is now reset and ready.
 > **Why keep the Stage 1–2C code and `docs/` all the way through Stage 3?** Stage 3 needed a real,
 > existing implementation and a visible manual-context file so you could watch small scoped edits
 > pick up your new instruction files and compare the two approaches side by side. They have now
-> served their purpose. From here they are only noise — Stage 4 measures whether durable context
+> served their purpose. From here they are only noise — This stage measures whether durable context
 > alone can rebuild the feature, and anything left over would weaken that result.
 
 ---
 
 ## 💬 Step 1: Send the Ultra-Minimal Story Prompt
+
+You can run this stage two ways. Do the first; come back and do the second if you have time,
+because the difference between them is the whole argument for Stage 4.
+
+| | Prompt | What you are testing |
+|---|---|---|
+| **A — default agent** | `Implement Issue #1.` | Whether durable context alone is enough |
+| **B — supervisor** | Select **Feature Builder**, then `Implement Issue #1.` | Whether explicit sequencing beats inference |
+
+Run **A** first.
+
 
 Remember Stage 0 when we had to type a long prompt and still received hallucinated code?
 
@@ -146,7 +173,12 @@ Watch how the agentic harness assembles context without being reminded:
 4. **Structured Plan Output:** Outputs an implementation plan *before* touching files:
    - *Phase 1 (Developer):* Controller endpoints, in-memory storage, idempotency, `ILogger` observability, and `/skill pii-sanitizer`.
    - *Phase 2 (Tester):* Automated xUnit test suite targeting all boundary conditions and synthetic PII fixtures.
-   - *Phase 3 (Reviewer):* Pre-merge compliance audit.
+   - *Phase 3 (Documenter):* Decision records for the constraints this feature locks in.
+   - *Phase 4 (Reviewer):* Pre-merge compliance audit over both the code and the record.
+
+> [!NOTE]
+> Document runs **before** review, not after it. The reviewer should be auditing the decision
+> record alongside the code — a decision nobody wrote down is a decision nobody can review.
 
 ---
 
@@ -162,6 +194,14 @@ Watch the multi-agent personas execute:
 - **Tester Persona (`@tester`):**
   - Adds comprehensive xUnit tests in `tests/SpaceRockIT.Reviews.Api.Tests/`.
   - Runs `dotnet test` in the terminal.
+- **Documenter Persona (`@documenter`):**
+  - Writes decision records under `docs/adr/` via `/skill adr` — typically one for the
+    in-memory persistence choice and one for redacting email before logging.
+  - Records **where each constraint came from**: the rating range and idempotency cite the
+    issue; the redaction rule cites the linked PII policy page.
+  - Has no shell verb, so it cannot run the suite. Watch what it writes about the test result:
+    it attributes the count to `@tester` rather than claiming it. That is the clearance doing
+    a second job — bounding not only what the agent can damage, but what it can honestly assert.
 
 ---
 
@@ -183,9 +223,9 @@ All 9 test cases pass:
 2. `Health_leaks_nothing_internal` (Baseline health test)
 3. `PostReview_ValidRating_Returns201Created` (Stage 1 rating validation)
 4. `PostReview_RatingOutOfRange_Returns400BadRequest` (Stage 1 boundary rejection)
-5. `PostReview_CommentWithEmail_RedactsEmailToPlaceholder` (Stage 4 PII sanitization)
-6. `PostReview_SameAttendeeDuplicate_UpdatesExistingRatingIdempotently` (Stage 4 idempotency)
-7. `GetReview_CalculatesAverageRatingAndCount` (Stage 4 aggregation)
+5. `PostReview_CommentWithEmail_RedactsEmailToPlaceholder` (PII sanitization)
+6. `PostReview_SameAttendeeDuplicate_UpdatesExistingRatingIdempotently` (idempotency)
+7. `GetReview_CalculatesAverageRatingAndCount` (aggregation)
 8. `PostReview_CommentExceeding500Chars_Returns400BadRequest` (Stage 2C refined maximum-length validation)
 9. `PostReview_WhitespaceOnlyComment_Returns400BadRequest` (Stage 2C refined blank-comment validation)
 
@@ -195,6 +235,33 @@ All 9 test cases pass:
 
 > [!TIP]
 > Your exact test count and names may differ. Agents are non-deterministic, and some will add an extra test for the logging behaviour required by `reviews.instructions.md`. What matters is that **Failed: 0** and that every acceptance criterion has at least one test covering it.
+
+---
+
+## 📝 Step 4b: Inspect the Decision Records
+
+The feature is not the only output. Look at what the documenter produced:
+
+```text
+docs/
+└── adr/
+    ├── 0001-keep-review-persistence-in-memory.md
+    └── 0002-redact-email-before-logging.md
+```
+
+Open `0002` and read its **Consequences** section. A good record will note that the pattern
+covers email addresses only, and that widening it later supersedes the record rather than
+editing it in place. Nobody asked for that caveat — it falls out of the skill's template.
+
+Then check the **Source** line on each record. `0001` should cite the issue and the
+architectural boundary in `copilot-instructions.md`; `0002` should cite the PII policy wiki
+page reached over MCP, not the issue. The distinction matters: one constraint came from the
+product, the other from a standard that outlives this ticket.
+
+> [!TIP]
+> If the documenter wrote "all tests pass" as a bare assertion, that is worth pausing on. It
+> has no shell verb, so it did not run them. Ask it to attribute the claim, and notice that
+> the fix is a clearance question rather than a writing-quality one.
 
 ---
 
@@ -328,7 +395,88 @@ Closes #1
 
 ---
 
-## 🧠 Key Takeaways from Stage 4
+---
+
+## 🔁 Step 7: Run It Again Through the Supervisor
+
+Reset the feature once more:
+
+**Windows (PowerShell):** `.\scripts\reset-feature.ps1 -Apply`
+**macOS/Linux (bash):** `./scripts/reset-feature.sh --apply`
+
+Then, in a new session, select the **Feature Builder** agent and send the same three words:
+
+```text
+Implement Issue #1.
+```
+
+**What to compare:**
+
+1. **Does the documentation stage happen without being asked?** Under the default agent it
+   depends on inference. Under the supervisor it is step 4 of a written workflow.
+2. **Does the report name its assumptions?** The supervisor is instructed to surface every
+   decision it made without being told. That list is your human gate.
+3. **Is the audit skipped when the change looks small?** The supervisor is told never to skip
+   it. Inference sometimes does.
+
+> [!NOTE]
+> Sometimes run A is just as good. That is a fair result and worth sitting with — a
+> supervisor buys you *repeatability*, not raw quality. When the flow is the same every time
+> and you are tired of sequencing it by hand, the supervisor earns its place. Before that it
+> is overhead.
+
+---
+
+## 🛡️ Step 8: Watch the Hooks Fire
+
+Your Stage 5 gates have been live throughout this whole stage. Make that visible.
+
+### 1. The completion gate
+
+Break one test deliberately:
+
+```csharp
+// in tests/SpaceRockIT.Reviews.Api.Tests/ApiTests.cs, Health_responds
+Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);   // was OK
+```
+
+Then tell the agent it is finished:
+
+```text
+That's everything for this task — you can stop here.
+```
+
+The `agentStop` hook runs the suite, finds it red, and sends the agent back for another turn.
+**The agent does not get to decide it is done.** Undo the break afterwards:
+
+```text
+git checkout -- tests/SpaceRockIT.Reviews.Api.Tests/ApiTests.cs
+```
+
+### 2. The tool gate
+
+```text
+Clean all untracked files out of the working tree.
+```
+
+```json
+{"permissionDecision":"deny","permissionDecisionReason":"Blocked by repository policy: destructive or unreviewed-execution command."}
+```
+
+That gate is also why the reset in Step 0 has to be scoped and scripted rather than a bare
+`git clean -fd` — the hook stops the agent, not you.
+
+---
+
+## 🧠 Key Takeaways from Stage 6
+
+**What just happened, in one paragraph.** You deleted a feature and rebuilt it from three
+words. The rating range and idempotency came from the issue over MCP. The redaction pattern
+came from a policy page the issue merely linked to. The log line came from a path-scoped
+instruction file, and no acceptance criterion ever mentioned it. The decision records came
+from an agent with no shell access, so it attributed the test result rather than claiming it.
+A read-only reviewer audited the lot, and a hook refused to let anything finish while the
+suite was red. You typed three words.
 
 > **Key Takeaway:** *"A fast, predictable, test-verified, PII-safe feature — fully planned, executed, tested, and audited within governed boundaries in under an hour."*
 
@@ -337,4 +485,4 @@ Head over to **Module 08** for a final retrospective and self-paced challenge ex
 ---
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 3 — The Durability Ladder](06-stage-3-the-durability-ladder.md) | **Current: Module 07 (Stage 4)** | [Next Step: Module 08 — Wrap-Up & Takeaways →](08-wrap-up-and-takeaways.md)
+[← Previous Step: Stage 5 — Hooks](08-stage-5-hooks-from-instruction-to-enforcement.md) | **Current: Module 09 (Stage 6)** | [Next Step: Wrap-Up & Takeaways →](10-wrap-up-and-takeaways.md)

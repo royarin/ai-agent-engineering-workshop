@@ -1,7 +1,7 @@
-# Module 08 — Wrap-Up, Takeaways & Challenge Exercises
+# Module 10 — Wrap-Up, Takeaways & Challenge Exercises
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 4 — The Full Loop Redo](07-stage-4-full-loop-redo-and-verification.md) | **Current: Module 08 (Wrap-Up)** | [Workshop Roadmap](../README.md)
+[← Previous Step: Stage 6 — The Full Loop Redo](09-stage-6-full-loop-redo-and-verification.md) | **Current: Module 10 (Wrap-Up)** | [Workshop Roadmap](../README.md)
 
 ---
 
@@ -9,7 +9,7 @@
 
 You have completed the **Taking Control of Your AI Coding Agent(s)** workshop.
 
-You transformed an unguided AI assistant from an unpredictable "noise machine" into a disciplined, governed engineering collaborator operating within strict architectural, privacy, and testing boundaries.
+Across seven stages you transformed an unguided AI assistant from an unpredictable "noise machine" into a disciplined, governed engineering collaborator operating within strict architectural, privacy, and testing boundaries.
 
 ---
 
@@ -23,7 +23,9 @@ You transformed an unguided AI assistant from an unpredictable "noise machine" i
 | **Stage 2B** | Context by Connection | Stale / fragile clipboard copy-pasting | Connected to Issue #1 (or the issue number assigned in your repository) and its linked PII policy via MCP; uncovered idempotency | GitHub issue and PII policy wiki page |
 | **Stage 2C** | Iterative Refinement | Re-prompting entire chat history on change | Dynamic MCP re-fetch; agent updated plan for 500-char comment limit | Updated workshop issue |
 | **Stage 3** | The Durability Ladder | Chat rules forgotten when tab closes | Committed Repo Memory, Path Scoping, MCP Tool Limits, Personas & Skills | `.github/copilot-instructions.md`, `.github/instructions/`, `.vscode/mcp.json`, `.github/agents/`, `.github/skills/` |
-| **Stage 4** | The Full Loop Redo | Micromanaged code editing | Ultra-minimal prompt (`Implement Issue #1`, or your assigned issue); implicit execution, Green Bookend | Verified PR & passing xUnit tests |
+| **Stage 4** | Orchestration | Routed workflows silently drop requests that span two specialists | Supervisor whose only capability is delegation; document sequenced before review | `.github/agents/feature-builder.agent.md` |
+| **Stage 5** | Enforcement | Every rule so far was advisory — the agent could ignore any of it | `preToolUse` denies before execution; `agentStop` refuses to finish on a red suite | `.github/hooks/guardrails.json` and its scripts |
+| **Stage 6** | The Full Loop Redo | Micromanaged code editing, and no proof the system holds together | Ultra-minimal prompt (`Implement Issue #1`); every layer exercised at once, Green Bookend | Verified PR, decision records & passing xUnit tests |
 
 ---
 
@@ -34,8 +36,19 @@ You transformed an unguided AI assistant from an unpredictable "noise machine" i
 | **Repo Instructions** | `.github/copilot-instructions.md` | Global repository memory and non-negotiable boundaries | Architecture constraints, plan-first mandates, test obligations |
 | **Path Instructions** | `.github/instructions/*.instructions.md` | Path-scoped rules with `applyTo` glob patterns | Specific business logic, route handlers, database modules |
 | **Tool Governance** | `.vscode/mcp.json` | Physical tool permissions (read-only / domain locks) | Enterprise MCP integrations (GitHub, Jira, ADO) |
-| **Custom Agents** | `.github/agents/*.agent.md` | Persona separation of concerns & write boundary enforcement | `@developer`, `@tester`, `@reviewer` roles |
-| **Reusable Skills** | `.github/skills/*.skill.md` | Executable capabilities portable across 100+ repositories | PII redaction, Conventional Commits, PR scaffolding |
+| **Custom Agents** | `.github/agents/*.agent.md` | Persona separation of concerns & write boundary enforcement | `@developer`, `@tester`, `@documenter`, `@reviewer` roles |
+| **Reusable Skills** | `.github/skills/*.skill.md` | Executable capabilities portable across 100+ repositories | PII redaction, Conventional Commits, PR scaffolding, decision records |
+| **Supervisor Agent** | `.github/agents/feature-builder.agent.md` | Sequences specialists across the full flow; `tools: ["agent"]` only | A repeating multi-stage workflow you are tired of driving by hand |
+| **Agent Hooks** | `.github/hooks/*.json` | Deterministic enforcement around the agent lifecycle | Blocking destructive commands; gating completion on a green suite |
+
+---
+
+## 🧭 The One-Sentence Version
+
+Everything from Stage 0 to Stage 5 makes it **more likely** the agent does the right thing.
+Stage 6 is the only rung that makes the wrong thing **impossible**. Build both walls — the
+advisory layers tell the agent what good looks like, and the deterministic layer makes the
+worst outcomes unreachable. Neither substitutes for the other.
 
 ---
 
@@ -92,4 +105,4 @@ Test your new skills by completing these three hands-on challenges:
 ---
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 4 — The Full Loop Redo](07-stage-4-full-loop-redo-and-verification.md) | **Current: Module 08 (Wrap-Up)** | [Workshop Roadmap](../README.md)
+[← Previous Step: Stage 6 — The Full Loop Redo](09-stage-6-full-loop-redo-and-verification.md) | **Current: Module 10 (Wrap-Up)** | [Workshop Roadmap](../README.md)

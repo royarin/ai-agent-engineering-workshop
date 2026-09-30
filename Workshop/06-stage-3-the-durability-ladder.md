@@ -1,7 +1,7 @@
 # Module 06 — Stage 3: The Durability Ladder
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 2C — Iterative Ticket Refinement](05-stage-2c-iterative-ticket-refinement.md) | **Current: Module 06 (Stage 3)** | [Next Step: Stage 4 — The Full Loop Redo →](07-stage-4-full-loop-redo-and-verification.md)
+[← Previous Step: Stage 2C — Iterative Ticket Refinement](05-stage-2c-iterative-ticket-refinement.md) | **Current: Module 06 (Stage 3)** | [Next Step: Stage 4 — Orchestration Patterns →](07-stage-4-orchestration-patterns.md)
 
 ---
 
@@ -9,7 +9,8 @@
 Learn why typing rules into chat prompts fails across teams and sessions, and progressively build **The Durability Ladder** (Levels 0 → 5) using committed repository instructions, path-scoped rules, tool governance, custom agent personas, and reusable skills.
 
 ```text
-  ▲  Level 5: Reusable Skills (`.github/skills/`)        → Portable across 100+ repositories
+  ▲  Level 6: Agent Hooks (`.github/hooks/`)             → Enforcement, not advice  (Stage 5)
+  │  Level 5: Reusable Skills (`.github/skills/`)        → Portable across 100+ repositories
   │  Level 4: Custom Agents (`.github/agents/`)          → Specialized personas & role refusal
   │  Level 3: Tool & MCP Governance (`.vscode/mcp.json`) → Least-privilege API permissions
   │  Level 2: Path-Scoped Instructions (`applyTo`)       → Surgical, zero-bloat file rules
@@ -77,6 +78,11 @@ mkdir -p .github && touch .github/copilot-instructions.md
 - Use the `/skill pii-sanitizer` skill to apply the standard redaction logic.
 ```
 
+> [!TIP]
+> **Coming back to compare later?** Once this file exists, `./scripts/toggle.sh disable
+> instructions` reproduces the Level 0 "before" state on demand, and `enable` puts it back.
+> Nothing is deleted — disabling renames the file to `.disabled`.
+
 ### 💬 Step 2: Test Repo Memory in a Blank Chat Tab
 > [!IMPORTANT]
 > **Start a new session in Copilot Chat in VS Code**, select **Ask** mode, and send:
@@ -133,10 +139,80 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
 ```
 
 ### 💬 Step 2: Test Path Scoping
-1. **Out of Scope Test:** Ask Copilot: *"Refactor styling in src/SpaceRockIT.Web/wwwroot/site.css"*.  
+1. **Out of Scope Test:** Ask Copilot: *"Refactor styling in src/SpaceRockIT.Web/wwwroot/css/site.css"*.  
    → The review rules are **not loaded**, keeping context clean.
 2. **In Scope Test:** Ask Copilot: *"Update src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs to log incoming attendee comments"*.  
    → The agent **automatically applies email sanitization** to the logger without being asked!
+
+You did not mention privacy in that second prompt. You mentioned a file path.
+
+### 🚨 Step 3: The Anti-Pattern — Two Files, One Rule
+
+Layering only works while each layer stays in its lane. Here is what happens when it does not.
+
+> [!TIP]
+> `./scripts/toggle.sh add-prop conflicting-rule` writes this file for you, and
+> `remove-prop` takes it away again. Create it by hand the first time — seeing the contents
+> is the point — and use the script when you come back to re-run the exercise.
+
+Create a second path-scoped file that contradicts the first:
+
+**Windows (PowerShell):**
+```powershell
+New-Item -ItemType File -Force -Path .github\instructions\rating-scale.instructions.md | Out-Null
+```
+
+**macOS/Linux (bash):**
+```bash
+touch .github/instructions/rating-scale.instructions.md
+```
+
+📝 **Paste the following and save:**
+
+```markdown
+---
+applyTo: "src/SpaceRockIT.Reviews.Api/**"
+---
+
+# Reviews module — rating scale
+
+1. **Rating validation.** Ratings are integers from `1` to `10` inclusive. Anything outside
+   that range returns HTTP `400 Bad Request`.
+
+2. The ten-point scale is the house standard for all attendee-facing feedback surfaces.
+```
+
+Now, in a **new chat session**, ask:
+
+```text
+What rating range does this project allow, and which file says so?
+```
+
+**What to expect:** the agent states one bound with complete confidence and does **not**
+mention that two files in the same repository disagree. Run it two or three times in fresh
+sessions — the winner is not always the same one.
+
+> [!WARNING]
+> There is no conflict error. There is no precedence warning. A rule duplicated across two
+> layers is a coin flip you cannot see, and the losing rule fails silently for as long as
+> nobody checks.
+
+**Now delete the file before continuing:**
+
+**Windows (PowerShell):**
+```powershell
+Remove-Item -Force .github\instructions\rating-scale.instructions.md
+```
+
+**macOS/Linux (bash):**
+```bash
+rm -f .github/instructions/rating-scale.instructions.md
+```
+
+🔍 **The rule this teaches:** each layer must not restate another. Global, evergreen norms go
+in the global file. Language, framework and module rules go in path-scoped files. Persona and
+process go in agent files. When you find yourself writing the same rule twice, one of the two
+is in the wrong place.
 
 ---
 
@@ -192,27 +268,34 @@ the issue number assigned in your repository), the tool harness physically block
 
 ## 🪜 Level 4: Specialized Custom Agents (`.github/agents/`)
 
-A single monolithic agent should not write code, write tests, and approve its own PR. We separate duties into three specialized personas:
+A single monolithic agent should not write code, write tests, document its own decisions and
+approve its own PR. We separate duties into four specialized personas, one per stage of
+`implement → test → document → review`:
 
 | Agent Persona | File | Mandate | Permitted Scope |
 |---|---|---|---|
 | **Developer** (`@developer`) | `developer.agent.md` | ASP.NET Core Web API (Controllers) & model implementation | `src/SpaceRockIT.Reviews.Api/**` only |
 | **Tester** (`@tester`) | `tester.agent.md` | QA, boundary tests, synthetic fixtures | `tests/SpaceRockIT.Reviews.Api.Tests/**` only |
+| **Documenter** (`@documenter`) | `documenter.agent.md` | Decision records and module documentation | `docs/**` only — **no shell access** |
 | **Reviewer** (`@reviewer`) | `reviewer.agent.md` | Read-only security & compliance audit | **Read-Only** (Zero write permissions) |
 
-### 📁 Step 1: Create the Three Agent Personas
+Read down the last column before you read anything else. The prose in each file describes a
+personality; the `tools:` line decides what the agent can actually do. Only the second one is
+enforced.
 
-Create the three empty files first. Run one of the following, or create them manually in VS Code:
+### 📁 Step 1: Create the Four Agent Personas
+
+Create the four empty files first. Run one of the following, or create them manually in VS Code:
 
 **Windows (PowerShell):**
 ```powershell
 New-Item -ItemType Directory -Force -Path .github\agents | Out-Null
-New-Item -ItemType File -Force -Path .github\agents\developer.agent.md, .github\agents\tester.agent.md, .github\agents\reviewer.agent.md | Out-Null
+New-Item -ItemType File -Force -Path .github\agents\developer.agent.md, .github\agents\tester.agent.md, .github\agents\documenter.agent.md, .github\agents\reviewer.agent.md | Out-Null
 ```
 
 **macOS/Linux (bash):**
 ```bash
-mkdir -p .github/agents && touch .github/agents/developer.agent.md .github/agents/tester.agent.md .github/agents/reviewer.agent.md
+mkdir -p .github/agents && touch .github/agents/developer.agent.md .github/agents/tester.agent.md .github/agents/documenter.agent.md .github/agents/reviewer.agent.md
 ```
 
 1. Create `.github/agents/developer.agent.md`:
@@ -253,7 +336,28 @@ You are the dedicated QA and test automation agent for SpaceRockIT. Your mission
 3. **Synthetic Data Obligation:** Always use synthetic test fixtures (e.g. `alex.dev@enterprise.org`).
 ```
 
-3. Create `.github/agents/reviewer.agent.md`:
+3. Create `.github/agents/documenter.agent.md`:
+```markdown
+---
+name: documenter
+description: "Technical writer for the SpaceRockIT Reviews API. Use when asked to record an architectural decision, write or update an ADR, refresh documentation after a code change, or document an endpoint."
+tools: ["view", "edit", "create", "grep", "glob"]
+---
+
+# Documenter Agent — Decision Record Persona
+
+## Role & Mandate
+You write the record of what was decided and why. You do not change the thing itself.
+
+## Operational Constraints & Boundaries
+1. **Permitted Write Scope:** You may only create and modify files under `docs/`.
+2. **Forbidden Scope:** Never touch `src/` or `tests/`. If the documentation cannot be written truthfully because the code is wrong, say so and hand back to `@developer`.
+3. **No Shell Access:** You have no `powershell` verb, so you cannot run the test suite. Never write "all tests pass" on your own authority — record what `@tester` reported, and attribute it.
+4. **Cite the Source:** Every non-obvious constraint records where it came from — the ticket, the policy page, or the instruction file. A rule with no cited origin gets deleted by the next person who finds it inconvenient.
+5. **Format:** Use `/skill adr` for decision records so the structure stays consistent.
+```
+
+4. Create `.github/agents/reviewer.agent.md`:
 ```markdown
 ---
 name: reviewer
@@ -280,25 +384,100 @@ You are a strictly read-only compliance auditor for SpaceRockIT.
    → 🛑 **The Reviewer explicitly refuses:**  
    *"I cannot modify code files. My role is strictly read-only compliance auditing. Please delegate implementation to @developer."*
 
+The Reviewer does not refuse because the prose asked it to. It refuses because there is no
+`edit` verb in its grant. The paragraph is belt; the missing verb is braces.
+
+### 🚨 Step 3: The Anti-Pattern — A Persona That Starves Its Own Skill
+
+A tool grant that does not cover what the persona's instructions demand does not produce a
+smaller agent. It produces an agent whose work silently does not happen.
+
+> [!TIP]
+> `./scripts/toggle.sh add-prop tool-starved` writes this file for you, and `remove-prop`
+> takes it away again.
+
+Create a deliberately broken persona:
+
+**Windows (PowerShell):**
+```powershell
+New-Item -ItemType File -Force -Path .github\agents\auditor-lite.agent.md | Out-Null
+```
+
+**macOS/Linux (bash):**
+```bash
+touch .github/agents/auditor-lite.agent.md
+```
+
+📝 **Paste the following and save:**
+
+```markdown
+---
+name: auditor-lite
+description: "Lightweight privacy auditor. Use for quick checks that attendee free text is redacted before it reaches logs, storage, or responses."
+tools: ["view", "grep"]
+---
+
+# Auditor (Lite)
+
+You are a fast, focused privacy auditor for the SpaceRockIT Reviews API.
+
+## What you do
+1. Locate every path where attendee free text is logged, stored, or serialized into a response.
+2. Confirm each one passes through the redaction helper first.
+3. **Run the verification step described in the `pii-sanitizer` skill** and report the actual result.
+4. Report PASS or FAIL per path, with the evidence that led you there.
+
+## Constraints
+- Read-only. Never edit a file.
+- Never report PASS on the strength of reading the code. A path is verified when the verification step has run and produced output.
+```
+
+Select **Auditor (Lite)** in the chat agent picker, then ask:
+
+```text
+Verify that attendee comments are redacted before they reach the logs. Run the verification step described in the pii-sanitizer skill and report the result.
+```
+
+**What to expect:** a confident, well-structured PASS report. Step 3 of its own instructions
+cannot have run — verifying requires executing something, and this grant has no shell verb.
+The agent does not say so. There is no error and no "I could not run that."
+
+> [!WARNING]
+> Instructions that demand a capability the grant does not include fail **silently**. The
+> fix is not better prose. It is either adding `powershell` to the grant, or an honest
+> description saying this agent reads and does not verify.
+
+**Delete the broken persona before continuing:**
+
+**Windows (PowerShell):**
+```powershell
+Remove-Item -Force .github\agents\auditor-lite.agent.md
+```
+
+**macOS/Linux (bash):**
+```bash
+rm -f .github/agents/auditor-lite.agent.md
+```
+
 ---
 
 ## 🪜 Level 5: Reusable Portable Skills (`.github/skills/`)
 
 While instructions define *what* rules to follow, **Skills** encapsulate *how* to execute standard engineering capabilities across 100+ repositories.
 
-### 📁 Step 1: Create the Three Skills
+### 📁 Step 1: Create the Four Skills
 
-Create the three empty files first. Run one of the following, or create them manually in VS Code:
+Create the four empty files first. Run one of the following, or create them manually in VS Code:
 
 **Windows (PowerShell):**
 ```powershell
 New-Item -ItemType Directory -Force -Path .github\skills | Out-Null
-New-Item -ItemType File -Force -Path .github\skills\pii-sanitizer.skill.md, .github\skills\git-commit.skill.md, .github\skills\git-pr-summary.skill.md | Out-Null
+New-Item -ItemType File -Force -Path .github\skills\pii-sanitizer.skill.md, .github\skills\git-commit.skill.md, .github\skills\git-pr-summary.skill.md, .github\skills\adr.skill.md | Out-Null
 ```
 
 **macOS/Linux (bash):**
 ```bash
-mkdir -p .github/skills && touch .github/skills/pii-sanitizer.skill.md .github/skills/git-commit.skill.md .github/skills/git-pr-summary.skill.md
+mkdir -p .github/skills && touch .github/skills/pii-sanitizer.skill.md .github/skills/git-commit.skill.md .github/skills/git-pr-summary.skill.md .github/skills/adr.skill.md
 ```
 
 1. Create `.github/skills/pii-sanitizer.skill.md`:
@@ -345,6 +524,53 @@ number assigned in your repository), and formats auditor-ready PR descriptions w
 
 ---
 
+4. Create `.github/skills/adr.skill.md`:
+```markdown
+---
+name: adr
+description: "Writes an Architecture Decision Record into docs/adr/ using the project's standard format. Use when a decision needs recording, when the user mentions an ADR or a decision record, or after a change that locks in a constraint future contributors must not casually undo."
+---
+
+# Skill: Architecture Decision Record (`adr`)
+
+## When a decision is worth a record
+Write one when the decision constrains future work and the reason is not obvious from the code: a technology deliberately rejected, a boundary deliberately drawn, a regulatory obligation, a trade-off with a real cost. Do **not** write one for a naming choice or a refactor.
+
+## Steps
+1. Find the highest existing number in `docs/adr/`. Yours is the next one, zero-padded to four digits.
+2. Name the file `NNNN-kebab-case-title.md`. The title states the decision, not the topic: `0002-redact-email-before-logging`, not `0002-logging`.
+3. Fill every section of the template. No placeholders left behind.
+4. Cite the origin of the constraint — ticket, policy page, or instruction file.
+
+## Template
+```markdown
+# NNNN. <the decision, as a statement>
+
+- **Status:** Accepted
+- **Date:** <YYYY-MM-DD>
+- **Source:** <ticket, policy page, or instruction file that drove this>
+
+## Context
+What was true that forced a decision, including the constraint that makes the obvious alternative wrong.
+
+## Decision
+What we do now, in the present tense. One paragraph.
+
+## Consequences
+What this makes easy, what it makes hard, and what a future contributor must not do without revisiting this record.
+
+## Alternatives considered
+Each rejected option and the specific reason it was rejected. "It was worse" is not a reason.
+```
+
+## Constraints
+- **Always:** one decision per record, and an honest Consequences section including the annoying ones.
+- **Never:** claim a verification you did not perform. Attribute test results to whoever ran them.
+- **Never:** edit an accepted ADR to change its decision. Supersede it with a new record and mark the old one `Superseded by NNNN`.
+```
+
+---
+
 ## 🧠 Key Takeaways from Stage 3
 
 > **Key Takeaway:** *"Don't rely on prompt memory. Institutionalize control: Repo instructions for project memory, path-scoped rules for precision, MCP limits for safety, custom agents for review, and skills for organizational portability."*
@@ -362,4 +588,4 @@ Now that our full Durability Ladder is committed, we are ready to execute the **
 ---
 
 **Workshop Navigation:**  
-[← Previous Step: Stage 2C — Iterative Ticket Refinement](05-stage-2c-iterative-ticket-refinement.md) | **Current: Module 06 (Stage 3)** | [Next Step: Stage 4 — The Full Loop Redo →](07-stage-4-full-loop-redo-and-verification.md)
+[← Previous Step: Stage 2C — Iterative Ticket Refinement](05-stage-2c-iterative-ticket-refinement.md) | **Current: Module 06 (Stage 3)** | [Next Step: Stage 4 — Orchestration Patterns →](07-stage-4-orchestration-patterns.md)

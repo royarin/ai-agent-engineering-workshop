@@ -138,8 +138,10 @@ continue through the modules in order:
 | 04 | [MCP-connected context](Workshop/04-stage-2b-mcp-connected-context.md) |
 | 05 | [Iterative ticket refinement](Workshop/05-stage-2c-iterative-ticket-refinement.md) |
 | 06 | [The durability ladder](Workshop/06-stage-3-the-durability-ladder.md) |
-| 07 | [Full-loop redo and verification](Workshop/07-stage-4-full-loop-redo-and-verification.md) |
-| 08 | [Wrap-up and challenge exercises](Workshop/08-wrap-up-and-takeaways.md) |
+| 07 | [Orchestration patterns: routed and supervisor-style](Workshop/07-stage-4-orchestration-patterns.md) |
+| 08 | [Hooks: from instruction to enforcement](Workshop/08-stage-5-hooks-from-instruction-to-enforcement.md) |
+| 09 | [Full-loop redo and live verification](Workshop/09-stage-6-full-loop-redo-and-verification.md) |
+| 10 | [Wrap-up and challenge exercises](Workshop/10-wrap-up-and-takeaways.md) |
 
 The module files contain the prompts, actions, expected observations, and navigation links for
 each part of the workshop.
@@ -191,6 +193,7 @@ explains the starting state and the checks to perform before beginning the first
 | `src/SpaceRockIT.Web/` | The festival website |
 | `src/SpaceRockIT.Reviews.Api/` | The API used by the review exercises |
 | `tests/` | Automated verification projects |
+| `scripts/` | `toggle`, `reset-feature` and `verify` helpers used from Stage 3 onwards |
 | `global.json` | The required .NET SDK version |
 | `run.ps1`, `run.sh` | Scripts for starting the local applications |
 | `.devcontainer/` | Dev container and Codespaces configuration |
@@ -200,10 +203,31 @@ the workshop modules and are not part of the initial setup.
 
 ## Workshop timing
 
-Working through all modules hands-on, at your own pace, typically takes about 120–135 minutes.
+Working through all modules hands-on, at your own pace, typically takes about 165–185 minutes.
+Stages 0 through 3 plus the full-loop redo are the original core; the two new stages,
+orchestration patterns and hooks, add about 45 minutes. The full-loop redo is deliberately
+last — it is the only exercise that puts every layer to work at once.
 If you're following an abbreviated or guided version of the workshop (for example, in a live
 session with a presenter), some of the longer activities may be demonstrated rather than
 performed individually, which can fit the workshop into a shorter time slot.
+
+## Helper scripts
+
+Three small scripts, so that changing the state of the repository never means editing files
+by hand. Use the `.ps1` variant on Windows.
+
+| Script | What it does |
+|---|---|
+| `scripts/toggle.sh status` | Shows which guardrail layers are on, and whether any anti-pattern prop is in place |
+| `scripts/toggle.sh disable\|enable <layer>` | Turns a layer off or on by renaming it to `.disabled`. Layers: `instructions`, `path-rules`, `hooks`, `agents`, `mcp` |
+| `scripts/toggle.sh add-prop\|remove-prop <name>` | Writes or removes a deliberately broken file used by the anti-pattern exercises. Props: `conflicting-rule`, `tool-starved` |
+| `scripts/toggle.sh reset` | Every layer on, all props removed |
+| `scripts/reset-feature.sh [--apply]` | Removes the review feature and `docs/`, keeps `.github/` and `.vscode/`. Used by Stage 4. Dry run by default |
+| `scripts/verify.sh` | Runs the Reviews API tests only — the filter every quoted test count assumes |
+
+You never need these to complete the workshop in order; the modules build each layer as you
+reach it. They exist so you can re-run an exercise, compare before-and-after behaviour, or
+reset between runs without guessing what to delete.
 
 ## Contributing
 
