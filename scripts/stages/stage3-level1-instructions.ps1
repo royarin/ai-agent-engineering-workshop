@@ -42,7 +42,7 @@ $c0 = @'
 
 ## 4. Privacy & Data Guardrails
 - Sanitize free-text user inputs for email addresses before writing to logs or public response payloads.
-- Use the `/skill pii-sanitizer` skill to apply the standard redaction logic.
+- Use the `/pii-sanitizer` skill to apply the standard redaction logic.
 '@
 Set-Content -Path '.github/copilot-instructions.md' -Value $c0 -Encoding UTF8
 Write-Host 'wrote:   .github/copilot-instructions.md'
