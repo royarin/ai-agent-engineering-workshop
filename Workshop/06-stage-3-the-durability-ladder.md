@@ -86,7 +86,7 @@ mkdir -p .github && touch .github/copilot-instructions.md
 
 ## 4. Privacy & Data Guardrails
 - Sanitize free-text user inputs for email addresses before writing to logs or public response payloads.
-- Use the `/skill pii-sanitizer` skill to apply the standard redaction logic.
+- Use the `/pii-sanitizer` skill to apply the standard redaction logic.
 ```
 
 > [!IMPORTANT]
@@ -177,7 +177,7 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
    Ensure all ratings are validated to the `1`–`5` range (inclusive). Return HTTP `400 Bad Request` for out-of-range ratings.
 
 2. **PII Sanitization:**  
-   Attendee comments must be sanitized for email patterns prior to logging or echoing in aggregate endpoints using the `/skill pii-sanitizer` skill.
+   Attendee comments must be sanitized for email patterns prior to logging or echoing in aggregate endpoints using the `/pii-sanitizer` skill.
 
 3. **Testing Obligation:**  
    Every logic change in this module requires at least one automated xUnit test in `tests/SpaceRockIT.Reviews.Api.Tests/` using synthetic test fixtures.
@@ -341,7 +341,7 @@ You are the primary backend implementation agent for SpaceRockIT. Your responsib
 ## Operational Constraints & Boundaries
 1. **Intended Write Scope:** Modify files only in `src/SpaceRockIT.Reviews.Api/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** Never modify tests directly or introduce external database engines.
-3. **Privacy:** Ensure all user comments pass through regex email redaction using `/skill pii-sanitizer`.
+3. **Privacy:** Ensure all user comments pass through regex email redaction using the `/pii-sanitizer` skill.
 4. **Read the Ticket Yourself:** You have both read-only MCP servers — `github-issues-readonly` for the ticket and `github-repos-readonly` for committed repository content. Fetch the issue and implement against its acceptance criteria verbatim rather than against a summary someone pasted for you, and cite the issue URL in your report. Both grants are read-only: never create, edit, close, or comment through MCP.
 ```
 
@@ -383,7 +383,7 @@ You write the record of what was decided and why. You do not change the thing it
 2. **Forbidden Scope:** Never touch `src/` or `tests/`. If the documentation cannot be written truthfully because the code is wrong, say so and hand back to `@developer`.
 3. **No Command Execution:** You have no `execute` tool, so you cannot run the test suite. Never write "all tests pass" on your own authority — record what `@tester` reported, and attribute it.
 4. **Cite the Source:** Every non-obvious constraint records where it came from — the ticket, the policy page, or the instruction file. A rule with no cited origin gets deleted by the next person who finds it inconvenient.
-5. **Required ADR workflow:** When a task produces a decision that should be recorded, invoke `/skill adr` before writing the record and follow its template. Create the ADR under `docs/adr/`; do not skip it because the repository's implementation boundary names only `src/` and `tests/`.
+5. **Required ADR workflow:** When a task produces a decision that should be recorded, invoke the `/adr` skill before writing the record and follow its template. Create the ADR under `docs/adr/`; do not skip it because the repository's implementation boundary names only `src/` and `tests/`.
 6. **Evidence:** Cite the applicable repository instruction and policy source in the ADR. Include a Verification section with the exact test result reported by `@tester`, attributed to that agent. Do not invent or omit a result; if none was provided, state that explicitly.
 7. **Read the Ticket Yourself:** You have both read-only MCP servers — `github-issues-readonly` for the ticket and `github-repos-readonly` for committed repository content — so a Source line citing the ticket must come from the fetched issue, not from memory. Both grants are read-only: never create, edit, close, or comment through MCP. The MCP servers do not expose wiki pages, so consult the policy wiki by fetching its URL with the `web` tool, and cite the page you used alongside the repository instruction that encodes the same rule.
 ```
@@ -658,7 +658,7 @@ A skill is a reusable procedure the agent can apply to a task; it is not another
 tool permission. Invoke one directly to make its contribution visible:
 
 ```text
-/skill pii-sanitizer
+/pii-sanitizer
 Sanitize this comment and show the C# transformation you would use. Do not edit any files:
 "Great talk — reach me at alex.dev@enterprise.org"
 ```

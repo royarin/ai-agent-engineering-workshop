@@ -147,7 +147,7 @@ any of them. Your only capability is delegation, and that is deliberate.
 3. **Test.** Delegate to `@tester` with the same criteria plus whatever `@developer` reported changing.
 4. **Document.** Delegate to `@documenter` with the diff, the exact test result reported by
    `@tester`, and every constraint that came from a policy rather than the ticket. For each
-   decision worth recording, require `@documenter` to invoke `/skill adr` and create the ADR under
+   decision worth recording, require `@documenter` to invoke the `/adr` skill and create the ADR under
    `docs/adr/`, citing the applicable repository instruction and policy source and including the
    attributed test result in Verification. Require it to report the ADR path before review; if it
    did not create the record, delegate a correction before proceeding. The repository's explicit

@@ -174,7 +174,7 @@ Watch how the agentic harness assembles context without being reminded:
 2. **Wiki Query:** Queries `/Engineering/Policies/PII-Handling-Standard` via Wiki context.
 3. **Instruction Injection:** Injects `reviews.instructions.md` triggered by `applyTo: "src/SpaceRockIT.Reviews.Api/**"`.
 4. **Structured Plan Output:** Outputs an implementation plan *before* touching files:
-   - *Phase 1 (Developer):* Controller endpoints, in-memory storage, idempotency, `ILogger` observability, and `/skill pii-sanitizer`.
+   - *Phase 1 (Developer):* Controller endpoints, in-memory storage, idempotency, `ILogger` observability, and the `/pii-sanitizer` skill.
    - *Phase 2 (Tester):* Automated xUnit test suite targeting all boundary conditions and synthetic PII fixtures.
    - *Phase 3 (Documenter):* Decision records for the constraints this feature locks in.
    - *Phase 4 (Reviewer):* Pre-merge compliance audit over both the code and the record.
@@ -190,7 +190,7 @@ Watch how the agentic harness assembles context without being reminded:
 Watch the multi-agent personas execute:
 - **Developer Persona (`@developer`):**
   - Edits `src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs` and domain models.
-  - Invokes `/skill pii-sanitizer` to apply standard email masking:
+  - Invokes the `/pii-sanitizer` skill to apply standard email masking:
     `Regex.Replace(input, @"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", "[redacted-email]")`
   - Validates ratings (1–5), enforces max 500-character comments, and ensures idempotent updates by `AttendeeId`.
   - Logs each accepted review with `ILogger` at `Information` level using the sanitized comment, which produces the Green Bookend output verified in Step 5.
@@ -198,7 +198,7 @@ Watch the multi-agent personas execute:
   - Adds comprehensive xUnit tests in `tests/SpaceRockIT.Reviews.Api.Tests/`.
   - Runs `dotnet test` in the terminal.
 - **Documenter Persona (`@documenter`):**
-  - Must invoke `/skill adr` and write decision records under `docs/adr/` — typically one for the
+  - Must invoke the `/adr` skill and write decision records under `docs/adr/` — typically one for the
     in-memory persistence choice and one for redacting email before logging.
   - The repository instruction limits implementation changes to `src/` and `tests/`, but
     explicitly permits the Documenter to write documentation under `docs/`; these scopes do
@@ -380,11 +380,11 @@ is left clean and port 5081 is available for any later verification.
 ### 2. Generate Standardized Commit & PR
 1. Generate the conventional commit message:
    ```text
-   /skill git-commit
+   /git-commit
    ```
 2. Generate the Pull Request summary:
    ```text
-   /skill git-pr-summary main
+   /git-pr-summary main
    ```
 
 🔍 **Generated PR Summary:**

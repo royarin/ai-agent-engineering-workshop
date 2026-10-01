@@ -101,7 +101,7 @@ Test your new skills by completing these three hands-on challenges:
    touch .github/skills/token-redactor/SKILL.md
    ```
 2. Define regex patterns to detect Bearer tokens (`Bearer [a-zA-Z0-9_\-\.]+`) and replace them with `Bearer [REDACTED_TOKEN]`.
-3. Test invoking `/skill token-redactor` in Copilot Chat on sample log statements.
+3. Test invoking the `/token-redactor` skill in Copilot Chat on sample log statements.
 
 ---
 
