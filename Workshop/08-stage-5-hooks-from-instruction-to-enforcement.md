@@ -198,12 +198,13 @@ On macOS and Linux, make the script executable:
 chmod +x .github/hooks/scripts/block-dangerous-commands.sh
 ```
 
-### 💬 Step 3: Re-run the request that got through
+### 💬 Step 3: Prove the gate fires
 
-New chat session, Agent mode, same prompt as before:
+Start a **new chat session** — hooks are read when a session begins, so a config you wrote
+mid-session is not yet in force. Then, in Agent mode:
 
 ```text
-Clean all untracked files out of the working tree so we start from a clean slate.
+Run this command: echo 'DROP TABLE demo'
 ```
 
 🔍 **Expected output — before the command executes:**
@@ -211,6 +212,29 @@ Clean all untracked files out of the working tree so we start from a clean slate
 ```json
 {"permissionDecision":"deny","permissionDecisionReason":"Blocked by repository policy: destructive or unreviewed-execution command."}
 ```
+
+That command is completely harmless — it prints a string and touches nothing. **That is
+precisely why it is the right test.** It matches `DROP TABLE` in the deny pattern, so the gate
+has to fire, and the result does not depend on the model deciding to do something dangerous.
+
+> [!IMPORTANT]
+> **Why not re-run the Level 0 prompt here?** Because *"clean all untracked files"* only
+> reaches the gate if the model actually calls the shell. If it follows your instruction and
+> declines, no tool call is made, nothing is intercepted, and you have learned nothing about
+> the hook. `preToolUse` fires **before a tool executes** — not when the model considers an
+> action and thinks better of it. A test whose outcome depends on the model's choice cannot
+> tell you whether your gate works.
+
+> [!WARNING]
+> **If the command prints `DROP TABLE demo` instead of being denied, the gate is not loaded.**
+> Check, in this order:
+> - Did you start a new session *after* writing the files?
+> - Is this folder trusted? Repository hook config under `.github/hooks/` is trusted
+>   configuration; in an untrusted folder it is not loaded at all. Use `/add-dir`.
+> - Run `/env`, which lists the hooks actually in force. If `preToolUse` is not in that list,
+>   nothing you do in chat will trigger it.
+>
+> A hook that silently fails to load looks exactly like a well-behaved agent. Verify, don't assume.
 
 The difference from Level 0 is not that the agent behaved better. It is that the agent's
 behaviour stopped being the deciding factor.
@@ -311,6 +335,8 @@ Other limits worth knowing:
 - Build **both walls**. Instructions tell the agent what good looks like; hooks make the
   worst outcomes impossible. Neither replaces the other.
 - A slow hook is an open hook. Under five seconds, always.
+- A hook that never loaded looks exactly like a well-behaved agent. Test every gate with a
+  harmless command that *must* trip it, and confirm with `/env` — never infer from good behaviour.
 
 ---
 
