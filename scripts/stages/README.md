@@ -27,7 +27,7 @@ are reading.
 | `stage1-objective` | `docs/context/product-objective.md` | Module 02 (Stage 1), Step 1 |
 | `stage2a-context` | `docs/context/spacerockit-domain.md`, `docs/policies/api-boundaries.md` | Module 03 (Stage 2A), Steps 1a–1b |
 | `stage2b-mcp` | `.vscode/mcp.json` | Module 04 (Stage 2B), Step 2 |
-| `stage3-level1-instructions` | `.github/copilot-instructions.md` (sections 1–4) | Module 06, Level 1, Step 1 |
+| `stage3-level1-instructions` | `.github/copilot-instructions.md` (Sources of record + sections 1–4) | Module 06, Level 1, Step 1 |
 | `stage3-level2-path-rules` | `.github/instructions/reviews.instructions.md` | Module 06, Level 2, Step 1 |
 | `stage3-level4-agents` | The four specialist personas | Module 06, Level 4, Step 1 |
 | `stage3-level4-tool-starved` | A persona its grant cannot support — **anti-pattern** | Module 06, Level 4, Step 3 |

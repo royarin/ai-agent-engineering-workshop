@@ -42,7 +42,8 @@ the answer.
 |---|---|
 | `.github/copilot-instructions.md`, `.github/instructions/`, `.github/agents/`, `.github/skills/` | Your Stage 3 durable context |
 | `.vscode/mcp.json` | Your Stage 3 tool governance |
-| Issue #1 and the PII policy wiki page in GitHub | Read live through MCP |
+| Issue #1 in GitHub | Read live by the specialist agents through the `github-issues-readonly` MCP server |
+| The PII policy wiki page | Linked from the issue. The MCP servers do not expose wiki pages, so the agents fetch it with the `web` tool; the PII rule is also durable in `.github/instructions/` |
 | Everything under `src/SpaceRockIT.Web/` | Never in scope |
 
 > [!WARNING]
@@ -149,10 +150,12 @@ Remember Stage 0 when we had to type a long prompt and still received hallucinat
 
 > [!IMPORTANT]
 > Now that the full Durability Ladder (Repo Instructions, Path Scoping, MCP, Custom Agents, and
-> Skills) is active, **start a new session in Copilot Chat in VS Code**, select **Agent** mode,
-> **re-enable both `github-issues-readonly` and `github-repos-readonly` in the tools picker (🛠️)** —
-> without them the agent cannot read the issue — and send only the issue reference. Use `#1` for a
-> clean fork, or substitute the issue number assigned in your repository:
+> Skills) is active, **start a new session in Copilot Chat in VS Code**, select **Agent** mode, and
+> confirm both `github-issues-readonly` and `github-repos-readonly` are **started** in
+> `.vscode/mcp.json`. The specialists now request these servers in their own `tools:` lists, so you
+> no longer tick them per agent — but a grant cannot start a server that is not running, and an
+> unavailable server is ignored silently rather than reported as an error. Then send only the issue
+> reference. Use `#1` for a clean fork, or substitute the issue number assigned in your repository:
 
 ```text
 Implement Issue #1.
@@ -195,13 +198,16 @@ Watch the multi-agent personas execute:
   - Adds comprehensive xUnit tests in `tests/SpaceRockIT.Reviews.Api.Tests/`.
   - Runs `dotnet test` in the terminal.
 - **Documenter Persona (`@documenter`):**
-  - Writes decision records under `docs/adr/` via `/skill adr` — typically one for the
+  - Must invoke `/skill adr` and write decision records under `docs/adr/` — typically one for the
     in-memory persistence choice and one for redacting email before logging.
-  - Records **where each constraint came from**: the rating range and idempotency cite the
-    issue; the redaction rule cites the linked PII policy page.
+  - The repository instruction limits implementation changes to `src/` and `tests/`, but
+    explicitly permits the Documenter to write documentation under `docs/`; these scopes do
+    not conflict. Records **where each constraint came from**: cite the applicable repository
+    instruction and the linked PII policy page where relevant.
   - Has no `execute` tool, so it cannot run the suite. Watch what it writes about the test result:
-    it attributes the count to `@tester` rather than claiming it. That is the clearance doing
-    a second job — bounding not only what the agent can damage, but what it can honestly assert.
+    it includes the exact result from `@tester` in a Verification section and attributes it,
+    rather than claiming it ran the suite. That is the clearance doing a second job — bounding
+    not only what the agent can damage, but what it can honestly assert.
 
 ---
 
@@ -253,10 +259,12 @@ Open `0002` and read its **Consequences** section. A good record will note that 
 covers email addresses only, and that widening it later supersedes the record rather than
 editing it in place. Nobody asked for that caveat — it falls out of the skill's template.
 
-Then check the **Source** line on each record. `0001` should cite the issue and the
-architectural boundary in `copilot-instructions.md`; `0002` should cite the PII policy wiki
-page reached over MCP, not the issue. The distinction matters: one constraint came from the
-product, the other from a standard that outlives this ticket.
+Then check the **Source** lines. `0001` should cite the issue and the architectural boundary
+in `copilot-instructions.md`; `0002` should cite both the applicable repository instruction
+and the PII policy wiki page it fetched, not just the issue. The distinction matters:
+one constraint came from the product, the others from policies that outlive this ticket.
+Each ADR's **Verification** section should record the exact test result reported by `@tester`
+and attribute it to that agent.
 
 > [!TIP]
 > If the documenter wrote "all tests pass" as a bare assertion, that is worth pausing on. It

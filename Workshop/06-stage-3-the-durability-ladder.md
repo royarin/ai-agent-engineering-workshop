@@ -63,8 +63,16 @@ mkdir -p .github && touch .github/copilot-instructions.md
 ```markdown
 # Repository Instructions for SpaceRockIT
 
-## 1. Architectural Boundaries & Permitted Modules
-- You may ONLY modify files under `src/SpaceRockIT.Reviews.Api/` and `tests/SpaceRockIT.Reviews.Api.Tests/`.
+## Sources of record
+
+- **Policies:** always consult the repository wiki for policies covering what you are implementing — PII handling, retention, and anything similar — and follow them. The GitHub MCP servers do not expose wiki pages, so fetch the wiki URL with the `web` tool instead. Cite the page you used. The wiki is the source of record even when the ticket does not link it.
+- Resolve `owner` and `repo` for every MCP call from the `origin` remote of this repository, not from the folder name or from memory. Never read from any other repository, and in particular never fall back to the upstream repository this one was forked from.
+- Take the issue number from the request. If that issue cannot be fetched from that repository, stop and say so. Do not substitute a similar issue from somewhere else.
+- State the `owner/repo` and the issue title you actually fetched in your first reply, so a wrong repository is visible immediately rather than discovered three steps later.
+
+## 1. Implementation Boundaries & Documentation Exception
+- Implementation code and tests may ONLY be modified under `src/SpaceRockIT.Reviews.Api/` and `tests/SpaceRockIT.Reviews.Api.Tests/`.
+- Documentation exception: `@documenter` may create or update files under `docs/`, including `docs/adr/`, when recording decisions or documenting a change. This exception does not permit code or test changes outside the paths above.
 - Never modify solution structure, CI/CD pipelines, or authentication middleware.
 - Keep all data persistence in-memory (no EF Core, SQLite, or external databases).
 
@@ -80,6 +88,16 @@ mkdir -p .github && touch .github/copilot-instructions.md
 - Sanitize free-text user inputs for email addresses before writing to logs or public response payloads.
 - Use the `/skill pii-sanitizer` skill to apply the standard redaction logic.
 ```
+
+> [!IMPORTANT]
+> The hosted MCP servers take `owner` and `repo` as arguments on every call — they cannot see which
+> folder you have open. Nothing resolves the repository for them, so **Sources of record** makes the
+> rule explicit: derive it from this repository's `origin` remote, every time.
+>
+> Without that rule an agent has to guess, and the guess that looks most plausible is the repository
+> you forked *from* — which exists, is readable, and has its own Issue #1. The run then succeeds,
+> cites a real ticket, and is simply the wrong one. That is the failure this section prevents: not an
+> error message, but a confident answer about somebody else's repository.
 
 > [!TIP]
 > **Shortcut — second pass only.** Type this by hand the first time — knowing what is in it, and why each line is there, is the exercise.
@@ -239,6 +257,11 @@ The hosted servers authenticate through the GitHub account signed in to Copilot.
 > As in Stage 2B, both servers must be **started** in the MCP Servers view and **ticked in the chat
 > tools picker (🛠️)** for the session you are working in. Committing `mcp.json` makes the
 > configuration durable for the whole team, but enabling the tools remains a per-session action.
+>
+> That per-session tick is the last manual step left in the ladder, and Level 4 removes it. A
+> custom agent names the MCP servers it needs in its own `tools:` list, so the grant travels with
+> the agent instead of with your session. The servers must still be **started** — a grant cannot
+> start a server that is not running — but you no longer re-tick anything per agent.
 
 🔍 **Why this matters:** Even if an agent is tricked into trying to delete or close Issue #1 (or
 the issue number assigned in your repository), the tool harness physically blocks the write operation.
@@ -265,8 +288,10 @@ not lock an agent to those folders. The reviewer is read-only in practice becaus
 editing or command-execution tool.
 
 For portability between VS Code and GitHub Copilot, use the documented shared aliases in
-`tools:`: `read`, `edit`, `search`, `execute`, and `agent`. `edit` includes file creation;
-there is no shared `create` alias. The underlying tool names vary by harness. See the
+`tools:`: `read`, `edit`, `search`, `execute`, `web`, and `agent`. `edit` includes file creation;
+there is no shared `create` alias. `web` covers fetching a URL and web search — it is what lets an
+agent read the policy wiki, which the MCP servers do not expose. The underlying tool names vary by
+harness. See the
 [VS Code tool reference](https://code.visualstudio.com/docs/agents/reference/tools-reference)
 and [GitHub custom-agent tool aliases](https://docs.github.com/en/copilot/reference/custom-agents-configuration#tool-aliases).
 
@@ -305,7 +330,7 @@ mkdir -p .github/agents && touch .github/agents/developer.agent.md .github/agent
 ---
 name: developer
 description: "Expert backend developer for SpaceRockIT .NET APIs. Use when asked to implement features, modify route endpoints, write business logic, or refactor application code."
-tools: ["read", "edit", "execute", "search"]
+tools: ["read", "edit", "execute", "search", "web", "github-issues-readonly/*", "github-repos-readonly/*"]
 ---
 
 # Developer Agent — Backend Implementation Persona
@@ -317,6 +342,7 @@ You are the primary backend implementation agent for SpaceRockIT. Your responsib
 1. **Intended Write Scope:** Modify files only in `src/SpaceRockIT.Reviews.Api/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** Never modify tests directly or introduce external database engines.
 3. **Privacy:** Ensure all user comments pass through regex email redaction using `/skill pii-sanitizer`.
+4. **Read the Ticket Yourself:** You have both read-only MCP servers — `github-issues-readonly` for the ticket and `github-repos-readonly` for committed repository content. Fetch the issue and implement against its acceptance criteria verbatim rather than against a summary someone pasted for you, and cite the issue URL in your report. Both grants are read-only: never create, edit, close, or comment through MCP.
 ```
 
 2. Create `.github/agents/tester.agent.md`:
@@ -324,7 +350,7 @@ You are the primary backend implementation agent for SpaceRockIT. Your responsib
 ---
 name: tester
 description: "Test automation and QA engineer for SpaceRockIT APIs. Use when asked to write unit/integration tests, discover boundary edge cases, verify test suites, or generate synthetic test data."
-tools: ["read", "edit", "execute", "search"]
+tools: ["read", "edit", "execute", "search", "web", "github-issues-readonly/*", "github-repos-readonly/*"]
 ---
 
 # Tester Agent — Quality Assurance & Test Persona
@@ -336,6 +362,7 @@ You are the dedicated QA and test automation agent for SpaceRockIT. Your mission
 1. **Intended Write Scope:** Modify files only in `tests/SpaceRockIT.Reviews.Api.Tests/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** You are strictly forbidden from modifying application code under `src/SpaceRockIT.Reviews.Api/`.
 3. **Synthetic Data Obligation:** Always use synthetic test fixtures (e.g. `alex.dev@enterprise.org`).
+4. **Read the Ticket Yourself:** You have both read-only MCP servers — `github-issues-readonly` for the ticket and `github-repos-readonly` for committed repository content. Fetch the issue and write at least one test per acceptance criterion, citing the issue URL. Both grants are read-only: never create, edit, close, or comment through MCP.
 ```
 
 3. Create `.github/agents/documenter.agent.md`:
@@ -343,7 +370,7 @@ You are the dedicated QA and test automation agent for SpaceRockIT. Your mission
 ---
 name: documenter
 description: "Technical writer for the SpaceRockIT Reviews API. Use when asked to record an architectural decision, write or update an ADR, refresh documentation after a code change, or document an endpoint."
-tools: ["read", "edit", "search"]
+tools: ["read", "edit", "search", "web", "github-issues-readonly/*", "github-repos-readonly/*"]
 ---
 
 # Documenter Agent — Decision Record Persona
@@ -352,11 +379,13 @@ tools: ["read", "edit", "search"]
 You write the record of what was decided and why. You do not change the thing itself.
 
 ## Operational Constraints & Boundaries
-1. **Intended Write Scope:** Create and modify files only under `docs/`. This path boundary is an instruction, not a filesystem permission.
+1. **Intended Write Scope:** Create and modify files only under `docs/`. The repository instruction's source/test boundary governs implementation code; its explicit documentation exception permits this role to write under `docs/`, including `docs/adr/`. These are complementary scopes, not conflicting rules. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** Never touch `src/` or `tests/`. If the documentation cannot be written truthfully because the code is wrong, say so and hand back to `@developer`.
 3. **No Command Execution:** You have no `execute` tool, so you cannot run the test suite. Never write "all tests pass" on your own authority — record what `@tester` reported, and attribute it.
 4. **Cite the Source:** Every non-obvious constraint records where it came from — the ticket, the policy page, or the instruction file. A rule with no cited origin gets deleted by the next person who finds it inconvenient.
-5. **Format:** Use `/skill adr` for decision records so the structure stays consistent.
+5. **Required ADR workflow:** When a task produces a decision that should be recorded, invoke `/skill adr` before writing the record and follow its template. Create the ADR under `docs/adr/`; do not skip it because the repository's implementation boundary names only `src/` and `tests/`.
+6. **Evidence:** Cite the applicable repository instruction and policy source in the ADR. Include a Verification section with the exact test result reported by `@tester`, attributed to that agent. Do not invent or omit a result; if none was provided, state that explicitly.
+7. **Read the Ticket Yourself:** You have both read-only MCP servers — `github-issues-readonly` for the ticket and `github-repos-readonly` for committed repository content — so a Source line citing the ticket must come from the fetched issue, not from memory. Both grants are read-only: never create, edit, close, or comment through MCP. The MCP servers do not expose wiki pages, so consult the policy wiki by fetching its URL with the `web` tool, and cite the page you used alongside the repository instruction that encodes the same rule.
 ```
 
 4. Create `.github/agents/reviewer.agent.md`:
@@ -364,7 +393,7 @@ You write the record of what was decided and why. You do not change the thing it
 ---
 name: reviewer
 description: "Read-only security, architecture, and compliance auditor. Use when asked to review git diffs, check PR readiness, audit security/PII policies, or verify repository guardrails."
-tools: ["read", "search"]
+tools: ["read", "search", "web", "github-issues-readonly/*", "github-repos-readonly/*"]
 ---
 
 # Reviewer Agent — Security & Compliance Auditor Persona
@@ -375,6 +404,7 @@ You are a strictly read-only compliance auditor for SpaceRockIT.
 ## Operational Boundaries & Explicit Denials
 1. **Strictly Read-Only:** You have zero file editing permissions.
 2. **Refusal to Edit Code:** If asked to "fix the issues" or "apply changes", you MUST refuse. Instruct the user to delegate code changes to `@developer` and tests to `@tester`.
+3. **Read-Only MCP Grant:** `github-issues-readonly` lets you verify the change against the stated acceptance criteria; `github-repos-readonly` lets you inspect committed file contents and history, which is otherwise invisible to you because you have no `execute` tool and cannot run `git`. Both grants are read-only: never create, edit, close, or comment through MCP.
 ```
 
 ### 💬 Step 2: Test Intent-Based Routing & Explicit Refusal
@@ -389,6 +419,24 @@ You are a strictly read-only compliance auditor for SpaceRockIT.
 
 The Reviewer does not refuse because the prose asked it to. It refuses because there is no
 `edit` verb in its grant. The paragraph is belt; the missing verb is braces.
+
+> [!IMPORTANT]
+> **MCP tools are a separate namespace.** The aliases `read`, `edit`, `execute` and `search` cover
+> built-in capabilities only — none of them ever implies an MCP tool. If an agent must read Issue #1,
+> say so explicitly as `server-name/*` (the whole server) or `server-name/tool-name` (one tool),
+> using the server name exactly as it appears in `.vscode/mcp.json`. A bare `github-issues-readonly`
+> is **not** a valid entry and is silently ignored, which looks identical to an agent that simply
+> chose not to use the tool.
+>
+> This is also why all four specialists name **both** servers for themselves rather than relying on
+> the supervisor. A **named** custom agent uses its own `tools:` list, so it does not inherit the
+> grants of whatever delegated to it. The supervisor keeps `tools: ["agent"]` and gathers the
+> ticket by delegation — see Module 07.
+>
+> The same reasoning explains the `web` grant. The GitHub MCP servers expose issues and committed
+> repository content, but **not wiki pages** — a wiki lives in a separate `.wiki.git` repository.
+> Without `web`, an agent told to consult the PII policy has no way to reach it and will fall back
+> to whatever it remembers about PII, which is exactly the failure Stage 2A demonstrated.
 
 ### 🚨 Step 3: The Anti-Pattern — A Persona That Starves Its Own Skill
 
@@ -570,7 +618,8 @@ Write one when the decision constrains future work and the reason is not obvious
 1. Find the highest existing number in `docs/adr/`. Yours is the next one, zero-padded to four digits.
 2. Name the file `NNNN-kebab-case-title.md`. The title states the decision, not the topic: `0002-redact-email-before-logging`, not `0002-logging`.
 3. Fill every section of the template. No placeholders left behind.
-4. Cite the origin of the constraint — ticket, policy page, or instruction file.
+4. Cite the origin of the constraint — ticket, policy page, or instruction file. For repository boundaries, cite the relevant section of `.github/copilot-instructions.md`; cite the linked PII policy page when it drives the decision.
+5. Include the exact test result supplied by `@tester` in the Verification section and attribute it to that agent. If the supervisor did not supply a result, state that no test result was provided; never invent one.
 
 ## Template
 
@@ -589,6 +638,9 @@ What we do now, in the present tense. One paragraph.
 
 ## Consequences
 What this makes easy, what it makes hard, and what a future contributor must not do without revisiting this record.
+
+## Verification
+Record the exact test summary reported by `@tester`, attributed to that agent. If no test result was provided, say so.
 
 ## Alternatives considered
 Each rejected option and the specific reason it was rejected. "It was worse" is not a reason.
