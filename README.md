@@ -42,8 +42,8 @@ one command forks and clones in a single step. The CLI copies every branch by de
 checkbox to remember:
 
 ```bash
-gh repo fork royarin/ai-agent-engineering-workshop-working --clone
-cd ai-agent-engineering-workshop-working
+gh repo fork royarin/ai-agent-engineering-workshop --clone
+cd ai-agent-engineering-workshop
 ```
 
 If you use the CLI, you have already cloned — skip straight to step 3.
@@ -53,8 +53,8 @@ If you use the CLI, you have already cloned — skip straight to step 3.
 Skip this step if you used the GitHub CLI above.
 
 ```bash
-git clone https://github.com/<your-username>/ai-agent-engineering-workshop-working.git
-cd ai-agent-engineering-workshop-working
+git clone https://github.com/<your-username>/ai-agent-engineering-workshop.git
+cd ai-agent-engineering-workshop
 ```
 
 ### 3. Switch to the working branch
@@ -138,8 +138,10 @@ continue through the modules in order:
 | 04 | [MCP-connected context](Workshop/04-stage-2b-mcp-connected-context.md) |
 | 05 | [Iterative ticket refinement](Workshop/05-stage-2c-iterative-ticket-refinement.md) |
 | 06 | [The durability ladder](Workshop/06-stage-3-the-durability-ladder.md) |
-| 07 | [Full-loop redo and verification](Workshop/07-stage-4-full-loop-redo-and-verification.md) |
-| 08 | [Wrap-up and challenge exercises](Workshop/08-wrap-up-and-takeaways.md) |
+| 07 | [Orchestration patterns: routed and supervisor-style](Workshop/07-stage-4-orchestration-patterns.md) |
+| 08 | [Hooks: from instruction to enforcement](Workshop/08-stage-5-hooks-from-instruction-to-enforcement.md) |
+| 09 | [Full-loop redo and live verification](Workshop/09-stage-6-full-loop-redo-and-verification.md) |
+| 10 | [Wrap-up and challenge exercises](Workshop/10-wrap-up-and-takeaways.md) |
 
 The module files contain the prompts, actions, expected observations, and navigation links for
 each part of the workshop.
@@ -191,6 +193,7 @@ explains the starting state and the checks to perform before beginning the first
 | `src/SpaceRockIT.Web/` | The festival website |
 | `src/SpaceRockIT.Reviews.Api/` | The API used by the review exercises |
 | `tests/` | Automated verification projects |
+| `scripts/` | `verify`, `reset-feature`, `reset-all`, plus `scripts/stages/` shortcuts |
 | `global.json` | The required .NET SDK version |
 | `run.ps1`, `run.sh` | Scripts for starting the local applications |
 | `.devcontainer/` | Dev container and Codespaces configuration |
@@ -200,10 +203,53 @@ the workshop modules and are not part of the initial setup.
 
 ## Workshop timing
 
-Working through all modules hands-on, at your own pace, typically takes about 120–135 minutes.
+Working through all modules hands-on, at your own pace, typically takes about 165–185 minutes.
+Stages 0 through 3 plus the full-loop redo are the original core; the two new stages,
+orchestration patterns and hooks, add about 45 minutes. The full-loop redo is deliberately
+last — it is the only exercise that puts every layer to work at once.
 If you're following an abbreviated or guided version of the workshop (for example, in a live
 session with a presenter), some of the longer activities may be demonstrated rather than
 performed individually, which can fit the workshop into a shorter time slot.
+
+## Helper scripts
+
+```
+scripts/
+├── verify            run the Reviews API tests only
+├── reset-feature     remove the review feature, keep the guardrails (Stage 6)
+├── reset-all         remove everything every stage creates, back to the start
+└── stages/           one script per stage artifact, named for the stage that teaches it
+```
+
+Every script has a `.sh` and a `.ps1`. Use whichever matches your shell.
+
+**Windows (PowerShell):**
+
+```powershell
+.\scripts\verify.ps1
+.\scripts\reset-all.ps1 -Apply
+.\scripts\stages\stage3-level1-instructions.ps1
+```
+
+**macOS/Linux (bash):**
+
+```bash
+./scripts/verify.sh
+./scripts/reset-all.sh --apply
+./scripts/stages/stage3-level1-instructions.sh
+```
+
+> [!WARNING]
+> **`scripts/stages/` is a set of shortcuts, and shortcuts skip the learning.** Every file
+> those scripts write is one the modules have you write yourself, with an explanation of
+> what each line is for. Running the script gets you the file; it does not get you the
+> understanding, and the understanding is the point.
+>
+> **Write them by hand the first time.** The scripts are for re-running an exercise,
+> catching up if you fell behind, or resetting between attempts. Each one prints the module
+> it short-cuts when it runs, so you know what to go back and read.
+
+See [`scripts/stages/README.md`](scripts/stages/README.md) for the full list.
 
 ## Contributing
 
