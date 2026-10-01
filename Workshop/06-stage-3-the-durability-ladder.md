@@ -6,6 +6,7 @@
 ---
 
 ## 🎯 Learning Goal
+
 Learn why typing rules into chat prompts fails across teams and sessions, and progressively build **The Durability Ladder** (Levels 0 → 5) using committed repository instructions, path-scoped rules, tool governance, custom agent personas, and reusable skills.
 
 ```text
@@ -23,6 +24,7 @@ Learn why typing rules into chat prompts fails across teams and sessions, and pr
 ## 🪜 Level 0: The Ephemeral Chat Failure Mode
 
 ### 1. Test Chat Ephemerality
+
 > [!IMPORTANT]
 > **Start a new session in Copilot Chat in VS Code** (Ctrl+Shift+I or click + in Chat), select
 > **Ask** mode, and send the prompt.
@@ -42,6 +44,7 @@ Plan adding persistence to our review endpoint.
 Repository instructions give your project a permanent memory that every developer's Copilot automatically inherits.
 
 ### 📁 Step 1: Create `.github/copilot-instructions.md`
+
 Create the file `.github/copilot-instructions.md` in your workspace. Run one of the following, or create it manually in VS Code:
 
 **Windows (PowerShell):**
@@ -94,6 +97,7 @@ mkdir -p .github && touch .github/copilot-instructions.md
 > ```
 
 ### 💬 Step 2: Test Repo Memory in a Blank Chat Tab
+
 > [!IMPORTANT]
 > **Start a new session in Copilot Chat in VS Code**, select **Ask** mode, and send:
 
@@ -126,6 +130,7 @@ Global instructions can cause "prompt bloat". Path-scoped instructions inject sp
 > ```
 
 ### 📁 Step 1: Create `.github/instructions/reviews.instructions.md`
+
 Create the file `.github/instructions/reviews.instructions.md`. Run one of the following, or create it manually in VS Code:
 
 **Windows (PowerShell):**
@@ -164,90 +169,13 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
 ```
 
 ### 💬 Step 2: Test Path Scoping
+
 1. **Out of Scope Test:** Ask Copilot: *"Refactor styling in src/SpaceRockIT.Web/wwwroot/css/site.css"*.  
    → The review rules are **not loaded**, keeping context clean.
 2. **In Scope Test:** Ask Copilot: *"Update src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs to log incoming attendee comments"*.  
    → The agent **automatically applies email sanitization** to the logger without being asked!
 
 You did not mention privacy in that second prompt. You mentioned a file path.
-
-### 🚨 Step 3: The Anti-Pattern — Two Files, One Rule
-
-Layering only works while each layer stays in its lane. Here is what happens when it does not.
-
-> [!TIP]
-> **Shortcut — second pass only.** Create it by hand the first time — seeing the contradiction for yourself is the point. The script undoes itself with `--remove` / `-Remove`.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level2-conflicting-rule.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level2-conflicting-rule.sh
-> ```
-
-Create a second path-scoped file that contradicts the first:
-
-**Windows (PowerShell):**
-```powershell
-New-Item -ItemType File -Force -Path .github\instructions\rating-scale.instructions.md | Out-Null
-```
-
-**macOS/Linux (bash):**
-```bash
-touch .github/instructions/rating-scale.instructions.md
-```
-
-📝 **Paste the following and save:**
-
-```markdown
----
-applyTo: "src/SpaceRockIT.Reviews.Api/**"
----
-
-# Reviews module — rating scale
-
-1. **Rating validation.** Ratings are integers from `1` to `10` inclusive. Anything outside
-   that range returns HTTP `400 Bad Request`.
-
-2. The ten-point scale is the house standard for all attendee-facing feedback surfaces.
-```
-
-Now, in a **new chat session**, ask:
-
-```text
-What rating range does this project allow, and which file says so?
-```
-
-**What to expect:** the agent states one bound with complete confidence and does **not**
-mention that two files in the same repository disagree. Run it two or three times in fresh
-sessions — the winner is not always the same one.
-
-> [!WARNING]
-> There is no conflict error. There is no precedence warning. A rule duplicated across two
-> layers is a coin flip you cannot see, and the losing rule fails silently for as long as
-> nobody checks.
-
-**Now delete the file before continuing:**
-
-**Windows (PowerShell):**
-```powershell
-Remove-Item -Force .github\instructions\rating-scale.instructions.md
-```
-
-**macOS/Linux (bash):**
-```bash
-rm -f .github/instructions/rating-scale.instructions.md
-```
-
-🔍 **The rule this teaches:** each layer must not restate another. Global, evergreen norms go
-in the global file. Language, framework and module rules go in path-scoped files. Persona and
-process go in agent files. When you find yourself writing the same rule twice, one of the two
-is in the wrong place.
 
 ---
 
@@ -271,6 +199,7 @@ When connecting agents to external tools, security cannot rely on conversational
 > ```
 
 ### 📁 Step 1: Create `.vscode/mcp.json`
+
 Create the file `.vscode/mcp.json`. Run one of the following, or create it manually in VS Code:
 
 **Windows (PowerShell):**
@@ -441,6 +370,7 @@ You are a strictly read-only compliance auditor for SpaceRockIT.
 ```
 
 ### 💬 Step 2: Test Intent-Based Routing & Explicit Refusal
+
 1. **Intent-Based Routing:** Type: *"We need to calculate average rating and count on GET /reviews"*.  
    → Copilot routes the task to the **Developer Persona** (`developer.agent.md`).
 2. **Explicit Review Invocation:** Type: `"@reviewer Audit the staged review changes in ReviewsController.cs"`.  
@@ -562,16 +492,17 @@ Create the four empty files first. Run one of the following, or create them manu
 
 **Windows (PowerShell):**
 ```powershell
-New-Item -ItemType Directory -Force -Path .github\skills | Out-Null
-New-Item -ItemType File -Force -Path .github\skills\pii-sanitizer.skill.md, .github\skills\git-commit.skill.md, .github\skills\git-pr-summary.skill.md, .github\skills\adr.skill.md | Out-Null
+New-Item -ItemType Directory -Force -Path .github\skills\pii-sanitizer, .github\skills\git-commit, .github\skills\git-pr-summary, .github\skills\adr | Out-Null
+New-Item -ItemType File -Force -Path .github\skills\pii-sanitizer\SKILL.md, .github\skills\git-commit\SKILL.md, .github\skills\git-pr-summary\SKILL.md, .github\skills\adr\SKILL.md | Out-Null
 ```
 
 **macOS/Linux (bash):**
 ```bash
-mkdir -p .github/skills && touch .github/skills/pii-sanitizer.skill.md .github/skills/git-commit.skill.md .github/skills/git-pr-summary.skill.md .github/skills/adr.skill.md
+mkdir -p .github/skills/{pii-sanitizer,git-commit,git-pr-summary,adr}
+touch .github/skills/pii-sanitizer/SKILL.md .github/skills/git-commit/SKILL.md .github/skills/git-pr-summary/SKILL.md .github/skills/adr/SKILL.md
 ```
 
-1. Create `.github/skills/pii-sanitizer.skill.md`:
+1. Create `.github/skills/pii-sanitizer/SKILL.md`:
 ```markdown
 ---
 name: pii-sanitizer
@@ -586,7 +517,7 @@ description: "Applies standard GDPR/PII email redaction patterns and sanitizatio
 - **Implementation:** Injects C# sanitization filter: `Regex.Replace(input, pattern, "[redacted-email]")`.
 ```
 
-2. Create `.github/skills/git-commit.skill.md`:
+2. Create `.github/skills/git-commit/SKILL.md`:
 ```markdown
 ---
 name: git-commit
@@ -599,7 +530,7 @@ description: "Inspects staged git changes and generates standardized Conventiona
 Inspects staged diffs and formats standard Conventional Commits (`feat(module): ...`, `test(module): ...`).
 ```
 
-3. Create `.github/skills/git-pr-summary.skill.md`:
+3. Create `.github/skills/git-pr-summary/SKILL.md`:
 ```markdown
 ---
 name: git-pr-summary
@@ -615,8 +546,8 @@ number assigned in your repository), and formats auditor-ready PR descriptions w
 
 ---
 
-4. Create `.github/skills/adr.skill.md`:
-```markdown
+4. Create `.github/skills/adr/SKILL.md`:
+````markdown
 ---
 name: adr
 description: "Writes an Architecture Decision Record into docs/adr/ using the project's standard format. Use when a decision needs recording, when the user mentions an ADR or a decision record, or after a change that locks in a constraint future contributors must not casually undo."
@@ -634,6 +565,7 @@ Write one when the decision constrains future work and the reason is not obvious
 4. Cite the origin of the constraint — ticket, policy page, or instruction file.
 
 ## Template
+
 ```markdown
 # NNNN. <the decision, as a statement>
 
@@ -658,7 +590,28 @@ Each rejected option and the specific reason it was rejected. "It was worse" is 
 - **Always:** one decision per record, and an honest Consequences section including the annoying ones.
 - **Never:** claim a verification you did not perform. Attribute test results to whoever ran them.
 - **Never:** edit an accepted ADR to change its decision. Supersede it with a new record and mark the old one `Superseded by NNNN`.
+````
+
+### 💬 Step 2: Invoke a Skill
+
+A skill is a reusable procedure the agent can apply to a task; it is not another agent or a
+tool permission. Invoke one directly to make its contribution visible:
+
+```text
+/skill pii-sanitizer
+Sanitize this comment and show the C# transformation you would use. Do not edit any files:
+"Great talk — reach me at alex.dev@enterprise.org"
 ```
+
+**Expected:** the email is replaced with `[redacted-email]`, and the response identifies the
+regex/replacement pattern from `pii-sanitizer/SKILL.md`. Compare that result with the skill
+file: the file stores the repeatable method, and invoking the skill applies it to the current
+input. Skills can also be selected by relevance through their `description`; for a dependable
+demo, invoke this one explicitly.
+
+The skill does not itself enforce that every code path uses the helper. The instruction file
+and tests provide the project rule and verification; the skill supplies the reusable
+implementation recipe.
 
 ---
 

@@ -37,7 +37,7 @@ Across seven stages you transformed an unguided AI assistant from an unpredictab
 | **Path Instructions** | `.github/instructions/*.instructions.md` | Path-scoped rules with `applyTo` glob patterns | Specific business logic, route handlers, database modules |
 | **Tool Governance** | `.vscode/mcp.json` | Physical tool permissions (read-only / domain locks) | Enterprise MCP integrations (GitHub, Jira, ADO) |
 | **Custom Agents** | `.github/agents/*.agent.md` | Persona separation of concerns & write boundary enforcement | `@developer`, `@tester`, `@documenter`, `@reviewer` roles |
-| **Reusable Skills** | `.github/skills/*.skill.md` | Executable capabilities portable across 100+ repositories | PII redaction, Conventional Commits, PR scaffolding, decision records |
+| **Reusable Skills** | `.github/skills/<skill-name>/SKILL.md` | Executable capabilities portable across 100+ repositories | PII redaction, Conventional Commits, PR scaffolding, decision records |
 | **Supervisor Agent** | `.github/agents/feature-builder.agent.md` | Sequences specialists across the full flow; `tools: ["agent"]` only | A repeating multi-stage workflow you are tired of driving by hand |
 | **Agent Hooks** | `.github/hooks/*.json` | Deterministic enforcement around the agent lifecycle | Blocking destructive commands; gating completion on a green suite |
 
@@ -87,17 +87,18 @@ Test your new skills by completing these three hands-on challenges:
 ---
 
 ### Challenge 3: Create a `token-redactor` Reusable Skill
-1. Create `.github/skills/token-redactor.skill.md`. Run one of the following, or create it manually in VS Code:
+1. Create `.github/skills/token-redactor/SKILL.md`. Run one of the following, or create it manually in VS Code:
 
    **Windows (PowerShell):**
    ```powershell
-   New-Item -ItemType Directory -Force -Path .github\skills | Out-Null
-   New-Item -ItemType File -Force -Path .github\skills\token-redactor.skill.md | Out-Null
+   New-Item -ItemType Directory -Force -Path .github\skills\token-redactor | Out-Null
+   New-Item -ItemType File -Force -Path .github\skills\token-redactor\SKILL.md | Out-Null
    ```
 
    **macOS/Linux (bash):**
    ```bash
-   mkdir -p .github/skills && touch .github/skills/token-redactor.skill.md
+   mkdir -p .github/skills/token-redactor
+   touch .github/skills/token-redactor/SKILL.md
    ```
 2. Define regex patterns to detect Bearer tokens (`Bearer [a-zA-Z0-9_\-\.]+`) and replace them with `Bearer [REDACTED_TOKEN]`.
 3. Test invoking `/skill token-redactor` in Copilot Chat on sample log statements.
