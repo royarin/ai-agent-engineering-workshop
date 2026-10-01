@@ -27,9 +27,8 @@ are reading.
 | `stage1-objective` | `docs/context/product-objective.md` | Module 02 (Stage 1), Step 1 |
 | `stage2a-context` | `docs/context/spacerockit-domain.md`, `docs/policies/api-boundaries.md` | Module 03 (Stage 2A), Steps 1a–1b |
 | `stage2b-mcp` | `.vscode/mcp.json` | Module 04 (Stage 2B), Step 2 |
-| `stage3-level1-instructions` | `.github/copilot-instructions.md` (sections 1–4) | Module 06, Level 1, Step 1 |
+| `stage3-level1-instructions` | `.github/copilot-instructions.md` (Sources of record + sections 1–4) | Module 06, Level 1, Step 1 |
 | `stage3-level2-path-rules` | `.github/instructions/reviews.instructions.md` | Module 06, Level 2, Step 1 |
-| `stage3-level2-conflicting-rule` | A contradicting rating rule — **anti-pattern** | Module 06, Level 2, Step 3 |
 | `stage3-level4-agents` | The four specialist personas | Module 06, Level 4, Step 1 |
 | `stage3-level4-tool-starved` | A persona its grant cannot support — **anti-pattern** | Module 06, Level 4, Step 3 |
 | `stage3-level5-skills` | The four skills | Module 06, Level 5, Step 1 |
@@ -58,30 +57,15 @@ Two live one level up, because they undo rather than create:
 ./scripts/stages/stage3-level1-instructions.sh
 ```
 
-The two anti-pattern scripts take a switch to undo themselves.
-
-**Windows (PowerShell):**
-
-```powershell
-.\scripts\stages\stage3-level2-conflicting-rule.ps1 -Remove
-```
-
-**macOS/Linux (bash):**
-
-```bash
-./scripts/stages/stage3-level2-conflicting-rule.sh --remove
-```
+The tool-starved anti-pattern script takes a switch to undo itself.
 
 Every script overwrites rather than appends, so running one twice is harmless.
 `stage5-destructive-rule` is the exception — it appends, and checks first, so a second run
 reports that the section is already there and changes nothing.
 
-## The two anti-pattern scripts
+## The anti-pattern script
 
-`stage3-level2-conflicting-rule` and `stage3-level4-tool-starved` write files that are
-**deliberately wrong**. They exist so you can watch a specific failure: a rule silently
-losing a coin-flip against a duplicate, and a persona whose instructions demand a capability
-its `tools:` line does not grant.
+`stage3-level4-tool-starved` writes a file that is **deliberately wrong**. It exists so you
+can watch a persona whose instructions demand a capability its `tools:` line does not grant.
 
-Both undo themselves with `--remove` (`-Remove` in PowerShell). **Use it.** A leftover
-conflicting rule changes what the agent builds in later stages, and it fails quietly.
+It undoes itself with `--remove` (`-Remove` in PowerShell). **Use it.**

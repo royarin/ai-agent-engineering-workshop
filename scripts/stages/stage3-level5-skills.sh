@@ -71,7 +71,8 @@ Write one when the decision constrains future work and the reason is not obvious
 1. Find the highest existing number in `docs/adr/`. Yours is the next one, zero-padded to four digits.
 2. Name the file `NNNN-kebab-case-title.md`. The title states the decision, not the topic: `0002-redact-email-before-logging`, not `0002-logging`.
 3. Fill every section of the template. No placeholders left behind.
-4. Cite the origin of the constraint — ticket, policy page, or instruction file.
+4. Cite the origin of the constraint — ticket, policy page, or instruction file. For repository boundaries, cite the relevant section of `.github/copilot-instructions.md`; cite the linked PII policy page when it drives the decision.
+5. Include the exact test result supplied by `@tester` in the Verification section and attribute it to that agent. If the supervisor did not supply a result, state that no test result was provided; never invent one.
 
 ## Template
 ```markdown
@@ -89,6 +90,9 @@ What we do now, in the present tense. One paragraph.
 
 ## Consequences
 What this makes easy, what it makes hard, and what a future contributor must not do without revisiting this record.
+
+## Verification
+Record the exact test summary reported by `@tester`, attributed to that agent. If no test result was provided, say so.
 
 ## Alternatives considered
 Each rejected option and the specific reason it was rejected. "It was worse" is not a reason.
