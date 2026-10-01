@@ -199,7 +199,7 @@ Watch the multi-agent personas execute:
     in-memory persistence choice and one for redacting email before logging.
   - Records **where each constraint came from**: the rating range and idempotency cite the
     issue; the redaction rule cites the linked PII policy page.
-  - Has no shell verb, so it cannot run the suite. Watch what it writes about the test result:
+  - Has no `execute` tool, so it cannot run the suite. Watch what it writes about the test result:
     it attributes the count to `@tester` rather than claiming it. That is the clearance doing
     a second job — bounding not only what the agent can damage, but what it can honestly assert.
 
@@ -260,7 +260,7 @@ product, the other from a standard that outlives this ticket.
 
 > [!TIP]
 > If the documenter wrote "all tests pass" as a bare assertion, that is worth pausing on. It
-> has no shell verb, so it did not run them. Ask it to attribute the claim, and notice that
+> has no `execute` tool, so it did not run them. Ask it to attribute the claim, and notice that
 > the fix is a clearance question rather than a writing-quality one.
 
 ---

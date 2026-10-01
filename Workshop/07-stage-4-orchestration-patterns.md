@@ -55,15 +55,16 @@ read only those two lines.
 
 ### The failure mode of routed workflows
 
-Routing is inference, and inference is wrong sometimes. Try a request that sits on a boundary:
+Routing is inference, and inference is wrong sometimes. Select **Developer** explicitly in a
+new session, then try a request that sits on a boundary:
 
 ```text
 The redaction regex misses plus-addressing. Sort that out and note why.
 ```
 
-**What to expect:** the agent picks one specialist — probably the Developer — and does its
-half of the job. The "note why" part quietly does not happen, because the Documenter was
-never invoked and the Developer has no mandate to write in `docs/`.
+**What to expect:** the Developer handles the implementation part, but does not create a
+durable record of the decision. The "note why" part does not reach the Documenter, because
+that specialist was never invoked.
 
 > [!WARNING]
 > A routed workflow has no idea it routed badly. There is no "this request spans two
@@ -71,6 +72,8 @@ never invoked and the Developer has no mandate to write in `docs/`.
 > and the response looks complete.
 
 **The fix for a request that spans stages is not a better description.** It is a supervisor.
+In the next step, run the same request through the supervisor and compare whether it invokes
+the Documenter.
 
 ---
 

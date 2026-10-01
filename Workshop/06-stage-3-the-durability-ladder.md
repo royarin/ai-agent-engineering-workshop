@@ -251,16 +251,24 @@ A single monolithic agent should not write code, write tests, document its own d
 approve its own PR. We separate duties into four specialized personas, one per stage of
 `implement → test → document → review`:
 
-| Agent Persona | File | Mandate | Permitted Scope |
+| Agent Persona | File | Mandate | Intended Scope (instruction, not tool-enforced) |
 |---|---|---|---|
 | **Developer** (`@developer`) | `developer.agent.md` | ASP.NET Core Web API (Controllers) & model implementation | `src/SpaceRockIT.Reviews.Api/**` only |
 | **Tester** (`@tester`) | `tester.agent.md` | QA, boundary tests, synthetic fixtures | `tests/SpaceRockIT.Reviews.Api.Tests/**` only |
-| **Documenter** (`@documenter`) | `documenter.agent.md` | Decision records and module documentation | `docs/**` only — **no shell access** |
-| **Reviewer** (`@reviewer`) | `reviewer.agent.md` | Read-only security & compliance audit | **Read-Only** (Zero write permissions) |
+| **Documenter** (`@documenter`) | `documenter.agent.md` | Decision records and module documentation | Instructed to write only under `docs/**` — no `execute` tool |
+| **Reviewer** (`@reviewer`) | `reviewer.agent.md` | Read-only security & compliance audit | **Read-only** (no `edit` or `execute` tool) |
 
 Read down the last column before you read anything else. The prose in each file describes a
-personality; the `tools:` line decides what the agent can actually do. Only the second one is
-enforced.
+role; the `tools:` line limits which tool capabilities are available. The developer, tester,
+and documenter path scopes are instructions, not filesystem enforcement: the tool grants do
+not lock an agent to those folders. The reviewer is read-only in practice because it has no
+editing or command-execution tool.
+
+For portability between VS Code and GitHub Copilot, use the documented shared aliases in
+`tools:`: `read`, `edit`, `search`, `execute`, and `agent`. `edit` includes file creation;
+there is no shared `create` alias. The underlying tool names vary by harness. See the
+[VS Code tool reference](https://code.visualstudio.com/docs/agents/reference/tools-reference)
+and [GitHub custom-agent tool aliases](https://docs.github.com/en/copilot/reference/custom-agents-configuration#tool-aliases).
 
 > [!TIP]
 > **Shortcut — second pass only.** Writes all four personas. Nine files across this level and the next is a lot of typing, but the tool grants are the whole point — read each `tools:` line before you reach for the script.
@@ -297,7 +305,7 @@ mkdir -p .github/agents && touch .github/agents/developer.agent.md .github/agent
 ---
 name: developer
 description: "Expert backend developer for SpaceRockIT .NET APIs. Use when asked to implement features, modify route endpoints, write business logic, or refactor application code."
-tools: ["view", "edit", "create", "powershell", "grep", "glob"]
+tools: ["read", "edit", "execute", "search"]
 ---
 
 # Developer Agent — Backend Implementation Persona
@@ -306,7 +314,7 @@ tools: ["view", "edit", "create", "powershell", "grep", "glob"]
 You are the primary backend implementation agent for SpaceRockIT. Your responsibility is to write clean, minimal ASP.NET Core Web API controllers and domain models that strictly satisfy product acceptance criteria.
 
 ## Operational Constraints & Boundaries
-1. **Permitted Write Scope:** You may only modify files in `src/SpaceRockIT.Reviews.Api/`.
+1. **Intended Write Scope:** Modify files only in `src/SpaceRockIT.Reviews.Api/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** Never modify tests directly or introduce external database engines.
 3. **Privacy:** Ensure all user comments pass through regex email redaction using `/skill pii-sanitizer`.
 ```
@@ -316,7 +324,7 @@ You are the primary backend implementation agent for SpaceRockIT. Your responsib
 ---
 name: tester
 description: "Test automation and QA engineer for SpaceRockIT APIs. Use when asked to write unit/integration tests, discover boundary edge cases, verify test suites, or generate synthetic test data."
-tools: ["view", "edit", "create", "powershell", "grep", "glob"]
+tools: ["read", "edit", "execute", "search"]
 ---
 
 # Tester Agent — Quality Assurance & Test Persona
@@ -325,7 +333,7 @@ tools: ["view", "edit", "create", "powershell", "grep", "glob"]
 You are the dedicated QA and test automation agent for SpaceRockIT. Your mission is to design comprehensive xUnit test suites, identify adversarial edge cases, and run `dotnet test`.
 
 ## Operational Constraints & Boundaries
-1. **Permitted Write Scope:** You may only modify files in `tests/SpaceRockIT.Reviews.Api.Tests/`.
+1. **Intended Write Scope:** Modify files only in `tests/SpaceRockIT.Reviews.Api.Tests/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** You are strictly forbidden from modifying application code under `src/SpaceRockIT.Reviews.Api/`.
 3. **Synthetic Data Obligation:** Always use synthetic test fixtures (e.g. `alex.dev@enterprise.org`).
 ```
@@ -335,7 +343,7 @@ You are the dedicated QA and test automation agent for SpaceRockIT. Your mission
 ---
 name: documenter
 description: "Technical writer for the SpaceRockIT Reviews API. Use when asked to record an architectural decision, write or update an ADR, refresh documentation after a code change, or document an endpoint."
-tools: ["view", "edit", "create", "grep", "glob"]
+tools: ["read", "edit", "search"]
 ---
 
 # Documenter Agent — Decision Record Persona
@@ -344,9 +352,9 @@ tools: ["view", "edit", "create", "grep", "glob"]
 You write the record of what was decided and why. You do not change the thing itself.
 
 ## Operational Constraints & Boundaries
-1. **Permitted Write Scope:** You may only create and modify files under `docs/`.
+1. **Intended Write Scope:** Create and modify files only under `docs/`. This path boundary is an instruction, not a filesystem permission.
 2. **Forbidden Scope:** Never touch `src/` or `tests/`. If the documentation cannot be written truthfully because the code is wrong, say so and hand back to `@developer`.
-3. **No Shell Access:** You have no `powershell` verb, so you cannot run the test suite. Never write "all tests pass" on your own authority — record what `@tester` reported, and attribute it.
+3. **No Command Execution:** You have no `execute` tool, so you cannot run the test suite. Never write "all tests pass" on your own authority — record what `@tester` reported, and attribute it.
 4. **Cite the Source:** Every non-obvious constraint records where it came from — the ticket, the policy page, or the instruction file. A rule with no cited origin gets deleted by the next person who finds it inconvenient.
 5. **Format:** Use `/skill adr` for decision records so the structure stays consistent.
 ```
@@ -356,7 +364,7 @@ You write the record of what was decided and why. You do not change the thing it
 ---
 name: reviewer
 description: "Read-only security, architecture, and compliance auditor. Use when asked to review git diffs, check PR readiness, audit security/PII policies, or verify repository guardrails."
-tools: ["view", "grep", "glob"]
+tools: ["read", "search"]
 ---
 
 # Reviewer Agent — Security & Compliance Auditor Persona
@@ -420,7 +428,7 @@ touch .github/agents/auditor-lite.agent.md
 ---
 name: auditor-lite
 description: "Lightweight privacy auditor. Use for quick checks that attendee free text is redacted before it reaches logs, storage, or responses."
-tools: ["view", "grep"]
+tools: ["read", "search"]
 ---
 
 # Auditor (Lite)
@@ -445,12 +453,12 @@ Verify that attendee comments are redacted before they reach the logs. Run the v
 ```
 
 **What to expect:** a confident, well-structured PASS report. Step 3 of its own instructions
-cannot have run — verifying requires executing something, and this grant has no shell verb.
+cannot have run — verifying requires executing something, and this grant has no `execute` tool.
 The agent does not say so. There is no error and no "I could not run that."
 
 > [!WARNING]
 > Instructions that demand a capability the grant does not include fail **silently**. The
-> fix is not better prose. It is either adding `powershell` to the grant, or an honest
+> fix is not better prose. It is either adding `execute` to the grant, or an honest
 > description saying this agent reads and does not verify.
 
 **Delete the broken persona before continuing:**

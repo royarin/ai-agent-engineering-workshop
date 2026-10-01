@@ -25,7 +25,7 @@ $c0 = @'
 ---
 name: auditor-lite
 description: "Lightweight privacy auditor. Use for quick checks that attendee free text is redacted before it reaches logs, storage, or responses."
-tools: ["view", "grep"]
+tools: ["read", "search"]
 ---
 
 # Auditor (Lite)
