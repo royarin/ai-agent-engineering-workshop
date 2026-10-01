@@ -91,4 +91,17 @@ Shortcut used. This wrote content the workshop has you write yourself in
 If you are following the workshop, open that module and read what you just
 skipped. Knowing what is in these files, and why each line is there, is the
 point of the exercise - having the files is not.
+
+Before you test: hooks are read when a session starts, so writing these files
+mid-session does nothing. Start a new session, and make sure this folder is
+trusted (/add-dir) or the repository hook config is not loaded at all. Confirm
+with /env, which lists the hooks actually in force.
+
+To prove the preToolUse gate fires, ask the agent to run:
+
+  echo 'DROP TABLE demo'
+
+The command is harmless - it only prints text - but it matches the deny pattern,
+so the gate has to deny it. That is the point: the test does not depend on the
+model choosing to do something dangerous.
 NOTE
