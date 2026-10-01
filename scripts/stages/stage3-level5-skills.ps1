@@ -14,7 +14,7 @@ param([switch]$Remove)
 $ErrorActionPreference = 'Stop'
 Set-Location (Join-Path $PSScriptRoot '../..')
 
-New-Item -ItemType Directory -Force -Path '.github/skills' | Out-Null
+New-Item -ItemType Directory -Force -Path '.github/skills/pii-sanitizer' | Out-Null
 $c0 = @'
 ---
 name: pii-sanitizer
@@ -28,10 +28,10 @@ description: "Applies standard GDPR/PII email redaction patterns and sanitizatio
 - **Masking Strategy:** Replaces all email matches with `[redacted-email]`.
 - **Implementation:** Injects C# sanitization filter: `Regex.Replace(input, pattern, "[redacted-email]")`.
 '@
-Set-Content -Path '.github/skills/pii-sanitizer.skill.md' -Value $c0 -Encoding UTF8
-Write-Host 'wrote:   .github/skills/pii-sanitizer.skill.md'
+Set-Content -Path '.github/skills/pii-sanitizer/SKILL.md' -Value $c0 -Encoding UTF8
+Write-Host 'wrote:   .github/skills/pii-sanitizer/SKILL.md'
 
-New-Item -ItemType Directory -Force -Path '.github/skills' | Out-Null
+New-Item -ItemType Directory -Force -Path '.github/skills/git-commit' | Out-Null
 $c1 = @'
 ---
 name: git-commit
@@ -43,10 +43,10 @@ description: "Inspects staged git changes and generates standardized Conventiona
 ## Capabilities
 Inspects staged diffs and formats standard Conventional Commits (`feat(module): ...`, `test(module): ...`).
 '@
-Set-Content -Path '.github/skills/git-commit.skill.md' -Value $c1 -Encoding UTF8
-Write-Host 'wrote:   .github/skills/git-commit.skill.md'
+Set-Content -Path '.github/skills/git-commit/SKILL.md' -Value $c1 -Encoding UTF8
+Write-Host 'wrote:   .github/skills/git-commit/SKILL.md'
 
-New-Item -ItemType Directory -Force -Path '.github/skills' | Out-Null
+New-Item -ItemType Directory -Force -Path '.github/skills/git-pr-summary' | Out-Null
 $c2 = @'
 ---
 name: git-pr-summary
@@ -59,10 +59,10 @@ description: "Inspects branch diffs against base branch to generate structured P
 Analyzes full branch diffs against `main`, extracts issue linkages (`Closes #1`, or the issue
 number assigned in your repository), and formats auditor-ready PR descriptions with verification checklists.
 '@
-Set-Content -Path '.github/skills/git-pr-summary.skill.md' -Value $c2 -Encoding UTF8
-Write-Host 'wrote:   .github/skills/git-pr-summary.skill.md'
+Set-Content -Path '.github/skills/git-pr-summary/SKILL.md' -Value $c2 -Encoding UTF8
+Write-Host 'wrote:   .github/skills/git-pr-summary/SKILL.md'
 
-New-Item -ItemType Directory -Force -Path '.github/skills' | Out-Null
+New-Item -ItemType Directory -Force -Path '.github/skills/adr' | Out-Null
 $c3 = @'
 ---
 name: adr
@@ -100,8 +100,8 @@ What this makes easy, what it makes hard, and what a future contributor must not
 ## Alternatives considered
 Each rejected option and the specific reason it was rejected. "It was worse" is not a reason.
 '@
-Set-Content -Path '.github/skills/adr.skill.md' -Value $c3 -Encoding UTF8
-Write-Host 'wrote:   .github/skills/adr.skill.md'
+Set-Content -Path '.github/skills/adr/SKILL.md' -Value $c3 -Encoding UTF8
+Write-Host 'wrote:   .github/skills/adr/SKILL.md'
 
 Write-Host ''
 Write-Host 'Shortcut used. This wrote content the workshop has you write yourself in' -ForegroundColor Yellow

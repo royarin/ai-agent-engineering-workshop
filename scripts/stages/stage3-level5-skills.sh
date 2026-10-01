@@ -9,9 +9,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 
-mkdir -p ".github/skills"
+mkdir -p ".github/skills/pii-sanitizer" \
+  ".github/skills/git-commit" \
+  ".github/skills/git-pr-summary" \
+  ".github/skills/adr"
 
-cat > ".github/skills/pii-sanitizer.skill.md" <<'___WORKSHOP_CONTENT___'
+cat > ".github/skills/pii-sanitizer/SKILL.md" <<'___WORKSHOP_CONTENT___'
 ---
 name: pii-sanitizer
 description: "Applies standard GDPR/PII email redaction patterns and sanitization algorithms to free-text user inputs, logging statements, and DTOs."
@@ -24,9 +27,9 @@ description: "Applies standard GDPR/PII email redaction patterns and sanitizatio
 - **Masking Strategy:** Replaces all email matches with `[redacted-email]`.
 - **Implementation:** Injects C# sanitization filter: `Regex.Replace(input, pattern, "[redacted-email]")`.
 ___WORKSHOP_CONTENT___
-echo "wrote:   .github/skills/pii-sanitizer.skill.md"
+echo "wrote:   .github/skills/pii-sanitizer/SKILL.md"
 
-cat > ".github/skills/git-commit.skill.md" <<'___WORKSHOP_CONTENT___'
+cat > ".github/skills/git-commit/SKILL.md" <<'___WORKSHOP_CONTENT___'
 ---
 name: git-commit
 description: "Inspects staged git changes and generates standardized Conventional Commit messages (feat, fix, test, docs, refactor, chore) with 72-character limits."
@@ -37,9 +40,9 @@ description: "Inspects staged git changes and generates standardized Conventiona
 ## Capabilities
 Inspects staged diffs and formats standard Conventional Commits (`feat(module): ...`, `test(module): ...`).
 ___WORKSHOP_CONTENT___
-echo "wrote:   .github/skills/git-commit.skill.md"
+echo "wrote:   .github/skills/git-commit/SKILL.md"
 
-cat > ".github/skills/git-pr-summary.skill.md" <<'___WORKSHOP_CONTENT___'
+cat > ".github/skills/git-pr-summary/SKILL.md" <<'___WORKSHOP_CONTENT___'
 ---
 name: git-pr-summary
 description: "Inspects branch diffs against base branch to generate structured Pull Request descriptions with change summaries, issue linkages, and verification checklists."
@@ -51,9 +54,9 @@ description: "Inspects branch diffs against base branch to generate structured P
 Analyzes full branch diffs against `main`, extracts issue linkages (`Closes #1`, or the issue
 number assigned in your repository), and formats auditor-ready PR descriptions with verification checklists.
 ___WORKSHOP_CONTENT___
-echo "wrote:   .github/skills/git-pr-summary.skill.md"
+echo "wrote:   .github/skills/git-pr-summary/SKILL.md"
 
-cat > ".github/skills/adr.skill.md" <<'___WORKSHOP_CONTENT___'
+cat > ".github/skills/adr/SKILL.md" <<'___WORKSHOP_CONTENT___'
 ---
 name: adr
 description: "Writes an Architecture Decision Record into docs/adr/ using the project's standard format. Use when a decision needs recording, when the user mentions an ADR or a decision record, or after a change that locks in a constraint future contributors must not casually undo."
@@ -90,7 +93,7 @@ What this makes easy, what it makes hard, and what a future contributor must not
 ## Alternatives considered
 Each rejected option and the specific reason it was rejected. "It was worse" is not a reason.
 ___WORKSHOP_CONTENT___
-echo "wrote:   .github/skills/adr.skill.md"
+echo "wrote:   .github/skills/adr/SKILL.md"
 
 echo
 cat <<'NOTE'
