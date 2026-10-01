@@ -42,8 +42,8 @@ one command forks and clones in a single step. The CLI copies every branch by de
 checkbox to remember:
 
 ```bash
-gh repo fork royarin/ai-agent-engineering-workshop-working --clone
-cd ai-agent-engineering-workshop-working
+gh repo fork royarin/ai-agent-engineering-workshop --clone
+cd ai-agent-engineering-workshop
 ```
 
 If you use the CLI, you have already cloned — skip straight to step 3.
@@ -53,8 +53,8 @@ If you use the CLI, you have already cloned — skip straight to step 3.
 Skip this step if you used the GitHub CLI above.
 
 ```bash
-git clone https://github.com/<your-username>/ai-agent-engineering-workshop-working.git
-cd ai-agent-engineering-workshop-working
+git clone https://github.com/<your-username>/ai-agent-engineering-workshop.git
+cd ai-agent-engineering-workshop
 ```
 
 ### 3. Switch to the working branch
@@ -226,8 +226,8 @@ Every script has a `.sh` and a `.ps1`. Use whichever matches your shell.
 **Windows (PowerShell):**
 
 ```powershell
-.\scriptserify.ps1
-.\scriptseset-all.ps1 -Apply
+.\scripts\verify.ps1
+.\scripts\reset-all.ps1 -Apply
 .\scripts\stages\stage3-level1-instructions.ps1
 ```
 
