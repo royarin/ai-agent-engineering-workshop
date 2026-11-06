@@ -99,21 +99,6 @@ mkdir -p .github && touch .github/copilot-instructions.md
 > cites a real ticket, and is simply the wrong one. That is the failure this section prevents: not an
 > error message, but a confident answer about somebody else's repository.
 
-> [!TIP]
-> **Shortcut — second pass only.** Type this by hand the first time — knowing what is in it, and why each line is there, is the exercise.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level1-instructions.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level1-instructions.sh
-> ```
-
 ### 💬 Step 2: Test Repo Memory in a Blank Chat Tab
 
 > [!IMPORTANT]
@@ -131,21 +116,6 @@ Plan adding persistence to our review endpoint.
 ## 🪜 Level 2: Path-Scoped Surgical Instructions (`applyTo`)
 
 Global instructions can cause "prompt bloat". Path-scoped instructions inject specialized rules **only when the agent works on matching file paths**.
-
-> [!TIP]
-> **Shortcut — second pass only.** Write it by hand first; the `applyTo` line is the whole idea.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level2-path-rules.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level2-path-rules.sh
-> ```
 
 ### 📁 Step 1: Create `.github/instructions/reviews.instructions.md`
 
@@ -201,24 +171,11 @@ You did not mention privacy in that second prompt. You mentioned a file path.
 
 When connecting agents to external tools, security cannot rely on conversational politeness. We enforce least-privilege tool access via configuration.
 
-> [!TIP]
-> **Shortcut — second pass only.** The same file you created in Stage 2B. If it already exists, you can skip this step entirely.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage2b-mcp.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage2b-mcp.sh
-> ```
-
 ### 📁 Step 1: Create `.vscode/mcp.json`
 
-Create the file `.vscode/mcp.json`. Run one of the following, or create it manually in VS Code:
+The `.vscode/mcp.json` file created in Stage 2B is the same configuration used here. If you already
+created it, confirm it matches the content below; otherwise, create it now using one of these
+commands or create it manually in VS Code:
 
 **Windows (PowerShell):**
 ```powershell
@@ -294,21 +251,6 @@ agent read the policy wiki, which the MCP servers do not expose. The underlying 
 harness. See the
 [VS Code tool reference](https://code.visualstudio.com/docs/agents/reference/tools-reference)
 and [GitHub custom-agent tool aliases](https://docs.github.com/en/copilot/reference/custom-agents-configuration#tool-aliases).
-
-> [!TIP]
-> **Shortcut — second pass only.** Writes all four personas. Nine files across this level and the next is a lot of typing, but the tool grants are the whole point — read each `tools:` line before you reach for the script.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level4-agents.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level4-agents.sh
-> ```
 
 ### 📁 Step 1: Create the Four Agent Personas
 
@@ -443,21 +385,6 @@ The Reviewer does not refuse because the prose asked it to. It refuses because t
 A tool grant that does not cover what the persona's instructions demand does not produce a
 smaller agent. It produces an agent whose work silently does not happen.
 
-> [!TIP]
-> **Shortcut — second pass only.** Write it by hand first — spotting the mismatch between the instructions and the `tools:` line before you run it is half the lesson. The script undoes itself with `--remove` / `-Remove`.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level4-tool-starved.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level4-tool-starved.sh
-> ```
-
 Create a deliberately broken persona:
 
 **Windows (PowerShell):**
@@ -526,21 +453,6 @@ rm -f .github/agents/auditor-lite.agent.md
 ## 🪜 Level 5: Reusable Portable Skills (`.github/skills/`)
 
 While instructions define *what* rules to follow, **Skills** encapsulate *how* to execute standard engineering capabilities across 100+ repositories.
-
-> [!TIP]
-> **Shortcut — second pass only.** Writes all four. Read the `description` field of each one first — that is what makes a skill discoverable, and it is the part people get wrong.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage3-level5-skills.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage3-level5-skills.sh
-> ```
 
 ### 📁 Step 1: Create the Four Skills
 

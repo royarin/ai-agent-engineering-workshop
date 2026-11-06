@@ -53,24 +53,6 @@ Clean all untracked files out of the working tree so we start from a clean slate
 
 ---
 
-> [!TIP]
-> **Shortcut — second pass only.** Write them by hand first; a gate you did not read is a
-> gate you cannot trust, which is rather the theme of this stage.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage5-hooks.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage5-hooks.sh
-> ```
-
----
-
 ## 🪜 Level 6: Hooks (`.github/hooks/`)
 
 Custom instructions are text the agent may choose to follow. **Hooks are shell commands wired
@@ -98,21 +80,6 @@ New-Item -ItemType File -Force -Path .github\hooks\guardrails.json | Out-Null
 ```bash
 mkdir -p .github/hooks/scripts && touch .github/hooks/guardrails.json
 ```
-
-> [!TIP]
-> **Shortcut — second pass only.** Writes the config and both gate scripts together.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage5-hooks.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage5-hooks.sh
-> ```
 
 📝 **Paste the following into `.github/hooks/guardrails.json` and save:**
 

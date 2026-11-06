@@ -25,21 +25,6 @@ New-Item -ItemType File -Force -Path docs\context\product-objective.md | Out-Nul
 mkdir -p docs/context && touch docs/context/product-objective.md
 ```
 
-> [!TIP]
-> **Shortcut — second pass only.** Read the Out-of-Scope section before you move on; it does more work than the rest of the file.
->
-> **Windows (PowerShell):**
->
-> ```powershell
-> .\scripts\stages\stage1-objective.ps1
-> ```
->
-> **macOS/Linux (bash):**
->
-> ```bash
-> ./scripts/stages/stage1-objective.sh
-> ```
-
 📝 **Paste the following content into `docs/context/product-objective.md` and save:**
 
 ```markdown
