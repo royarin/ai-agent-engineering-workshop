@@ -125,7 +125,7 @@ it only passes while `/reviews` returns `404 Not Found`.
 Your repository is now reset and ready.
 
 > [!NOTE]
-> **Why reset again?** Stage 3 began from a clean baseline after the reset at the end of Stage 2C, but the intervening
+> **Why reset again?** You reset the feature after Stage 3, before Stage 4, but the intervening
 > agent exercises may have created implementation code, tests, or documentation again. This reset
 > removes those leftovers while preserving your instructions, agents, skills, MCP configuration,
 > and hooks, so the full-loop redo measures a fresh rebuild.

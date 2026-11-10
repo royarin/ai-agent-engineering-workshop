@@ -69,48 +69,5 @@ In the next module, we will climb **The Durability Ladder** to permanently insti
 
 ---
 
-## 🧹 Before Stage 3: Reset the Feature
-
-Remove the implementation, tests, and manual context created in Stages 0–2C before building
-the Durability Ladder. Otherwise, leftover code or `docs/` files may supply the context
-Stage 3 is meant to make durable.
-
-Stop the Reviews API and website with **Ctrl+C** in their terminals. From your `workshop-run`
-repository root, preview the reset, review the listed files, then apply it:
-
-**Windows (PowerShell):**
-```powershell
-.\scripts\reset-feature.ps1
-.\scripts\reset-feature.ps1 -Apply
-```
-
-**macOS/Linux (bash):**
-```bash
-./scripts/reset-feature.sh
-./scripts/reset-feature.sh --apply
-```
-
-The script restores tracked files under `src/` and `tests/`, removes untracked files there,
-and deletes `docs/`. Save any work you want to keep outside those paths first. It preserves
-`.github/` and `.vscode/`, including your Stage 2B MCP configuration, and does not change
-the GitHub issue or wiki.
-
-> [!IMPORTANT]
-> The reset restores the committed baseline. If you committed exercise code under `src/` or
-> `tests/`, the script will not remove it; restore those paths to the original workshop
-> baseline before continuing. Never use an unscoped `git clean -fd`.
-
-Confirm the API is back to its starting state:
-
-```text
-dotnet test --nologo --filter FullyQualifiedName~SpaceRockIT.Reviews.Api.Tests
-```
-
-All three baseline tests must pass, including `No_review_endpoints_exist_yet`. No review
-implementation or manual context should remain. Stage 3 refers to the **planned** review
-endpoint; you do not need to rebuild it before starting that module.
-
----
-
 **Workshop Navigation:**  
 [← Previous Step: Stage 2B — MCP Connected Context](04-stage-2b-mcp-connected-context.md) | **Current: Module 05 (Stage 2C)** | [Next Step: Stage 3 — The Durability Ladder →](06-stage-3-the-durability-ladder.md)

@@ -21,12 +21,6 @@ Learn why typing rules into chat prompts fails across teams and sessions, and pr
 
 ---
 
-> [!IMPORTANT]
-> Complete [the feature reset at the end of Stage 2C](05-stage-2c-iterative-ticket-refinement.md#-before-stage-3-reset-the-feature)
-> before starting this module. Keep your `.vscode/mcp.json` configuration.
-
----
-
 ## 🪜 Level 0: The Ephemeral Chat Failure Mode
 
 ### 1. Test Chat Ephemerality
@@ -38,7 +32,7 @@ Learn why typing rules into chat prompts fails across teams and sessions, and pr
 Send the following prompt:
 
 ```text
-Plan adding persistence to our planned review endpoint.
+Plan adding persistence to our review endpoint.
 ```
 
 🔍 **Observe the Failure:** The agent forgets all previous conversation context: it proposes installing Entity Framework Core with SQLite, modifies unauthorized folders, and completely forgets PII redaction rules.
@@ -111,7 +105,7 @@ mkdir -p .github && touch .github/copilot-instructions.md
 > **Start a new session in Copilot Chat in VS Code**, select **Ask** mode, and send:
 
 ```text
-Plan adding persistence to our planned review endpoint.
+Plan adding persistence to our review endpoint.
 ```
 
 🔍 **Observe the Difference:** The agent now explicitly states:  
@@ -166,8 +160,8 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
 
 1. **Out of Scope Test:** Ask Copilot: *"Refactor styling in src/SpaceRockIT.Web/wwwroot/css/site.css"*.  
    → The review rules are **not loaded**, keeping context clean.
-2. **In Scope Test:** Ask Copilot: *"Plan a review submission action in src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs that logs incoming attendee comments. Do not edit any files."*.
-   → The agent **includes email sanitization** in its logging plan without being asked!
+2. **In Scope Test:** Ask Copilot: *"Update src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs to log incoming attendee comments"*.
+   → The agent **automatically applies email sanitization** to the logger without being asked!
 
 You did not mention privacy in that second prompt. You mentioned a file path.
 
@@ -599,6 +593,50 @@ implementation recipe.
 
 Now that our full Durability Ladder is built, we are ready to compare orchestration patterns
 in Module 07. The full-loop redo follows in Module 09.
+
+---
+
+## 🧹 Before Stage 4: Reset the Feature, Keep the Durability Ladder
+
+Stage 3 uses the existing review implementation to demonstrate the new guardrails. Now remove
+that implementation, its tests, and the manual context before starting Stage 4. Keep the
+`.github/` and `.vscode/` artifacts you just built so the next stage uses durable context
+rather than leftover code or `docs/` files.
+
+Stop the Reviews API and website with **Ctrl+C** in their terminals. From your `workshop-run`
+repository root, preview the reset, review the listed files, then apply it:
+
+**Windows (PowerShell):**
+```powershell
+.\scripts\reset-feature.ps1
+.\scripts\reset-feature.ps1 -Apply
+```
+
+**macOS/Linux (bash):**
+```bash
+./scripts/reset-feature.sh
+./scripts/reset-feature.sh --apply
+```
+
+The script restores tracked files under `src/` and `tests/`, removes untracked files there,
+and deletes `docs/`. Save any work you want to keep outside those paths first. It preserves
+your repository instructions, custom agents, skills, and MCP configuration under `.github/`
+and `.vscode/`, and does not change the GitHub issue or wiki.
+
+> [!IMPORTANT]
+> The reset restores the committed baseline. If you committed exercise code under `src/` or
+> `tests/`, the script will not remove it; restore those paths to the original workshop
+> baseline before continuing. Never use an unscoped `git clean -fd`.
+
+Confirm the API is back to its starting state:
+
+```text
+dotnet test --nologo --filter FullyQualifiedName~SpaceRockIT.Reviews.Api.Tests
+```
+
+All three baseline tests must pass, including `No_review_endpoints_exist_yet`. No review
+implementation or manual context should remain. Confirm your Stage 3 artifacts under
+`.github/` and `.vscode/` are still present before continuing to Stage 4.
 
 ---
 
