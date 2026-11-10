@@ -36,10 +36,12 @@ Instead of repeating all previous instructions, ask Copilot to re-inspect the is
 > reset with every new session — and send the following prompt:
 
 ```text
-The team just refined Issue #1 in GitHub. If your repository assigned a different number, use
-that number instead.
+The team just refined Issue #1 in GitHub.
 Re-fetch the issue and its comments through MCP. State only the delta in requirements and the new test cases required, citing the new comment.
 ```
+
+If your repository assigned a different number, replace `#1` in the prompt above with that
+number.
 
 **What to expect:** The response should cite the newly added comment, identify only the 500
 character and whitespace constraints, and propose matching tests without losing earlier rules.
