@@ -112,7 +112,22 @@ mkdir -p .github/hooks/scripts && touch .github/hooks/guardrails.json
 `preToolUse` runs **before** any tool call. It reads the proposed call on stdin and answers
 `allow`, `deny` or `ask`. This is the central control mechanism.
 
-📝 **Create `.github/hooks/scripts/block-dangerous-commands.sh`:**
+Create both script files from the repository root using the commands for your shell:
+
+**Windows (PowerShell):**
+```powershell
+New-Item -ItemType Directory -Force -Path .github\hooks\scripts | Out-Null
+New-Item -ItemType File -Path .github\hooks\scripts\block-dangerous-commands.sh | Out-Null
+New-Item -ItemType File -Path .github\hooks\scripts\block-dangerous-commands.ps1 | Out-Null
+```
+
+**macOS/Linux (bash):**
+```bash
+mkdir -p .github/hooks/scripts
+touch .github/hooks/scripts/block-dangerous-commands.sh .github/hooks/scripts/block-dangerous-commands.ps1
+```
+
+📝 **Paste the following into `.github/hooks/scripts/block-dangerous-commands.sh` and save:**
 
 ```bash
 #!/usr/bin/env bash
@@ -138,7 +153,7 @@ fi
 exit 0
 ```
 
-📝 **And `.github/hooks/scripts/block-dangerous-commands.ps1`:**
+📝 **Paste the following into `.github/hooks/scripts/block-dangerous-commands.ps1` and save:**
 
 ```powershell
 # preToolUse gate (PowerShell). See the .sh file for the contract.
