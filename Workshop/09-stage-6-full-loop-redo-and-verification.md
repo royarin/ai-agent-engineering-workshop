@@ -21,8 +21,8 @@ audit, and generate an auditor-ready PR.
 
 ## 🧹 Step 0: Reset the Repository Before You Begin
 
-Do this before anything else in Stage 4. Remove the review feature you built in Stages 1–2C and keep
-the Durability Ladder you built in Stage 3.
+Do this before anything else in Stage 6. Remove any review feature code, tests, and documentation
+created during the earlier exercises, and keep the Durability Ladder and Stage 5 hooks.
 
 Do this because Stage 6 answers one question: **can your durable context rebuild the feature from
 nothing?** Leave the old code in place and the agent will just edit what it finds, so you never see
@@ -32,15 +32,15 @@ the answer.
 
 | Item | Why |
 |---|---|
-| `ReviewsController.cs` and any review models, DTOs, or storage classes | Stage 4 rewrites the implementation |
-| Every review test added under `tests/SpaceRockIT.Reviews.Api.Tests/`, plus the edits to `ApiTests.cs` | Stage 4 regenerates its own tests; keeping the old ones makes a green run meaningless |
-| The whole `docs/` folder, including `docs/context/product-objective.md` | This was your **manual** context — a file you had to attach by hand. Stage 3 replaced it with instructions the agent loads on its own. Keep it and Stage 4 may succeed on the old mechanism instead of the ladder |
+| `ReviewsController.cs` and any review models, DTOs, or storage classes | Stage 6 rebuilds the implementation |
+| Every review test added under `tests/SpaceRockIT.Reviews.Api.Tests/`, plus the edits to `ApiTests.cs` | Stage 6 regenerates its own tests; keeping the old ones makes a green run meaningless |
+| The whole `docs/` folder, including any recreated manual context and ADR experiments | Stage 6 must use durable instructions and live sources of record, not leftover context |
 
 **Keep these:**
 
 | Item | Role |
 |---|---|
-| `.github/copilot-instructions.md`, `.github/instructions/`, `.github/agents/`, `.github/skills/` | Your Stage 3 durable context |
+| `.github/copilot-instructions.md`, `.github/instructions/`, `.github/agents/`, `.github/skills/`, `.github/hooks/` | Your durable context, Stage 4 supervisor, and Stage 5 enforcement |
 | `.vscode/mcp.json` | Your Stage 3 tool governance |
 | Issue #1 in GitHub | Read live by the specialist agents through the `github-issues-readonly` MCP server |
 | The PII policy wiki page | Linked from the issue. The MCP servers do not expose wiki pages, so the agents fetch it with the `web` tool; the PII rule is also durable in `.github/instructions/` |
@@ -48,7 +48,7 @@ the answer.
 
 > [!WARNING]
 > **Never run a bare `git clean -fd`.** Your `.github/` and `.vscode/` folders are untracked, so an
-> unscoped clean deletes your whole Durability Ladder and leaves Stage 4 with nothing to work from.
+> unscoped clean deletes your whole Durability Ladder and leaves Stage 6 with nothing to work from.
 > Scope every clean to `src` and `tests`, and delete `docs/` as its own separate step.
 
 ### 1. Stop the running applications
@@ -125,11 +125,10 @@ it only passes while `/reviews` returns `404 Not Found`.
 Your repository is now reset and ready.
 
 > [!NOTE]
-> **Why keep the Stage 1–2C code and `docs/` all the way through Stage 3?** Stage 3 needed a real,
-> existing implementation and a visible manual-context file so you could watch small scoped edits
-> pick up your new instruction files and compare the two approaches side by side. They have now
-> served their purpose. From here they are only noise — This stage measures whether durable context
-> alone can rebuild the feature, and anything left over would weaken that result.
+> **Why reset again?** Stage 3 began from a clean baseline after the reset at the end of Stage 2C, but the intervening
+> agent exercises may have created implementation code, tests, or documentation again. This reset
+> removes those leftovers while preserving your instructions, agents, skills, MCP configuration,
+> and hooks, so the full-loop redo measures a fresh rebuild.
 
 ---
 

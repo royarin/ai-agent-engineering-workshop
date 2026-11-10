@@ -21,6 +21,12 @@ Learn why typing rules into chat prompts fails across teams and sessions, and pr
 
 ---
 
+> [!IMPORTANT]
+> Complete [the feature reset at the end of Stage 2C](05-stage-2c-iterative-ticket-refinement.md#-before-stage-3-reset-the-feature)
+> before starting this module. Keep your `.vscode/mcp.json` configuration.
+
+---
+
 ## 🪜 Level 0: The Ephemeral Chat Failure Mode
 
 ### 1. Test Chat Ephemerality
@@ -32,7 +38,7 @@ Learn why typing rules into chat prompts fails across teams and sessions, and pr
 Send the following prompt:
 
 ```text
-Plan adding persistence to our review endpoint.
+Plan adding persistence to our planned review endpoint.
 ```
 
 🔍 **Observe the Failure:** The agent forgets all previous conversation context: it proposes installing Entity Framework Core with SQLite, modifies unauthorized folders, and completely forgets PII redaction rules.
@@ -105,7 +111,7 @@ mkdir -p .github && touch .github/copilot-instructions.md
 > **Start a new session in Copilot Chat in VS Code**, select **Ask** mode, and send:
 
 ```text
-Plan adding persistence to our review endpoint.
+Plan adding persistence to our planned review endpoint.
 ```
 
 🔍 **Observe the Difference:** The agent now explicitly states:  
@@ -160,8 +166,8 @@ When modifying or generating code within `src/SpaceRockIT.Reviews.Api/`:
 
 1. **Out of Scope Test:** Ask Copilot: *"Refactor styling in src/SpaceRockIT.Web/wwwroot/css/site.css"*.  
    → The review rules are **not loaded**, keeping context clean.
-2. **In Scope Test:** Ask Copilot: *"Update src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs to log incoming attendee comments"*.  
-   → The agent **automatically applies email sanitization** to the logger without being asked!
+2. **In Scope Test:** Ask Copilot: *"Plan a review submission action in src/SpaceRockIT.Reviews.Api/Controllers/ReviewsController.cs that logs incoming attendee comments. Do not edit any files."*.
+   → The agent **includes email sanitization** in its logging plan without being asked!
 
 You did not mention privacy in that second prompt. You mentioned a file path.
 
@@ -591,15 +597,8 @@ implementation recipe.
 
 > **Key Takeaway:** *"Don't rely on prompt memory. Institutionalize control: Repo instructions for project memory, path-scoped rules for precision, MCP limits for safety, custom agents for review, and skills for organizational portability."*
 
-Now that our full Durability Ladder is committed, we are ready to execute the **Full Loop Redo** in Module 07!
-
-> [!IMPORTANT]
-> **Stage 4 begins with a required reset.** In **Step 0** of Module 07 you will delete the review
-> implementation and tests from Stages 1–2C and remove the `docs/` folder, keeping only the
-> `.github/` and `.vscode/` artifacts you just built. That is deliberate: Stage 4 proves your durable
-> context can rebuild the feature on its own, which is only meaningful once the manual context and
-> the old code are gone. Complete Step 0 before sending any prompt — and do not discard your
-> `.github/` and `.vscode/` work in the meantime.
+Now that our full Durability Ladder is built, we are ready to compare orchestration patterns
+in Module 07. The full-loop redo follows in Module 09.
 
 ---
 
