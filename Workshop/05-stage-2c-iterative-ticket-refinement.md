@@ -21,7 +21,7 @@ authoring step in the UI; the read-only MCP connection must not create or commen
 Add this comment and submit it:
 
 ```markdown
-> *"Constraint added during refinement: Limit comments to a maximum of 500 characters. Reject comment submissions that are whitespace-only or exceed 500 characters with HTTP 400 Bad Request."*
+Constraint added during refinement: Limit comments to a maximum of 500 characters. Reject comment submissions that are whitespace-only or exceed 500 characters with HTTP 400 Bad Request.
 ```
 
 ---
